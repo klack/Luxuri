@@ -3,7 +3,7 @@
 Luxuri is WIP printer display for Klipper and TJC / Nextion screens.
 
 # Video
-[![Watch the video](https://img.youtube.com/vi/txyAyR8ZIuo/0.jpg)](https://youtu.be/txyAyR8ZIuo)
+[![Proof of Concept Video](https://img.youtube.com/vi/txyAyR8ZIuo/0.jpg)](https://youtu.be/txyAyR8ZIuo)
 
 # Screen Purchase Link
 [Aliexpress](https://www.aliexpress.us/item/3256804492446621.html)
