@@ -1,0 +1,164 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxController,1
+/// @brief Program loop
+///////////////////////////////////////////////////////////////////////////////
+if(state.txt=="null")
+{
+  state.txt="connecting"
+  tLuxVersion.txt="Luxuri version "
+  tLuxVersion.txt+=luxVersion.txt
+  delay=5000
+}
+if(state.txt=="connecting")
+{
+  if(buffer.en==0)
+  {
+    vars.status.txt="Awaiting Response"
+    click luxView,1
+    click startConnect,1
+  }else
+  {
+    vars.status.txt="Setting Defaults"
+    click luxView,1
+    click setDefaults,1
+    state.txt="setting-defaults"
+    delay=5000
+  }
+}
+if(state.txt=="setting-defaults")
+{
+  vars.status.txt="Reading Machine Type"
+  click luxView,1
+  if(printer.machineType.txt!="")
+  {
+    luxAnimate.en=1
+    state.txt="connected"
+    click luxView,1
+    delay=1000
+  }
+}
+if(state.txt=="connected")
+{
+  vars.status.txt="Reading Settings"
+  click luxView,1
+  delay=1000
+  if(ok==1&&QueueLen==0)
+  {
+    if(luxAnimate.en==0)
+    {
+      vars.status.txt="Ready"
+      click luxView,1
+      delay=1000
+      ready.val=1
+    }
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn startConnect,1
+/// @brief Connect trying different baud rates automatically
+///////////////////////////////////////////////////////////////////////////////
+if(tries.val<15) //Try connecting x times
+{
+  if(usize<=0||Baud==0) //If the buffer is empty, or Baud has not be initialized
+  {
+    baud=115200
+    Baud=115200
+    commands.command.txt="M155 S2"  //Try and trigger a response
+    click luxSend,1
+    tries.val++
+  }else
+  {
+    buffer.en=1
+    vars.status.txt="Connected at "
+    covx Baud,vars.s.txt,0,0
+    vars.status.txt+=vars.s.txt
+  }
+}else
+{
+  state.txt="timeout"
+  vars.status.txt="Connection Failed.  Unplug USB when shutting down."
+  click luxView,1
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn setDefaults,1
+/// @brief Report printer settings and set printer defaults
+///////////////////////////////////////////////////////////////////////////////
+commands.command.txt="" //Clear connection preamble sent by tft
+click luxSend,1
+commands.command.txt="M115\r" //Get Marlin version
+commands.command.txt+="M503\r" //Get settings
+commands.command.txt+="M114\r" //Get position
+commands.command.txt+="M155 S5\r" //Temp auto report
+// commands.command.txt+="G28 X\r"
+//commands.command.txt+="M605 S1\r" //Dual Nozzle Mode Auto
+//commands.command.txt+="T0\r" //Select T0
+commands.command.txt+="M220\rM221\r" //Get flow and speed
+click luxSend,1
+
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxView,1
+/// @brief Updates states for controls
+///////////////////////////////////////////////////////////////////////////////
+tStatus.txt=vars.status.txt
+if(state.txt=="null")
+{
+  tFirmwareName.aph=0
+  tMachine.aph=0
+}
+if(state.txt=="timeout")
+{
+  tsw pBanner,0
+  pBanner.aph=0
+  pState.aph=0
+  setlayer pState,255
+  tLuxVersion.pco=WHITE
+  tStatus.pco=WHITE
+}
+if(state.txt=="connected")
+{
+  tFirmwareName.aph=127
+  tMachine.aph=127
+  tLuxVersion.aph=0
+  tStatus.aph=0
+  tFirmwareName.txt=printer.firmwareName.txt
+  tMachine.txt=printer.machineType.txt
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxAnimate
+/// @brief Animation Loop
+///////////////////////////////////////////////////////////////////////////////
+while(pBanner.y>0)
+{
+  pBanner.y-=4
+  doevents
+}
+luxAnimate.en=0
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn tmFinished
+/// @brief Exit page after pausing to show version number
+///////////////////////////////////////////////////////////////////////////////
+if(ready.val==1)
+{
+  page MAIN
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxRun
+/// @breif Main Program Loop
+///////////////////////////////////////////////////////////////////////////////
+click luxRead,1
+click luxView,1
+click luxController,1
+click luxSend,0
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn Pre-initialize
+/// @brief Page Initialization
+///////////////////////////////////////////////////////////////////////////////
+click luxView,1

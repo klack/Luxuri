@@ -1,0 +1,222 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxRunOnce
+/// @breif Does not run when returning from dialog boxes
+///////////////////////////////////////////////////////////////////////////////
+if(IdexMode!=1)
+{
+  commands.queue.txt+="M605 S1\r" //Set auto idex mode
+  IdexMode=1
+}
+commands.queue.txt+="M114\r"
+click luxSend,0
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxInitialize 0
+/// @brief Should run on any close button
+///////////////////////////////////////////////////////////////////////////////
+commands.queue.txt+="G0 F5000\r" //Reset speed
+click luxSend,0
+page ReturnPage
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxView,1
+/// @brief Updates states for controls
+///////////////////////////////////////////////////////////////////////////////
+bSwap.picc=bSwap.picc2+1
+bSwap.picc+=Tool
+tX.txt="X:"
+tX.txt+=printer.x.txt
+tY.txt="Y:"
+tY.txt+=printer.y.txt
+tZ.txt="Z:"
+tZ.txt+=printer.z.txt
+if(busy==1)
+{
+  tMessage.txt="Busy"
+}else
+{
+  if(tMessage.txt=="Busy") //Only clear if it was a busy message
+  {
+    tMessage.txt=""
+  }
+}
+
+for(j=0;j<=45;j++) //Button Groups
+{
+  if(b[j].type==98) //If text box
+  {
+    if(b[j].txt_maxl==5) //Distance boxes are set with a maxl of 5
+    {
+      if(distance.txt==b[j].txt)
+      {
+        b[j].picc=b[j].picc2
+        b[j].pco=0
+      }else
+      {
+        b[j].picc=b[j].picc2+1
+        b[j].pco=65535
+      }
+    }
+    if(b[j].txt_maxl==6) //Speed boxes are set with a maxl of 6
+    {
+      if(speed.txt==b[j].txt)
+      {
+        b[j].picc=b[j].picc2
+        b[j].pco=0
+      }else
+      {
+        b[j].picc=b[j].picc2+1
+        b[j].pco=65535
+      }
+    }
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxPageAnimate
+/// @brief Animation Loop
+///////////////////////////////////////////////////////////////////////////////
+if(Frame==0) //Flash
+{
+  tMessage.aph=0
+}else
+{
+  tMessage.aph=127
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn sendMovement
+/// @brief Sends movement command to printer
+///////////////////////////////////////////////////////////////////////////////
+tMessage.txt=""
+commands.queue.txt+="G91\r"
+commands.queue.txt+=command.txt
+commands.queue.txt+="\r"
+commands.queue.txt+="G90\r"
+commands.queue.txt+="M114\r"
+click luxSend,0
+
+///////////////////////////////////////////////////////////////////////////////
+//bZHome
+command.txt="G28 Z X"
+click sendMovement,1
+
+//bXYHome
+command.txt="G28 X Y"
+click sendMovement,1
+
+//bZDown
+command.txt="G0 Z-"
+command.txt+=distance.txt
+command.txt+=" F500"
+click sendMovement,1
+
+//bZUp
+command.txt="G0 Z"
+command.txt+=distance.txt
+command.txt+=" F500"
+click sendMovement,1
+
+//bYUp
+command.txt="G0 Y"
+command.txt+=distance.txt
+command.txt+=" F"
+command.txt+=speed.txt
+click sendMovement,1
+
+//bYDown
+command.txt="G0 Y-"
+command.txt+=distance.txt
+command.txt+=" F"
+command.txt+=speed.txt
+click sendMovement,1
+
+//bXUp
+command.txt="G0 X"
+command.txt+=distance.txt
+command.txt+=" F"
+command.txt+=speed.txt
+click sendMovement,1
+
+//bXDown
+command.txt="G0 X-"
+command.txt+=distance.txt
+command.txt+=" F"
+command.txt+=speed.txt
+click sendMovement,1
+
+//tX
+ReturnObj=!!
+numpad.tCaption.txt="X Location"
+vars.returnVal.txt=""
+page numpad
+//tX callback
+if(vars.returnVal.txt!="null")
+{
+  commands.queue.txt="G90\rG0 X"
+  commands.queue.txt+=vars.returnVal.txt
+  commands.queue.txt+=" F"
+  commands.queue.txt+=speed.txt
+  commands.queue.txt+="\rM114\rG91\r"
+  click luxSend,0
+}
+
+//tY
+ReturnObj=!!
+numpad.tCaption.txt="Y Location"
+vars.returnVal.txt=""
+page numpad
+//tY callback
+if(vars.returnVal.txt!="null")
+{
+  commands.queue.txt="G90\rG0 Y"
+  commands.queue.txt+=vars.returnVal.txt
+  commands.queue.txt+=" F"
+  commands.queue.txt+=speed.txt
+  commands.queue.txt+="\rM114\rG91\r"
+  click luxSend,0 //Send immediatly
+}
+
+//tZ
+ReturnObj=!!
+numpad.tCaption.txt="Z Location"
+vars.returnVal.txt=""
+page numpad
+//tZ callback
+if(vars.returnVal.txt!="null")
+{
+  commands.queue.txt="G90\rG0 Z"
+  commands.queue.txt+=vars.returnVal.txt
+  commands.queue.txt+=" F500"
+  commands.queue.txt+="\rM114\rG91\r"
+  click luxSend,0 //Send immediatly
+}
+
+//bEReverse
+commands.queue.txt="G1 E-"
+commands.queue.txt+=distance.txt
+commands.queue.txt+=" F"
+commands.queue.txt+=speed.txt
+commands.queue.txt+="\r"
+click luxSend,0
+
+//bEForward
+commands.queue.txt="G1 E"
+commands.queue.txt+=distance.txt
+commands.queue.txt+=" F"
+commands.queue.txt+=speed.txt
+commands.queue.txt+="\r"
+click luxSend,0
+
+//bStop
+commands.command.txt="M112"
+click luxSend,1
+
+//Distances
+distance.txt=bDistance1.txt
+click sendMovement,1
+
+//Speeds
+speed.txt=bSpeed1.txt
+click sendMovement,1

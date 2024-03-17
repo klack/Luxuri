@@ -1,0 +1,49 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxView,1
+/// @brief Updates states for controls
+///////////////////////////////////////////////////////////////////////////////
+bSwap.picc=bSwap.picc2+1
+bSwap.picc+=Tool
+if(IdexMode==0) //Idex Mode
+{
+  bMode.picc=bMode.picc2+1
+  bSwap.aph=127
+  tSwap.aph=127
+  tsw bSwap,1
+}
+if(IdexMode==1)
+{
+  bMode.picc=bMode.picc2+2
+  bSwap.aph=127
+  tSwap.aph=127
+  tsw bSwap,1
+}
+if(IdexMode==2)
+{
+  bMode.picc=bMode.picc2+3
+  bSwap.aph=0
+  tSwap.aph=0
+  tsw bSwap,0
+}
+if(IdexMode==3)
+{
+  bMode.picc=bMode.picc2+4
+  bSwap.aph=0
+  tSwap.aph=0
+  tsw bSwap,0
+}
+click luxControlBar,1
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxAnimate
+/// @brief Animation Loop
+///////////////////////////////////////////////////////////////////////////////
+Frame=Frame^1 //Toggle Frame between 0 and 1
+if(FrameB<3)
+{
+  FrameB+=1
+}else
+{
+  FrameB=0
+}
+click luxControlBar,0

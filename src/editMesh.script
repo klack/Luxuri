@@ -1,0 +1,16 @@
+
+
+
+// // touchAction
+// tDebug.txt="Firing touch action"
+// if(b[touchAction.val].type==54) // Is a number box
+// {
+//   // Get the offset value for this point
+//   spstr arrPoints.txt,vars.s.txt,";",b[touchAction.val].val
+//   covx vars.s.txt,offset.val,0,0
+//   // Get the mesh column and row
+//   spstr arrMeshRows.txt,vars.s.txt,";",b[touchAction.val].val
+//   covx vars.s.txt,row.val,0,0
+//   spstr arrMeshColumns.txt,vars.s.txt,";",b[touchAction.val].val
+//   covx vars.s.txt,column.val,0,0
+// }

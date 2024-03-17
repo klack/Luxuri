@@ -1,0 +1,161 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxPause 1
+/// @brief Pause the print
+///////////////////////////////////////////////////////////////////////////////
+commands.queue.txt+="M25\r" 
+commands.queue.txt+="M400\r" //Trigger busy until planner is finished
+commands.queue.txt+="M114\rM84\r" //Stop motors and report postion
+click luxSend,0
+parse.callback.txt="luxPause_1:finished"
+click luxSetCallback,1
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxPause 0
+/// @fn Store current position and park
+///////////////////////////////////////////////////////////////////////////////
+printer.storedX.txt=printer.x.txt
+printer.storedY.txt=printer.y.txt
+printer.storedZ.txt=printer.z.txt
+if(IdexMode!=2) //Clone mode in Marlin has a bug, this causes T0 to keep homing past the endstop
+{
+  commands.queue.txt+="G28 X\r"
+}
+
+commands.queue.txt+="G0 Y200\r" //Present forward  //TODO read from printer.y_max value
+covx printer.
+click luxSend,0
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxResume 1
+/// @brief Go back to old coordinates and resume the print
+///////////////////////////////////////////////////////////////////////////////
+commands.queue.txt+="G0 X"
+commands.queue.txt+=printer.storedX.txt
+commands.queue.txt+=" Y"
+commands.queue.txt+=printer.storedY.txt
+commands.queue.txt+=" Z"
+commands.queue.txt+=printer.storedZ.txt
+commands.queue.txt+="\r"
+commands.queue.txt+="M24\r"
+click luxSend,0
+parse.callback.txt="luxResume_1:finished"
+click luxSetCallback,1
+printer.sdPrinting.val=1
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxFlow 1
+/// @brief Get Flow
+///////////////////////////////////////////////////////////////////////////////
+commands.queue.txt+="M221\r"
+click luxSend,0
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxFlow 0
+/// @brief Set Flow
+///////////////////////////////////////////////////////////////////////////////
+commands.queue.txt+="M221 S"
+commands.queue.txt+=vars.returnVal.txt
+commands.queue.txt+="\rM221\r"
+click luxSend,0
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxSpeed 1
+/// @brief Get Speed
+///////////////////////////////////////////////////////////////////////////////
+commands.queue.txt+="M220\r"
+click luxSend,0
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxSpeed 0
+/// @brief Set Speed
+///////////////////////////////////////////////////////////////////////////////
+commands.queue.txt+="M220 S"
+commands.queue.txt+=vars.returnVal.txt
+commands.queue.txt+="\rM220\r"
+click luxSend,0
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxStopPrint 1
+/// @brief Return printer to default settings
+///////////////////////////////////////////////////////////////////////////////
+commands.command.txt+="M118 A1 P0 action:cancel\r"
+commands.queue.txt+="M104 T0 S0\rM104 T1 S0\rM140 S0\rM106 S0\r" //Turn off Heaters
+commands.queue.txt+="M27 S0\rM220 S100\rM221 S100\rM220\rM221\r" //Reset flow and speed
+commands.queue.txt+="M84\r" //Disable steppers
+click luxSend,0
+printer.m117.txt=""
+parse.callback.txt="luxStopPrint_1:finished"
+click luxSetCallback,1
+
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxStopPrint 0
+/// @brief Break through a busy or waiting for response status
+///////////////////////////////////////////////////////////////////////////////
+commands.queue.txt=""
+commands.command.txt="M524"
+click luxSend,1
+Breaks=0
+while(Breaks<4)
+{
+  commands.command.txt="M108"
+  click luxSend,1
+  delay=500
+  click luxRead,1
+  if(ok==1)
+  {
+    Breaks++
+  }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxPrintStats 1
+///////////////////////////////////////////////////////////////////////////////
+commands.command.txt+="M31\rM114\r"
+click luxSend,1
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxHandleSleep
+/// @brief Handle a finished print while LCD was asleep
+///////////////////////////////////////////////////////////////////////////////
+commands.command.txt="" //Clear invalid commands
+click luxSend,1
+commands.queue.txt+="M31\r" //Get print time
+click luxSend,0
+printer.printState.txt="finishing"
+click luxView,1
+parse.callback.txt="luxHandleSleep:finished"
+click luxSetCallback,1
+
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxStartPrint
+///////////////////////////////////////////////////////////////////////////////
+commands.queue.txt+="M114\r" //Get location
+commands.queue.txt+="M220\rM221\r" //Get flow / speed
+commands.queue.txt+="M27 S5\r"  //Report SD Status
+commands.queue.txt+="M23 "
+commands.queue.txt+=fileName.txt
+commands.queue.txt+="\rM24\rM503\r"
+printer.printTime.txt=""
+printer.currentByte.val=0
+printer.totalBytes.val=0
+click luxSend,0
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxGetPosition
+///////////////////////////////////////////////////////////////////////////////
+commands.queue.txt+="M114"
+click luxSend,0
+
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxSetCallback
+/// @brief Set a callback to be parsed 
+///////////////////////////////////////////////////////////////////////////////
+parse.callbackReturn.txt="null"
+commands.queue.txt+="M118 A1 lux:callback "
+commands.queue.txt+=parse.callback.txt
+commands.queue.txt+="\r"
+click luxSend,0

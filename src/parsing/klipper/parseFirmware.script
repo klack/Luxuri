@@ -1,0 +1,16 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @brief Parse marlin version number
+///////////////////////////////////////////////////////////////////////////////
+parse.search.txt="FIRMWARE_NAME:"  //Qualify Line
+parse.startPos.val=0
+click parser,0
+if(parse.matched.val==1)
+{
+  parse.search.txt="FIRMWARE_NAME:"
+  spstr parse.buffer.txt,vars.s.txt,parse.search.txt,1
+  spstr vars.s.txt,printer.firmwareName.txt," SOURCE_CODE_URL:",0
+
+  parse.search.txt=" MACHINE_TYPE:"
+  spstr parse.buffer.txt,vars.s.txt,parse.search.txt,1
+  spstr vars.s.txt,printer.machineType.txt," EXTRUDER_COUNT:",0
+}

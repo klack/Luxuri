@@ -1,0 +1,206 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxController 1
+/// @brief Program loop
+///////////////////////////////////////////////////////////////////////////////
+if(state.txt=="choose")
+{
+  if(preheatT0Temp.val>0||preheatT1Temp.val>0) //Check if a value was set
+  {
+    state.txt="heating"
+  }
+}
+if(state.txt=="heating")
+{
+  j=0
+  k=0
+  l=0
+  if(printer.T0Temp.val>=preheatT0Temp.val) //Check T0Temp
+  {
+    j=1
+  }
+  if(printer.T1Temp.val>=preheatT1Temp.val) //Check T1Temp
+  {
+    k=1
+  }
+  if(printer.bedTemp.val>=printer.setBedTemp.val) //Check Bed Temp
+  {
+    l=1
+  }
+  c=j+k+l
+  if(c==3)
+  {
+    state.txt="ready"
+  }
+  if(preheatT0Temp.val==0&&preheatT1Temp.val==0)
+  {
+    state.txt="choose"
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxView 1
+/// @brief Updates states for controls
+///////////////////////////////////////////////////////////////////////////////
+for(j=0;j<=32;j++) //Button Groups
+{
+  if(b[j].type==98) //If text box
+  {
+    if(b[j].txt_maxl==4) //T0 boxes are set with a maxl of 5
+    {
+      if(T0Mat.txt==b[j].txt)
+      {
+        b[j].picc=b[j].picc2
+        b[j].pco=0
+      }else
+      {
+        b[j].picc=PIC_CLEAR
+        b[j].pco=WHITE
+      }
+    }
+    if(b[j].txt_maxl==5) //T1 boxes are set with a maxl of 6
+    {
+      if(T1Mat.txt==b[j].txt)
+      {
+        b[j].picc=b[j].picc2
+        b[j].pco=0
+      }else
+      {
+        b[j].picc=PIC_CLEAR
+        b[j].pco=WHITE
+      }
+    }
+  }
+}
+if(state.txt=="init"||state.txt=="choose")
+{  
+  tMessage.txt="Choose"
+  tMessage2.txt="Materials"
+  tMessage2.aph=127
+}
+if(state.txt=="heating"||state.txt=="ready")
+{  
+  tMessage.txt="Heating"
+  tMessage2.txt="Please wait..."
+}
+if(state.txt=="choose")
+{
+  pIcon.pic=pIcon.pic2
+}
+if(state.txt=="heating")
+{
+  pIcon.pic=pIcon.pic2+1
+}
+if(state.txt=="ready")
+{
+  tMessage.txt="Ready"
+  tMessage2.aph=0
+  pIcon.pic=pIcon.pic2+2
+}
+covx printer.T0Temp.val,vars.s.txt,0,0 //Update T0
+tT0Temp.txt=vars.s.txt
+covx printer.T1Temp.val,vars.s.txt,0,0 //Update T1
+tT1Temp.txt=vars.s.txt
+covx printer.bedTemp.val,vars.s.txt,0,0 //Update Bed
+tBedTemp.txt=vars.s.txt
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxPageAnimate
+/// @brief Animations specific to this page
+///////////////////////////////////////////////////////////////////////////////
+if(state.txt=="heating")
+{
+  if(Frame==0)
+  {
+    tMessage2.aph=0
+  }else
+  {
+    tMessage2.aph=127
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn sendCommand 
+/// @brief Prepares and sends command
+///////////////////////////////////////////////////////////////////////////////
+commands.queue.txt="M104 T0 S" //Set T0
+covx preheatT0Temp.val,vars.s.txt,0,0
+commands.queue.txt+=vars.s.txt
+commands.queue.txt+="\rM104 T1 S" //Set T1
+covx preheatT1Temp.val,vars.s.txt,0,0
+commands.queue.txt+=vars.s.txt
+commands.queue.txt+="\r"
+if(preheatT0Bed.val>preheatT1Bed.val) //Set the higher bed temp of the two
+{
+  j=preheatT0Bed.val
+}else
+{
+  j=preheatT1Bed.val
+}
+commands.queue.txt+="M140 S"
+covx j,vars.s.txt,0,0
+commands.queue.txt+=vars.s.txt
+commands.queue.txt+="\rM105"
+click luxSend,0
+state.txt="heating"
+click luxView,1
+
+///////////////////////////////////////////////////////////////////////////////
+//bT0None
+preheatT0Temp.val=0
+T0Mat.txt="None"
+preheatT0Bed.val=0
+click sendCommand,1
+
+//bT0PLA
+preheatT0Temp.val=200
+T0Mat.txt="PLA"
+preheatT0Bed.val=60
+click sendCommand,1
+
+//bT0PETG
+preheatT0Temp.val=230
+T0Mat.txt="PETG"
+preheatT0Bed.val=70
+click sendCommand,1
+
+//bT0TPU
+preheatT0Temp.val=220
+T0Mat.txt="TPU"
+preheatT0Bed.val=40
+click sendCommand,1
+
+//bT0PVA
+preheatT0Temp.val=220
+T0Mat.txt="PVA"
+preheatT0Bed.val=60
+click sendCommand,1
+
+//bT1None
+preheatT1Temp.val=0
+T1Mat.txt="None"
+preheatT1Bed.val=0
+click sendCommand,1
+
+//bT1PLA
+preheatT1Temp.val=200
+T1Mat.txt="PLA"
+preheatT1Bed.val=60
+click sendCommand,1
+
+//bT1PETG
+preheatT1Temp.val=230
+T1Mat.txt="PETG"
+preheatT1Bed.val=70
+click sendCommand,1
+
+//bT1TPU
+preheatT1Temp.val=220
+T1Mat.txt="TPU"
+preheatT1Bed.val=40
+click sendCommand,1
+
+//bT1PVA
+preheatT1Temp.val=220
+T1Mat.txt="PVA"
+preheatT1Bed.val=60
+click sendCommand,1

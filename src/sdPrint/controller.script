@@ -1,0 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxController,1
+///
+/// @brief Program loop
+/// @brief state.txts: null, getting-files, ready, no-sd
+///////////////////////////////////////////////////////////////////////////////
+if(state.txt=="null")
+{
+  commands.queue.txt+="M20"
+  click luxSend,0
+  state.txt="getting-files"
+}
+if(state.txt=="no-sd")
+{
+  DiagReturnPage=MAIN
+  diagConfirm.tMessage.txt="Unable to get file list"
+  page diagConfirm
+}

@@ -1,0 +1,144 @@
+///////////////////////////////////////////////////////////////////////////////
+// @fn luxControlBar 0
+// @brief Animate control bar
+///////////////////////////////////////////////////////////////////////////////
+covx printer.fanSpeed.val,vars.s.txt,0,0 //Update T0
+tFanSpeed.txt=vars.s.txt
+if(printer.T0SetTemp.val!=0) //T0 Temp is set
+{
+  if(printer.T0Temp.val<printer.T0SetTemp.val) //Heating
+  {
+    bT0.picc=bT0.picc2+2
+    if(Frame==0)
+    {
+      covx printer.T0Temp.val,vars.s.txt,0,0 //Update T0
+      tT0Temp.txt=vars.s.txt
+      tT0Temp.pco=53053
+    }else
+    {
+      covx printer.T0SetTemp.val,vars.s.txt,0,0 //Update T0 Set Temp
+      tT0Temp.txt=vars.s.txt
+      tT0Temp.pco=65242
+    }
+  }else //At or above Temp
+  {
+    bT0.picc=bT0.picc2
+    if(printer.T0Temp.val==printer.T0SetTemp.val)
+    {
+      covx printer.T0Temp.val,vars.s.txt,0,0 //Update T0
+      tT0Temp.txt=vars.s.txt
+      tT0Temp.pco=64591
+    }else
+    {
+      if(Frame==0)
+      {
+        covx printer.T0Temp.val,vars.s.txt,0,0 //Update T0
+        tT0Temp.txt=vars.s.txt
+        tT0Temp.pco=64591
+      }else
+      {
+        covx printer.T0SetTemp.val,vars.s.txt,0,0 //Update T0 Set Temp
+        tT0Temp.txt=vars.s.txt
+        tT0Temp.pco=65242
+      }
+    }
+  }
+}else //Cooling
+{
+  bT0.picc=bT0.picc2+1
+  covx printer.T0Temp.val,vars.s.txt,0,0 //Update T0
+  tT0Temp.txt=vars.s.txt
+  tT0Temp.pco=53053
+}
+if(printer.T1SetTemp.val!=0) //T1 Temp is set
+{
+  if(printer.T1Temp.val<printer.T1SetTemp.val) //Heating
+  {
+    bT1.picc=bT1.picc2+2
+    if(Frame==0)
+    {
+      covx printer.T1Temp.val,vars.s.txt,0,0 //Update T1
+      tT1Temp.txt=vars.s.txt
+      tT1Temp.pco=53053
+    }else
+    {
+      covx printer.T1SetTemp.val,vars.s.txt,0,0 //Update T1 Set Temp
+      tT1Temp.txt=vars.s.txt
+      tT1Temp.pco=65242
+    }
+  }else //At or above Temp
+  {
+    bT1.picc=bT1.picc2
+    if(printer.T1Temp.val==printer.T1SetTemp.val)
+    {
+      covx printer.T1Temp.val,vars.s.txt,0,0 //Update T1
+      tT1Temp.txt=vars.s.txt
+      tT1Temp.pco=64591
+    }else
+    {
+      if(Frame==0)
+      {
+        covx printer.T1Temp.val,vars.s.txt,0,0 //Update T1
+        tT1Temp.txt=vars.s.txt
+        tT1Temp.pco=64591
+      }else
+      {
+        covx printer.T1SetTemp.val,vars.s.txt,0,0 //Update T1 Set Temp
+        tT1Temp.txt=vars.s.txt
+        tT1Temp.pco=65242
+      }
+    }
+  }
+}else //Cooling
+{
+  bT1.picc=bT1.picc2+1
+  covx printer.T1Temp.val,vars.s.txt,0,0 //Update T1
+  tT1Temp.txt=vars.s.txt
+  tT1Temp.pco=53053
+}
+if(printer.setBedTemp.val!=0) //Bed Temp is set
+{
+  if(printer.bedTemp.val<printer.setBedTemp.val) //Heating
+  {
+    bBed.picc=bBed.picc2+2
+    if(Frame==0)
+    {
+      covx printer.bedTemp.val,vars.s.txt,0,0 //Update Bed
+      tBedTemp.txt=vars.s.txt
+      tBedTemp.pco=53053
+    }else
+    {
+      covx printer.setBedTemp.val,vars.s.txt,0,0 //Update Bed Set Temp
+      tBedTemp.txt=vars.s.txt
+      tBedTemp.pco=65242
+    }
+  }else //At or above Temp
+  {
+    bBed.picc=bBed.picc2
+    if(printer.bedTemp.val==printer.setBedTemp.val)
+    {
+      covx printer.bedTemp.val,vars.s.txt,0,0 //Update Bed
+      tBedTemp.txt=vars.s.txt
+      tBedTemp.pco=64591
+    }else
+    {
+      if(Frame==0)
+      {
+        covx printer.bedTemp.val,vars.s.txt,0,0 //Update Bed
+        tBedTemp.txt=vars.s.txt
+        tBedTemp.pco=64591
+      }else
+      {
+        covx printer.setBedTemp.val,vars.s.txt,0,0 //Update Bed Set Temp
+        tBedTemp.txt=vars.s.txt
+        tBedTemp.pco=65242
+      }
+    }
+  }
+}else //Cooling
+{
+  bBed.picc=bBed.picc2+1
+  covx printer.bedTemp.val,vars.s.txt,0,0 //Update Bed
+  tBedTemp.txt=vars.s.txt
+  tBedTemp.pco=53053
+}

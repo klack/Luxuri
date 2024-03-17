@@ -1,0 +1,86 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxView,1
+///
+/// @brief Updates states for controls
+///////////////////////////////////////////////////////////////////////////////
+if(state.txt=="null")
+{
+  tMessage.aph=0
+  setlayer bUp,0
+  setlayer bDown,0
+  tsw f0,0
+  tsw f1,0
+  tsw f2,0
+  tsw f3,0
+  tsw f4,0
+}
+if(state.txt=="getting-files")
+{
+  tMessage.txt="Getting Files"
+  tMessage.aph=127
+}
+if(selectedFile.txt=="") //Hide or Show Print button
+{
+  tsw bPrint,0
+  bPrint.aph=0
+}else
+{
+  tsw bPrint,1
+  bPrint.aph=127
+}
+if(state.txt=="ready")
+{
+  tMessage.aph=0
+  tsw f0,1
+  tsw f1,1
+  tsw f2,1
+  tsw f3,1
+  tsw f4,1
+  strlen tFiles.txt,j //Load file controls
+  if(j>0)
+  {
+    if(page.val==0) //Button visibility
+    {
+      setlayer bUp,0
+    }else
+    {
+      setlayer bUp,254
+    }
+    spstr tFiles.txt,vars.s.txt,"\r",page.val+1*5 //Check for last page
+    if(vars.s.txt=="")
+    {
+      setlayer bDown,0
+    }else
+    {
+      setlayer bDown,254
+    }
+    bUp.picc=bUp.picc2+2
+    bDown.picc=bDown.picc2+2
+    tsw bUp,1
+    tsw bDown,1
+    k=page.val
+    k*=5
+    spstr tFiles.txt,f0.txt,"\r",k
+    k+=1
+    spstr tFiles.txt,f1.txt,"\r",k
+    k+=1
+    spstr tFiles.txt,f2.txt,"\r",k
+    k+=1
+    spstr tFiles.txt,f3.txt,"\r",k
+    k+=1
+    spstr tFiles.txt,f4.txt,"\r",k
+    for(j=0;j<=45;j++) //Button Group, yellow highlight
+    {
+      if(b[j].type==116&&b[j].txt_maxl==254) //If filetext box
+      {
+        if(b[j].txt==selectedFile.txt)
+        {
+          b[j].pco=65504
+        }else
+        {
+          b[j].pco=65535
+        }
+      }
+    }
+  }
+}

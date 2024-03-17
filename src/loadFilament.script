@@ -1,0 +1,260 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxRunOnce
+/// @brief Warm up extruders
+///////////////////////////////////////////////////////////////////////////////
+// commands.queue.txt+="M605 S0\r" //Set manual mode
+commands.queue.txt+="M84\r" //Disable steppers
+commands.queue.txt+="G90\r"
+click luxSend,0
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxInitialize 0
+/// @brief Should run on any close button
+///////////////////////////////////////////////////////////////////////////////
+// commands.queue.txt+="M605 S1\r" //Set back to auto mode
+commands.queue.txt+="G28 X\r"
+click luxSend,0
+page ReturnPage
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxController
+/// @brief Main program loop
+///////////////////////////////////////////////////////////////////////////////
+if(printer.T0SetTemp.val>0&&printer.T0SetTemp.val>=minTemp.val) //Use temperature already set
+{
+  T0Target.val=printer.T0SetTemp.val
+}else
+{
+  T0Target.val=defaultTemp.val
+}
+if(printer.T1SetTemp.val>0&&printer.T1SetTemp.val>=minTemp.val)
+{
+  T1Target.val=printer.T1SetTemp.val
+}else
+{
+  T1Target.val=defaultTemp.val
+}
+
+//Individual extruder states
+if(T0State.txt!="ready") //Keep ready state once set
+{
+  if(printer.T0SetTemp.val<T0Target.val) //Temp is not set above target
+  {
+    T0State.txt="cold"
+  }
+  if(printer.T0SetTemp.val>=minTemp.val&&printer.T0SetTemp.val!=0) //A temperature was set above the min temp
+  {
+    T0State.txt="heating" 
+  }
+}
+if(printer.T0Temp.val>=printer.T0SetTemp.val&&printer.T0SetTemp.val>=T0Target.val) //Reached tempature above the set temp
+{
+  T0State.txt="ready"
+}
+
+if(T1State.txt!="ready") //Keep ready state once set
+{
+  if(printer.T1SetTemp.val<T1Target.val) //Temp is not set above target
+  {
+    T1State.txt="cold"
+  }
+  if(printer.T1SetTemp.val>=minTemp.val&&printer.T1SetTemp.val!=0) //A temperature was set above the min temp
+  {
+    T1State.txt="heating" 
+  }
+}
+if(printer.T1Temp.val>=printer.T1SetTemp.val&&printer.T1SetTemp.val>=T1Target.val) //Reached tempature above the set temp
+{
+  T1State.txt="ready"
+}
+
+if(T0State.txt=="cold"&&T1State.txt=="cold") //Page States
+{
+  state.txt="choose"
+}
+if(T0State.txt=="heating"||T1State.txt=="heating")
+{
+  state.txt="heating"
+}
+if(T0State.txt=="ready"||T1State.txt=="ready")
+{
+  state.txt="ready"
+}
+click luxView,1
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxView
+/// @brief Updates states for controls
+///////////////////////////////////////////////////////////////////////////////
+if(state.txt=="init")
+{
+  pIcon.pic=PIC_CLEAR
+  tMessage.txt=""
+  tMessage2.txt=""
+  setlayer bHeatT0,0
+  setlayer bT0Out,0
+  setlayer bT0In,0
+  setlayer bHeatT1,0
+  setlayer bT1Out,0
+  setlayer bT1In,0
+}
+if(T0State.txt=="cold")  //Show hide T0 Buttons
+{
+  setlayer bT0Out,0
+  setlayer bT0In,0
+  setlayer bHeatT0,255
+}
+if(T0State.txt=="heating")
+{
+  setlayer bT0Out,0
+  setlayer bT0In,0
+  setlayer pT0Flame,255
+  setlayer bHeatT0,0
+}else
+{
+  setlayer pT0Flame,0
+}
+if(T0State.txt=="ready")
+{
+  pIcon.pic=PIC_CLEAR
+  setlayer bHeatT0,0
+  setlayer bT0Out,255
+  setlayer bT0In,255
+}
+if(T1State.txt=="cold") //Show hide T1 Buttons
+{
+  setlayer bT1Out,0
+  setlayer bT1In,0
+  setlayer bHeatT1,255
+}
+if(T1State.txt=="heating")
+{
+  setlayer bT1Out,0
+  setlayer bT1In,0
+  setlayer bHeatT1,0
+  setlayer pT1Flame,255
+}else
+{
+  setlayer pT1Flame,0
+}
+if(T1State.txt=="ready") 
+{
+  setlayer bHeatT1,0
+  setlayer bT1Out,255
+  setlayer bT1In,255
+}
+if(state.txt=="choose") //Page state
+{
+  pIcon.pic=pIcon.pic2
+  tMessage2.aph=127
+  tMessage.txt="Heat"
+  tMessage2.txt="Extruders"
+}
+if(state.txt=="heating")
+{
+  pIcon.pic=pIcon.pic2+1
+  tMessage2.aph=127
+  tMessage.txt="Heating"
+  tMessage2.txt="Please Wait..."
+}
+if(state.txt=="ready")
+{
+  pIcon.pic=pIcon.pic2+2
+  tMessage2.aph=0
+  if(T1State.txt!="ready")
+  {
+    tMessage.txt="E1 Ready"
+  }
+  if(T0State.txt!="ready")
+  {
+    tMessage.txt="E2 Ready"
+  }
+  if(T0State.txt=="ready"&&T1State.txt=="ready")
+  {
+    tMessage.txt="Ready"
+  }
+}
+covx printer.T0Temp.val,vars.s.txt,0,0 //Temperature display
+tT0Temp.txt=vars.s.txt
+tT0Temp.txt+="/"
+covx printer.T0SetTemp.val,vars.s.txt,0,0
+tT0Temp.txt+=vars.s.txt
+covx printer.T1Temp.val,vars.s.txt,0,0
+tT1Temp.txt=vars.s.txt
+tT1Temp.txt+="/"
+covx printer.T1SetTemp.val,vars.s.txt,0,0
+tT1Temp.txt+=vars.s.txt
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxPageAnimate
+/// @brief Page Animations
+///////////////////////////////////////////////////////////////////////////////
+if(T0State.txt=="heating")
+{
+  if(Frame==0)
+  {
+    pT0Flame.aph=0
+  }else
+  {
+    pT0Flame.aph=127
+  }
+}
+if(T1State.txt=="heating")
+{
+  if(Frame==0)
+  {
+    pT1Flame.aph=0
+  }else
+  {
+    pT1Flame.aph=127
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//bHeatT0
+bHeatT0.pic=bHeatT0.pic2
+covx T0Target.val,vars.s.txt,0,0 //Heat to load temp
+commands.queue.txt+="M104 T0 S"
+commands.queue.txt+=vars.s.txt
+commands.queue.txt+="\r"
+click luxSend,0
+
+//bHeatT1
+bHeatT1.pic=bHeatT1.pic2
+covx T1Target.val,vars.s.txt,0,0 //Heat to load temp
+commands.queue.txt+="M104 T1 S"
+commands.queue.txt+=vars.s.txt
+commands.queue.txt+="\r"
+click luxSend,0
+
+//Send Command
+commands.queue.txt+="T"
+covx commandTool.val,vars.s.txt,0,0
+commands.queue.txt+=vars.s.txt
+commands.queue.txt+="\rG92 E0\r" //Set extruder pos to 0
+commands.queue.txt+="G1 E"
+covx commandLength.val,vars.s2.txt,0,0
+commands.queue.txt+=vars.s2.txt
+commands.queue.txt+=" F800\r"
+commands.queue.txt+="G92 E0\rM105\r"
+click luxSend,0
+
+//bT0Out
+commandTool.val=0
+commandLength.val=0-loadLength.val //Change to negative number
+click sendCommand,1
+
+//bT0In
+commandTool.val=0
+commandLength.val=loadLength.val
+click sendCommand,1
+
+//bT1Out
+commandTool.val=1
+commandLength.val=0-loadLength.val //Change to negative number
+click sendCommand,1
+
+//bT1In
+commandTool.val=1
+commandLength.val=loadLength.val
+click sendCommand,1

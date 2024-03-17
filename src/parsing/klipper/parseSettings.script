@@ -1,0 +1,63 @@
+//Recv: echo:; Home offset:
+//Recv: echo:  M206 X0.00 Y0.00 Z-0.03
+//Recv: echo:; Steps per unit:
+//Recv: echo: M92 X80.00 Y80.00 Z792.00
+//Recv: echo: M92 T0 E413.72
+//Recv: echo:; Hotend offsets:
+//Recv: echo:echo:  M218 T1 X368.70 Y0.15 Z0.030
+
+//E1 Steps
+parse.lineMatch.txt="echo:  M92 T0 E"
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  spstr parse.buffer.txt,printer.T0Esteps.txt,"M92 T0 E",1 //Get value to the right
+}
+
+//E2 Steps
+parse.lineMatch.txt="echo:  M92 T1 E"
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  spstr parse.buffer.txt,printer.T1Esteps.txt,"M92 T1 E",1
+}
+
+//Z
+parse.lineMatch.txt="echo:  M206"
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  spstr parse.buffer.txt,printer.zOffset.txt," Z",1
+}
+
+//X2
+parse.lineMatch.txt="echo:echo:  M218"
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  spstr parse.buffer.txt,vars.s.txt," X",1
+  spstr vars.s.txt,printer.x2Offset.txt," ",0
+}
+
+//Y2
+parse.lineMatch.txt="echo:echo:  M218"
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  spstr parse.buffer.txt,vars.s.txt," Y",1
+  spstr vars.s.txt,printer.y2Offset.txt," ",0
+}
+
+//Z2
+parse.lineMatch.txt="echo:echo:  M218"
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  spstr parse.buffer.txt,printer.z2Offset.txt," Z",1
+}

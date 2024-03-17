@@ -1,0 +1,42 @@
+///////////////////////////////////////////////////////////////////////////////
+//bPrint
+print.fileName.txt=selectedFile.txt
+printer.sdPrinting.val=0
+printer.printState.txt="null"
+page print
+
+/// @f0 click
+/// @brief Executed when clicking on a file name
+selectedIndex.val=0
+click selectFile,1
+
+//selectFile
+spstr keyLFile.txt,vars.s.txt,"\r",selectedIndex.val
+selectedFile.txt=vars.s.txt
+spstr valueLFile.txt,vars.s.txt,"\r",selectedIndex.val
+selectedFLong.txt=vars.s.txt
+print.tFileName.txt=selectedFLong.txt
+click luxView,1
+
+//bUp
+bUp.picc=bUp.picc2
+tsw bUp,0
+tsw bDown,0
+if(page.val>0)
+{
+  selectedFile.txt=""
+  selectedIndex.val=-1
+  page.val-=1
+  click luxGetLong,1
+}
+click selectFile,1
+
+//bDown
+tsw bUp,0
+tsw bDown,0
+bDown.picc=bDown.picc2
+selectedFile.txt=""
+selectedIndex.val=-1
+page.val+=1
+click luxGetLong,1
+click selectFile,1

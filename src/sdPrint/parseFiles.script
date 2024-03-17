@@ -1,0 +1,30 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @fn parseFiles,1
+///
+/// @brief Parse filenames and long file names
+///////////////////////////////////////////////////////////////////////////////
+parse.lineMatch.txt="End file list"
+if(parse.buffer.txt==parse.lineMatch.txt)
+{
+  gettingFiles.val=0 //Getting file state is off, do not listen for filenames
+  state.txt="ready"
+}
+if(gettingFiles.val==1)  //Parse filenames
+{
+  spstr parse.buffer.txt,vars.s.txt,".gcode",0
+  vars.s.txt+=".gcode"
+  tFiles.txt+=vars.s.txt
+  tFiles.txt+="\r"
+}
+parse.lineMatch.txt="!! Unable to get file list"
+if(parse.buffer.txt==parse.lineMatch.txt)
+{
+  state.txt="no-sd"
+}
+parse.lineMatch.txt="Begin file list"
+if(parse.buffer.txt==parse.lineMatch.txt)
+{
+  tFiles.txt="" //Clear existing file list
+  gettingFiles.val=1
+  page.val=0
+}

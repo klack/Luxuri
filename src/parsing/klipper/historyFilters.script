@@ -1,0 +1,81 @@
+//Qualify Line
+parse.matched.val=0
+
+if(historyFilters.swTemp.val==1)
+{
+  parse.lineMatch.txt=" T:"
+  strlen parse.lineMatch.txt,j
+  substr parse.buffer.txt,parse.eval.txt,0,j
+  if(parse.eval.txt==parse.lineMatch.txt)
+  {
+    parse.matched.val=1
+  }
+  parse.lineMatch.txt="ok T:" //Handle M105 Temp Response
+  strlen parse.lineMatch.txt,j
+  substr parse.buffer.txt,parse.eval.txt,0,j
+  if(parse.eval.txt==parse.lineMatch.txt)
+  {
+    parse.matched.val=1
+  }
+
+}
+if(historyFilters.swBusy.val==1)
+{
+  parse.lineMatch.txt="echo:busy: processing" //Busy
+  strlen parse.lineMatch.txt,j
+  substr parse.buffer.txt,parse.eval.txt,0,j
+  if(parse.eval.txt==parse.lineMatch.txt)
+  {
+    parse.matched.val=1
+  }
+}
+if(historyFilters.swSDCard.val==1)
+{
+  parse.lineMatch.txt="Not SD printing" //SD Status
+  strlen parse.lineMatch.txt,j
+  substr parse.buffer.txt,parse.eval.txt,0,j
+  if(parse.eval.txt==parse.lineMatch.txt)
+  {
+    parse.matched.val=1
+  }
+  parse.lineMatch.txt="SD printing byte " //SD Progress
+  strlen parse.lineMatch.txt,j
+  substr parse.buffer.txt,parse.eval.txt,0,j
+  if(parse.eval.txt==parse.lineMatch.txt)
+  {
+    parse.matched.val=1
+  }
+}
+if(historyFilters.swEcho.val==1)
+{
+  parse.lineMatch.txt="echo:echo:"
+  strlen parse.lineMatch.txt,j
+  substr parse.buffer.txt,parse.eval.txt,0,j
+  if(parse.eval.txt==parse.lineMatch.txt)
+  {
+    spstr parse.buffer.txt,parse.buffer.txt,"echo:",2
+  }
+}
+if(historyFilters.swEcho.val==1)
+{
+  parse.lineMatch.txt="echo:"
+  strlen parse.lineMatch.txt,j
+  substr parse.buffer.txt,parse.eval.txt,0,j
+  if(parse.eval.txt==parse.lineMatch.txt)
+  {
+    spstr parse.buffer.txt,parse.buffer.txt,"echo:",1
+  }
+}
+parse.lineMatch.txt="X:"
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  parse.matched.val=1
+}
+
+if(parse.matched.val==1)
+{
+  parse.buffer.txt=""
+  parse.matched.val=0
+}

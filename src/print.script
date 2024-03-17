@@ -1,0 +1,175 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxController,1
+/// @brief Program loop
+///////////////////////////////////////////////////////////////////////////////
+if(printer.printState.txt=="null")
+{
+  ok=1 //Hack
+  timeCount.val=0
+  click luxStartPrint,1
+  printer.printState.txt="init"
+}
+if(printer.printState.txt=="init")
+{
+  tProgress.txt="Starting Print"
+  if(printer.currentByte.val>1)
+  {
+    printer.printState.txt="printing"
+    click luxView,1
+  }
+}
+if(printer.printState.txt=="printing") //Printing
+{
+  if(printer.sdPrinting.val==0&&commands.pauseAction.val==1) //Print is either finishing or waking from sleep and finished
+  {
+    commands.command.txt="" //Clear any responses sent by nextion
+    click luxSend,1
+    click luxPrintStats,1    
+    printer.printState.txt="finished"
+    click luxView,1
+  }
+}
+if(printer.printState.txt=="finished") //Finished state is also set by parsing
+{
+  click luxStopPrint,1 //Run cleanup
+  printer.printState.txt="cleaning-up"
+}
+if(printer.printState.txt=="cleaning-up")
+{
+  if(parse.callbackReturn.txt=="luxStopPrint_1:finished")
+  {
+    printer.printState.txt="null"
+    diagConfirm.tMessage.txt="Print Complete"
+    diagConfirm.tMessage.txt+="\r"
+    diagConfirm.tMessage.txt+=printer.printTime.txt
+    DiagReturnPage=MAIN
+    page DIAG_CONFIRM
+  }
+}
+if(printer.printState.txt=="error") //Error
+{
+  diagConfirm.tMessage.txt="Error opening file"
+  page MAIN
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxView,1
+/// @brief Updates states for controls
+///////////////////////////////////////////////////////////////////////////////
+if(printer.printState.txt=="null")
+{ 
+  tProgress.txt=""
+  oProgress.val=0
+  tTime.aph=0
+  pTimer.aph=0
+  pFlow.aph=0
+  pSpeed.aph=0
+  bSettings.aph=0
+  tM117.aph=0
+  tsw hSettings,0
+}
+if(printer.printState.txt=="printing") 
+{
+  bSettings.aph=127
+  oProgress.val=printer.currentByte.val*100/printer.totalBytes.val
+  covx oProgress.val,vars.s.txt,0,0
+  tProgress.txt=vars.s.txt
+  tProgress.txt+="%"
+  tM117.aph=127
+  if(timeCount.val>4) //Only show after time was recieved the 3rd time (heaters will no longer be blocking)
+  {
+    pTimer.aph=127
+    tTime.aph=127
+    tTime.txt=printer.printTime.txt
+  }else
+  {
+    pTimer.aph=0
+    tTime.aph=0
+    tTime.txt=""
+  }
+  tsw hSettings,1
+}
+if(printer.printState.txt=="cleaning-up")
+{
+  oProgress.val=100
+  pTimer.aph=0
+  bSettings.aph=0
+  tTime.txt=""
+  tProgress.txt="Finishing up..."
+  tsw 255,0
+}
+tZHeight.txt=printer.z.txt
+click luxControlBar,1
+tM117.txt=printer.m117.txt
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxAnimate
+/// @brief Animation Loop
+///////////////////////////////////////////////////////////////////////////////
+Frame=Frame^1 //Toggle Frame between 0 and 1
+if(FrameB<3)
+{
+  FrameB+=1
+}else
+{
+  FrameB=0
+}
+click luxPageAnimate,1
+click luxControlBar,0
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxPageAnimate
+/// @brief Flow, and speed indicators
+///////////////////////////////////////////////////////////////////////////////
+if(printer.flow.val!=100)
+{
+  if(Frame==0)
+  {
+    pFlow.aph=127
+  }else
+  {
+    pFlow.aph=0
+  }
+}else
+{
+  pFlow.aph=0
+}
+if(printer.speed.val!=100)
+{
+  if(Frame==0)
+  {
+    pSpeed.aph=127
+  }else
+  {
+    pSpeed.aph=0
+  }
+}else
+{
+  pSpeed.aph=0
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn tm5s
+/// @brief Get the print time every 5 seconds
+///////////////////////////////////////////////////////////////////////////////
+if(QueueLen==0&&printer.printState.txt=="printing")
+{
+  if(ok==1&&busy==0)
+  {
+    click luxPrintStats,1
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxRun
+/// @breif Framework Loop
+///////////////////////////////////////////////////////////////////////////////
+click luxRead,1
+click luxView,1
+click luxController,1
+click luxSend,0 
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn Page Exit
+///////////////////////////////////////////////////////////////////////////////
+click luxSleep,0

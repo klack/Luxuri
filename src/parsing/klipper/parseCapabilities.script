@@ -1,0 +1,14 @@
+// Recv:17:41:44.458: area:{full:{min:{x:-47.00,y:0.00,z:0.10},max:{x:235.00,y:243.00,z:260.10}},work:{min:{x:0.00,y:0.00,z:0.10},max:{x:235.00,y:230.00,z:260.10}}}
+
+parse.lineMatch.txt="area:{full:{"
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  spstr parse.buffer.txt,vars.s.txt,",work:{",1 //Get value to the right
+  spstr vars.s.txt,vars.s.txt,"max:{",1
+  spstr vars.s.txt,vars.s.txt,"}}}",0
+  spstr vars.s.txt,vars.s.txt,"x:",1
+  spstr vars.s.txt,vars.s.txt,",y:",0
+  covx vars.s.txt,printer.x_max.val,0,0
+}

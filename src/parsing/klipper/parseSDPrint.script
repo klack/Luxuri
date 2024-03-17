@@ -1,0 +1,62 @@
+// Starting
+// TODO Get long filename
+parse.lineMatch.txt="echo:Now fresh file: " //Qualify Line
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  spstr parse.buffer.txt,printer.fileName.txt,parse.lineMatch.txt,1
+}
+
+// Progress
+parse.lineMatch.txt="SD printing byte " //Qualify Line
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1 //Split by qualifier
+  spstr vars.s.txt,vars.s2.txt,"/",0 //Current Byte
+  covx vars.s2.txt,printer.currentByte.val,0,0
+  spstr vars.s.txt,vars.s2.txt,"/",1 //Total Bytes
+  covx vars.s2.txt,printer.totalBytes.val,0,0
+  printer.sdPrinting.val=1
+}
+
+
+// Paused or Finished
+parse.lineMatch.txt="Not SD printing" //Qualify Line
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+ printer.sdPrinting.val=0 
+}
+
+// Finished
+parse.lineMatch.txt="Done printing file" //Qualify Line
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  printer.printState.txt="finished"
+}
+
+// Print Time
+parse.lineMatch.txt="echo:Print time: " //Qualify Line
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  spstr parse.buffer.txt,printer.printTime.txt,": ",1
+  timeCount.val+=1
+}
+
+// Error
+parse.lineMatch.txt="open failed, " //Qualify Line
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  printer.printState.txt="error"
+  printer.error.txt+=parse.buffer.txt
+}

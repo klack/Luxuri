@@ -1,0 +1,28 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxRunOnce
+/// @breif Does not run when returning from dialog boxes
+///////////////////////////////////////////////////////////////////////////////
+if(printer.filamentRunout.val==1)
+{
+    title.txt="Filament Runout"
+    message.txt="Ejecting Filament."
+    action.txt="Please wait..."
+}
+
+//action
+if(action.txt=="Reheat"||action.txt=="Ok"||action.txt=="Resume")
+{
+    commands.command.txt="M108"
+    click luxSend,1
+    message.txt=""
+    action.txt=="Please wait..."
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxController,1
+/// @brief Program loop
+///////////////////////////////////////////////////////////////////////////////
+if(printer.filamentRunout==0&&printer.paused==0)
+{
+    page DiagReturnPage
+}

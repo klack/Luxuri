@@ -1,0 +1,13 @@
+//selectFile
+if(selectedIndex.val>=0)
+{
+  k=page.val
+  k*=5
+  k+=selectedIndex.val
+  spstr tFiles.txt,vars.s.txt,"\r",k
+  selectedFile.txt=vars.s.txt
+}else
+{
+  selectedFile.txt=""
+}
+click luxView,1

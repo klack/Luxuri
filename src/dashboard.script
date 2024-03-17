@@ -1,0 +1,14 @@
+//bT0Temp click
+ReturnObj=3
+numpad.tCaption.txt="T0 Temperature"
+vars.returnVal.txt=""
+page numpad
+
+//bT0 callback
+if(vars.returnVal.txt!="null")
+{
+  commands.queue.txt+="M104 T0 S"
+  commands.queue.txt+=vars.returnVal.txt
+  commands.queue.txt+="\rM105\r"
+  click luxSend,0
+}

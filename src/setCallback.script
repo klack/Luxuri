@@ -1,0 +1,9 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxSetCallback
+/// @brief Set a callback to be parsed
+///////////////////////////////////////////////////////////////////////////////
+parse.callbackReturn.txt="null"
+commands.queue.txt+="M118 lux:callback "
+commands.queue.txt+=parse.callback.txt
+commands.queue.txt+="\r"
+click luxSend,0

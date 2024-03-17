@@ -1,0 +1,46 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxSend 1
+/// @brief Send a single command
+/// @param[in] command.command.txt
+///////////////////////////////////////////////////////////////////////////////
+prints commands.command.txt,0
+printh 0A
+ok=0
+click serialHistory,0
+commands.command.txt=""
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxSend 0
+/// @brief Send command queue, waiting for ok between each command
+/// @brief Waits a max of 10 times for each ok
+///////////////////////////////////////////////////////////////////////////////
+strlen commands.queue.txt,QueueLen //get the length of the command queue
+if(ok==1&&busy==0) //Send Queue
+{
+  QueueBlocks=0
+  while(QueueLen>0&&QueueBlocks<=10)
+  {
+    click luxRead,1
+    if(ok==1&&busy==0)
+    {
+      spstr commands.queue.txt,vars.s.txt,"\r",0
+      if(vars.s.txt!="")
+      {
+        strlen vars.s.txt,CommandLen //get the lenght of the command
+        CharLen=QueueLen-CommandLen //calc the amount of chars to copy
+        //remove the command from the queue by getting a substring of the commandqueue
+        substr commands.queue.txt,commands.queue.txt,CommandLen+2,CharLen //+2 to count \r
+        commands.command.txt=vars.s.txt
+        click luxSend,1
+      }else
+      {
+        commands.queue.txt=""
+        QueueLen=0
+      }
+    }else
+    {
+      QueueBlocks+=1
+    }
+    strlen commands.queue.txt,QueueLen //Refresh the command queue lenght
+  }
+}

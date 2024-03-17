@@ -1,0 +1,93 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxRunOnce
+/// @breif Does not run when returning from dialog boxes
+///////////////////////////////////////////////////////////////////////////////
+commands.queue.txt+="M605 S1\r" //Set auto idex mode
+commands.queue.txt+="M420 S0\r" //Disable bed level
+commands.queue.txt+="G28\r" //Home
+commands.queue.txt+="T0\r"
+commands.queue.txt+="G0 F5000\r"
+click luxSend,0
+
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxInitialize 0
+/// @brief Should run on any close button
+///////////////////////////////////////////////////////////////////////////////
+commands.queue.txt+="T0\r" //Set to T0
+commands.queue.txt+="G28 X\r" //Home
+commands.queue.txt+="G0 Z5 F500\r"
+commands.queue.txt+="G0 F5000\r"
+click luxSend,0
+page ReturnPage
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxView,1
+/// @brief Updates states for controls
+///////////////////////////////////////////////////////////////////////////////
+bSwap.pic=bSwap.pic2+1
+bSwap.pic+=Tool
+tPosition.txt="X:"
+tPosition.txt+=printer.x.txt
+tPosition.txt+=" "
+tPosition.txt+="Y:"
+tPosition.txt+=printer.y.txt
+tPosition.txt+=" "
+tPosition.txt+="Z:"
+tPosition.txt+=printer.z.txt
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn sendCommand
+/// @brief Prepare and send commands
+///////////////////////////////////////////////////////////////////////////////
+commands.queue.txt+="G90\r"
+commands.queue.txt+="G0 Z5 F500\r"
+commands.queue.txt+="G0 X"
+covx destX.val,vars.s.txt,0,0
+commands.queue.txt+=vars.s.txt
+commands.queue.txt+=" Y"
+covx destY.val,vars.s.txt,0,0
+commands.queue.txt+=vars.s.txt
+commands.queue.txt+=" F5000\r"
+commands.queue.txt+="G0 Z0 F500\r"
+commands.queue.txt+="M114\r"
+click luxSend,0
+
+///////////////////////////////////////////////////////////////////////////////
+//bPoint1
+destX.val=50
+destY.val=50
+click sendCommand,1
+
+//bPoint2
+destX.val=250
+destY.val=250
+click sendCommand,1
+
+//bPoint3
+destX.val=250
+destY.val=50
+click sendCommand,1
+
+//bPoint4
+destX.val=50
+destY.val=250
+click sendCommand,1
+
+//bPoint5
+destX.val=150
+destY.val=150
+click sendCommand,1
+
+// D6 Points
+// 50 50
+// 305 50 
+// 560 50 
+
+// 50 305
+// 305 305
+// 560 305
+
+// 50 560
+// 305 560
+// 560 560

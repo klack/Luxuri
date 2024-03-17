@@ -1,0 +1,229 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxController,1
+/// @brief Program loop
+///////////////////////////////////////////////////////////////////////////////
+tBusy.txt="" //Busy Text
+if(busy==1) 
+{
+  tBusy.txt="Busy"
+}
+if(QueueLen>0)
+{
+  tBusy.txt="Commands Queued"
+}
+if(printer.printState.txt=="finished")
+{
+  page print
+}
+if(printer.printState.txt=="paused"||printer.printState.txt=="printing")
+{
+  //Do nothing
+}
+if(printer.printState.txt=="pausing")
+{
+  if(parse.callbackReturn.txt=="luxPause_1:finished")
+  {
+    click luxPause,0 //Park
+    // commands.queue.txt+="G0 Y300\r" //Present
+    // click luxSend,0
+    printer.printState.txt="paused"
+  }
+}
+if(printer.printState.txt=="resuming")
+{
+  if(parse.callbackReturn.txt=="luxResume_1:finished")
+  {
+    printer.printState.txt="printing"
+  } 
+}
+if(printer.printState.txt=="stopping")
+{
+  tBusy.txt="Waiting for printer..."
+  if(parse.callbackReturn.txt=="luxStopPrint_1:finished")
+  {
+    printer.sdPrinting.val=0
+    printer.printState.txt="null"
+    tBusy.txt="Reticulating Splines..."
+    doevents
+    page main
+  }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxView,1
+/// @brief Updates states for controls
+///////////////////////////////////////////////////////////////////////////////
+click luxControlBar,1
+if(tBusy.txt=="")
+{
+  tBusy.aph=0
+}else
+{
+  tBusy.aph=127
+}
+if(printer.printState.txt=="stopping") //Pausing
+{
+  bStop.picc=bStop.picc2
+}
+if(printer.printState.txt=="pausing") //Pausing
+{
+  tPlayPause.txt="Finishing Moves..."
+  tsw bClose,0
+  bClose.aph=0
+}
+if(printer.printState.txt=="paused") //Paused
+{
+  bPauseResume.picc=bPauseResume.picc2
+  tPlayPause.txt="Resume"
+  tsw bClose,0
+  bClose.aph=0
+}
+if(printer.printState.txt=="printing") //Printing
+{
+  bPauseResume.picc=bPauseResume.picc2+1
+  tPlayPause.txt="Pause"
+  tsw bClose,1
+  bClose.aph=127
+}
+if(printer.speed.val!=100&&printer.speed.val!=0) //Speed
+{
+  covx printer.speed.val,bSpeed.txt,0,0
+  bSpeed.picc=bSpeed.picc2+2
+  bSpeed.pco2=BLACK
+}else
+{
+  bSpeed.txt=""
+  bSpeed.picc=bSpeed.picc2+1
+  bSpeed.pco2=WHITE
+}
+if(printer.flow.val!=100&&printer.flow.val!=0) //Flow
+{
+  covx printer.flow.val,bFlow.txt,0,0
+  bFlow.picc=bFlow.picc2+2
+}else
+{
+  bFlow.txt=""
+  bFlow.picc=bFlow.picc2+1
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+/// @brief Buttons
+///////////////////////////////////////////////////////////////////////////////
+
+//bAutotune click
+diagPrompt.tMessage.txt="Perform PID Autotune?\rThis will take some time."
+ReturnVal=1
+ReturnObj=!!
+page diagPrompt
+//bAutotune callback
+if(ReturnVal==1)
+{
+  page pidTune
+}
+
+//bSpeed click
+bSpeed.txt=""
+ReturnObj=2
+numpad.tCaption.txt="Print Speed"
+vars.returnVal.txt=""
+page numpad
+//bSpeed callback
+covx printer.speed.val,vars.s.txt,0,0
+if(vars.returnVal.txt!=vars.s.txt)
+{
+  click luxSpeed,0
+}
+
+//bFlow click
+bFlow.txt=""
+ReturnObj=3
+numpad.tCaption.txt="Print Flow"
+vars.returnVal.txt=""
+page numpad
+//bFlow callback
+covx printer.flow.val,vars.s.txt,0,0
+if(vars.returnVal.txt!=vars.s.txt)
+{
+  click luxFlow,0
+}
+
+//bPauseResume click
+if(printer.printState.txt=="printing")
+{
+  printer.printState.txt="pausing"
+  click luxView,1  
+  click luxPause,1
+}
+if(printer.printState.txt=="paused")
+{
+  printer.printState.txt="resuming"
+  click luxView,1  
+  click luxResume,1
+}
+click luxView,1
+
+//Stop click
+diagPrompt.tMessage.txt="Stop Print?"
+ReturnVal=1
+ReturnObj=4
+page diagPrompt
+//Stop callback
+if(ReturnVal!=-1)
+{
+  tsw 255,0
+  printer.printState.txt="stopping"
+  tBusy.txt="Stopping..."
+  click luxView,1
+  doevents
+  click luxStopPrint,0
+  tBusy.txt="Resetting..."
+  doevents
+  click luxStopPrint,1
+}
+
+//bStepup click
+commands.command.txt="M290 Z0.05"
+click luxSend,1
+commands.command.txt="M500"
+click luxSend,1
+
+//bStepdown click
+commands.command.txt="M290 Z-0.05"
+click luxSend,1
+commands.command.txt="M500"
+click luxSend,1
+
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxAnimate
+/// @brief Animation Loop
+///////////////////////////////////////////////////////////////////////////////
+Frame=Frame^1 //Toggle Frame between 0 and 1
+if(FrameB<3)
+{
+  FrameB+=1
+}else
+{
+  FrameB=0
+}
+click luxPageAnimate,1
+click luxControlBar,0
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn luxPageAnimate
+///////////////////////////////////////////////////////////////////////////////
+if(printer.printState.txt=="pausing")
+{
+  bPauseResume.picc=bPauseResume.picc2-Frame
+}
+if(printer.printState.txt=="stopping")
+{
+  bStop.picc=bStop.picc2-Frame
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/// @fn bClose Exit
+///////////////////////////////////////////////////////////////////////////////
+page ReturnPage
