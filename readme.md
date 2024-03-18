@@ -4,11 +4,13 @@ Luxuri is WIP printer display for Klipper and TJC / Nextion screens.
 # Unique Features
 * Connects directly to your printer's mainboard
 * Plug in and go - No moonraker, scripts, 3rd party libraries, or services required
+* Easily "Add a button" anywhere
 * Talks to your printer like Octoprint does
 * Mainline Klipper integration planned (UART Host)
+* $18 screen
 
 # Installation
-There is no current release, Luxuri is currently being adapted for Klipper
+There is no current release, Luxuri is currently being adapted for Klipper.
 
 # Video
 [![Watch the video](https://img.youtube.com/vi/txyAyR8ZIuo/0.jpg)](https://youtu.be/txyAyR8ZIuo)
