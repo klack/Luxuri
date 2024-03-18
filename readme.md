@@ -8,5 +8,12 @@ Luxuri is WIP printer display for Klipper and TJC / Nextion screens.
 # Screen Purchase Link
 [Aliexpress](https://www.aliexpress.us/item/3256804492446621.html)
 
-# UI Resources
+# For Developers
+[TJC IDE Download](http://wiki.tjc1688.com/download/usart_hmi.html)
+
+[TJC Information Center](http://wiki.tjc1688.com/)
+
+[Unofficial Nextion Tools](https://github.com/UNUF/nxt-doc)
+
+# For Designers
 [Figma Design File](https://www.figma.com/file/EyI1PK9B1Jf0NWM5m0xf2W/)
