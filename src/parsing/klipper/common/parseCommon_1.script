@@ -1,0 +1,155 @@
+///////////////////////////////////////////////////////////////////////////////
+/// @fn     parseCommon 1
+/// @brief  Essential items to be parsed
+///////////////////////////////////////////////////////////////////////////////
+parse.lineMatch.txt="// action:paused filament_runout"
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  printer.filamentRunout.val=1
+  printer.paused.val=1
+  parse.buffer.txt=""
+  if(dp!=PAUSE_PAGE)
+  {
+    page PAUSE_PAGE
+  }
+}
+parse.lineMatch.txt="// action:resumed"
+if(parse.buffer.txt==parse.lineMatch.txt)
+{
+  printer.filamentRunout.val=0
+  printer.paused.val=0
+}
+parse.lineMatch.txt="echo:busy: paused for user"
+if(parse.buffer.txt==parse.lineMatch.txt)
+{
+  printer.paused.val=1
+  parse.buffer.txt=""
+  if(dp!=PAUSE_PAGE)
+  {
+    page PAUSE_PAGE
+  }
+}
+parse.lineMatch.txt=" External Reset" //Shutdown
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt) //This one only works when using substring for some reason
+{
+  ExternalReset=1
+}
+parse.lineMatch.txt="start"
+if(parse.buffer.txt==parse.lineMatch.txt)
+{
+  ExternalReset=1
+}
+parse.lineMatch.txt="// lux:power_pin" //Shutdown
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt) //This one only works when using substring for some reason
+{
+  ShutDown=1
+}
+parse.lineMatch.txt="echo://lux:power_pin" //Shutdown
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt) //This one only works when using substring for some reason
+{
+  ShutDown=1
+}
+parse.lineMatch.txt="ok" //Ok
+if(parse.buffer.txt==parse.lineMatch.txt)
+{
+  ok=1
+  busy=0
+}
+parse.lineMatch.txt="ok T:" //M105 ok
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  ok=1
+  busy=0
+}
+parse.lineMatch.txt="ok " //Advanced ok
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  ok=1
+  busy=0
+}
+parse.lineMatch.txt="echo:busy: processing" //Busy
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  busy=1
+}else
+{
+  commands.linesNotBusy.val+=1
+  if(commands.linesNotBusy.val>=5)
+  {
+    busy=0
+    commands.linesNotBusy.val=0
+  }
+}
+parse.lineMatch.txt="Active Extruder: " //Active Extruder
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  spstr parse.buffer.txt,parse.match.txt,"Active Extruder: ",1
+  covx parse.match.txt,j,0,0
+  Tool=j
+}
+parse.lineMatch.txt="M106 P0 S" //Fan
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  spstr parse.buffer.txt,parse.match.txt,"M106 P0 S",1
+  covx parse.match.txt,printer.fanSpeed.val,0,0
+}
+parse.lineMatch.txt="// lux:callback " //Serial callback
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  spstr parse.buffer.txt,parse.callbackReturn.txt,parse.lineMatch.txt,1
+}
+parse.lineMatch.txt="// lux:M117 " //M117
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  spstr parse.buffer.txt,printer.m117.txt,parse.lineMatch.txt,1
+}
+parse.lineMatch.txt="Error:" //Error
+strlen parse.lineMatch.txt,j
+substr parse.buffer.txt,parse.eval.txt,0,j
+if(parse.eval.txt==parse.lineMatch.txt)
+{
+  printer.error.txt=parse.buffer.txt
+  printer.error.txt+="\r"
+  parse.buffer.txt=""
+  Error=1
+}
+if(ShutDown==1)
+{
+  ShutDown=0
+  page shutdown
+}
+if(Error==1)
+{
+  Error=0
+  page ERROR_PAGE
+}
+if(ExternalReset==1)
+{
+  ExternalReset=0
+  parse.buffer.txt=""
+  BufferLen=0
+  code_c
+  page connect
+}
