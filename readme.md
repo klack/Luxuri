@@ -40,6 +40,8 @@ Join the Luxuri Discord:
 
 [Unofficial Nextion Tools](https://github.com/UNUF/nxt-doc)
 
+[Nextion2Text](https://github.com/MMMZZZZ/Nextion2Text)
+
 [Component Breakdown](https://www.lyonscomputer.com.au/Electronic-Devices/Nextion-HMI-LCD-Display/Nextion-HMI-LCD-Display.html)
 
 # For Designers
