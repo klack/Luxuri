@@ -9,6 +9,8 @@ Luxuri is WIP printer display for Klipper and TJC / Nextion screens.
 
 ![Main Menu](https://github.com/klack/Luxuri/assets/4606571/bfd54bf0-622b-459d-977f-875d718cd06a)
 
+![Keypad](https://github.com/klack/Luxuri/assets/4606571/eb2d4a53-fa3f-4ff3-a474-145f61bc7583)
+
 # Unique Features
 * Connects directly to your printer's mainboard
 * Plug in and go - No moonraker, scripts, 3rd party libraries, WIFI, or services required
