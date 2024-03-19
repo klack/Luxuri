@@ -20,7 +20,7 @@ Luxuri is WIP printer display for Klipper and TJC / Nextion screens.
 * $18 screen
 
 # Installation
-There is no current release, Luxuri is being reskinned and adapted for Klipper.
+There is no current release, Luxuri is being facelifted for Klipper.
 
 # Video
 [![Watch the video](https://img.youtube.com/vi/txyAyR8ZIuo/0.jpg)](https://youtu.be/txyAyR8ZIuo)
