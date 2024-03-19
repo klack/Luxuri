@@ -1,7 +1,13 @@
 # Lux Universal Reprap Interface
 Luxuri is WIP printer display for Klipper and TJC / Nextion screens.
 
-![image](https://github.com/klack/Luxuri/assets/4606571/2fc1880a-c6df-40fa-8272-14ff136247fa)
+![Home](https://github.com/klack/Luxuri/assets/4606571/2fc1880a-c6df-40fa-8272-14ff136247fa)
+
+![Move](https://github.com/klack/Luxuri/assets/4606571/f0ba8bed-6ec2-4380-831a-d8535469a720)
+
+![Fans](https://github.com/klack/Luxuri/assets/4606571/dfa7518f-31d0-4d14-917f-877087c176d2)
+
+![Main Menu](https://github.com/klack/Luxuri/assets/4606571/bfd54bf0-622b-459d-977f-875d718cd06a)
 
 # Unique Features
 * Connects directly to your printer's mainboard
