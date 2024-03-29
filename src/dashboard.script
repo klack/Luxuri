@@ -155,13 +155,13 @@ Text tT0Temp
         
 Picture p0
     Attributes
-        ID               : 27
+        ID               : 26
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
         x coordinate     : 5
-        y coordinate     : 32
+        y coordinate     : 46
         Width            : 188
         Height           : 188
         Effect           : load
@@ -317,7 +317,7 @@ Button bPrint
         Dragging                            : 0
         Send Component ID                   : disabled
         Opacity                             : 127
-        x coordinate                        : 259
+        x coordinate                        : 249
         y coordinate                        : 168
         Width                               : 64
         Height                              : 64
@@ -342,12 +342,12 @@ Button bPrint
         
 Button bMenu
     Attributes
-        ID                                  : 26
+        ID                                  : 25
         Scope                               : local
         Dragging                            : 0
         Send Component ID                   : disabled
         Opacity                             : 127
-        x coordinate                        : 347
+        x coordinate                        : 357
         y coordinate                        : 168
         Width                               : 64
         Height                              : 64
@@ -388,7 +388,6 @@ Hotspot luxNotify
             click parseCommon,1
             click parseTemp,1
             click parseSDPrint,1
-            click parsePrintSet,1
             click parsePosition,1
             click serialHistory,1
         
@@ -400,9 +399,9 @@ Hotspot parseTemp
         Send Component ID: disabled
         Opacity          : 127
         x coordinate     : 488
-        y coordinate     : 67
+        y coordinate     : 39
         Width            : 106
-        Height           : 17
+        Height           : 15
         Effect           : load
     
     Events
@@ -490,10 +489,10 @@ Hotspot serialHistory
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 487
-        y coordinate     : 97
-        Width            : 103
-        Height           : 19
+        x coordinate     : 488
+        y coordinate     : 93
+        Width            : 106
+        Height           : 15
         Effect           : load
     
     Events
@@ -563,10 +562,10 @@ Hotspot historyFilters
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 487
-        y coordinate     : 131
+        x coordinate     : 488
+        y coordinate     : 111
         Width            : 106
-        Height           : 17
+        Height           : 15
         Effect           : load
     
     Events
@@ -720,8 +719,8 @@ Hotspot luxInit
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 116
-        y coordinate     : 65419
+        x coordinate     : 65535
+        y coordinate     : 65457
         Width            : 106
         Height           : 17
         Effect           : load
@@ -761,8 +760,8 @@ Hotspot luxAnimate
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 116
-        y coordinate     : 65487
+        x coordinate     : 371
+        y coordinate     : 65492
         Width            : 106
         Height           : 17
         Effect           : load
@@ -784,9 +783,9 @@ Hotspot luxControlBar
         Send Component ID: disabled
         Opacity          : 127
         x coordinate     : 371
-        y coordinate     : 65514
-        Width            : 104
-        Height           : 15
+        y coordinate     : 65509
+        Width            : 106
+        Height           : 17
         Effect           : load
     
     Events
@@ -942,7 +941,7 @@ Hotspot luxDoCallback
         Send Component ID: disabled
         Opacity          : 127
         x coordinate     : 65535
-        y coordinate     : 65512
+        y coordinate     : 65508
         Width            : 106
         Height           : 17
         Effect           : load
@@ -972,55 +971,17 @@ Hotspot luxDoCallback
             parse.callback.txt="null"
             parse.callbackReturn.txt="null"
         
-Hotspot parsePrintSet
+Hotspot parsePosition
     Attributes
         ID               : 21
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 489
-        y coordinate     : 158
+        x coordinate     : 488
+        y coordinate     : 57
         Width            : 106
-        Height           : 17
-        Effect           : load
-    
-    Events
-        Touch Press Event
-            // Feed Rate / Speed
-            // FR:100%
-            parse.lineMatch.txt="FR:" //Qualify Line
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                spstr parse.buffer.txt,vars.s.txt,":",1
-                spstr vars.s.txt,vars.s2.txt,"%",0
-                covx vars.s2.txt,printer.speed.val,0,0
-            }
-            // Flow
-            // echo:E0 Flow: 100%
-            parse.lineMatch.txt=" Flow: " //Qualify Line
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,7,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                spstr parse.buffer.txt,vars.s.txt," ",2
-                spstr vars.s.txt,vars.s2.txt,"%",0
-                covx vars.s2.txt,printer.flow.val,0,0
-            }
-        
-Hotspot parsePosition
-    Attributes
-        ID               : 22
-        Scope            : local
-        Dragging         : 0
-        Send Component ID: disabled
-        Opacity          : 127
-        x coordinate     : 490
-        y coordinate     : 181
-        Width            : 106
-        Height           : 17
+        Height           : 15
         Effect           : load
     
     Events
@@ -1041,13 +1002,13 @@ Hotspot parsePosition
         
 Hotspot luxRead
     Attributes
-        ID               : 23
+        ID               : 22
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
         x coordinate     : 65535
-        y coordinate     : 65493
+        y coordinate     : 65491
         Width            : 106
         Height           : 17
         Effect           : load
@@ -1102,15 +1063,15 @@ Hotspot luxRead
         
 Hotspot parseCommon
     Attributes
-        ID               : 25
+        ID               : 24
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 489
-        y coordinate     : 36
+        x coordinate     : 488
+        y coordinate     : 21
         Width            : 106
-        Height           : 17
+        Height           : 15
         Effect           : load
     
     Events
@@ -1294,15 +1255,15 @@ Hotspot parseCommon
         
 Hotspot parseSDPrint
     Attributes
-        ID               : 28
+        ID               : 27
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 489
-        y coordinate     : 205
+        x coordinate     : 488
+        y coordinate     : 75
         Width            : 106
-        Height           : 17
+        Height           : 15
         Effect           : load
     
     Events
@@ -1365,15 +1326,15 @@ Hotspot parseSDPrint
         
 Hotspot luxView
     Attributes
-        ID               : 30
+        ID               : 29
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 116
-        y coordinate     : 65465
+        x coordinate     : 371
+        y coordinate     : 65475
         Width            : 106
-        Height           : 15
+        Height           : 17
         Effect           : load
     
     Events
@@ -1433,7 +1394,7 @@ Timer luxAnimTimer
         
 Timer tmGetStatus
     Attributes
-        ID         : 24
+        ID         : 23
         Scope      : local
         Period (ms): 100
         Enabled    : yes
@@ -1452,7 +1413,7 @@ Timer tmGetStatus
         
 TouchCap tCap
     Attributes
-        ID   : 29
+        ID   : 28
         Scope: local
         Value: 0
     
