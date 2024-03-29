@@ -1,0 +1,79 @@
+Page vars
+    Attributes
+        ID                 : 0
+        Scope              : local
+        Send Component ID  : disabled
+        Opacity            : 127
+        Width              : 1024
+        Effect             : load
+        Locked             : no
+        Swide up page ID   : disabled
+        Swide down page ID : disabled
+        Swide left page ID : disabled
+        Swide right page ID: disabled
+        Fill               : solid color
+        Back. Color        : 65535
+    
+Variable (string) s2
+    Attributes
+        ID            : 1
+        Scope         : global
+        Text          : string
+        Max. Text Size: 64
+    
+Variable (string) s
+    Attributes
+        ID            : 2
+        Scope         : global
+        Text          : string
+        Max. Text Size: 256
+    
+Variable (string) debug
+    Attributes
+        ID            : 3
+        Scope         : global
+        Text          : Start
+        Max. Text Size: 51711
+    
+Variable (string) status
+    Attributes
+        ID            : 4
+        Scope         : global
+        Text          : 
+        Max. Text Size: 128
+    
+Variable (string) returnVal
+    Attributes
+        ID            : 5
+        Scope         : global
+        Text          : 
+        Max. Text Size: 64
+    
+Variable (string) state
+    Attributes
+        ID            : 6
+        Scope         : global
+        Text          : null
+        Max. Text Size: 16
+    
+Variable (string) slarge
+    Attributes
+        ID            : 7
+        Scope         : global
+        Text          : 
+        Max. Text Size: 4096
+    
+Variable (string) tab
+    Attributes
+        ID            : 8
+        Scope         : global
+        Text          : 	
+        Max. Text Size: 1
+    
+Variable (string) concat
+    Attributes
+        ID            : 9
+        Scope         : global
+        Text          : 	
+        Max. Text Size: 64
+    

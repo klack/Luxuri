@@ -1,0 +1,303 @@
+Page error
+    Attributes
+        ID                 : 0
+        Scope              : local
+        Send Component ID  : disabled
+        Opacity            : 127
+        Width              : 480
+        Effect             : load
+        Locked             : no
+        Swide up page ID   : disabled
+        Swide down page ID : disabled
+        Swide left page ID : disabled
+        Swide right page ID: disabled
+        Fill               : solid color
+        Back. Color        : 63488
+    
+    Events
+        Preinitialize Event
+            click luxInit,1
+        
+Text tMessage
+    Attributes
+        ID                      : 1
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 0
+        y coordinate            : 91
+        Width                   : 480
+        Height                  : 107
+        Effect                  : load
+        Fill                    : crop image
+        Associated Keyboard     : none
+        Font ID                 : 5
+        Cropped Back. Picture ID: 0
+        Horizontal Alignment    : center
+        Vertical Alignment      : center
+        Input Type              : character
+        Text                    : 
+        Max. Text Size          : 255
+        Word wrap               : enabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+    Events
+        Touch Press Event
+            page MAIN
+        
+Hotspot parseAll
+    Attributes
+        ID               : 2
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 488
+        y coordinate     : 21
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn parseAll
+            /// @brief Used only on the error page
+            ///////////////////////////////////////////////////////////////////////////////
+            printer.error.txt+=parse.buffer.txt
+            printer.error.txt+="\r"
+        
+Hotspot luxInit
+    Attributes
+        ID               : 3
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 116
+        y coordinate     : 65419
+        Width            : 106
+        Height           : 19
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxInitialize 1
+            /// @brief Sets up the lux framework
+            ///////////////////////////////////////////////////////////////////////////////
+            // ReturnPage=dp
+            DiagReturnPage=dp
+            click luxView,1
+            click luxRunOnce,1
+        
+        Touch Release Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxInitialize 0
+            /// @brief Should run on any close button
+            ///////////////////////////////////////////////////////////////////////////////
+            page ReturnPage
+        
+Hotspot luxNotify
+    Attributes
+        ID               : 5
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 488
+        y coordinate     : 65526
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            click parseAll,1
+        
+Hotspot luxView
+    Attributes
+        ID               : 6
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 116
+        y coordinate     : 65487
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxView,1
+            /// @brief Updates states for controls
+            ///////////////////////////////////////////////////////////////////////////////
+            tMessage.txt=printer.error.txt
+        
+Hotspot luxRunOnce
+    Attributes
+        ID               : 7
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 116
+        y coordinate     : 65443
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn runOnce
+            /// @brief Enable normal sleep settings.  Handles error while fake sleep is in use
+            ///////////////////////////////////////////////////////////////////////////////
+            dim=100
+            thsp=SLEEP_TIME*60
+        
+Hotspot luxSend
+    Attributes
+        ID               : 8
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 65535
+        y coordinate     : 65437
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxSend 1
+            /// @brief Send a single command
+            /// @param[in] command.command.txt
+            ///////////////////////////////////////////////////////////////////////////////
+            prints commands.command.txt,0
+            printh 0A
+            ok=0
+            //click serialHistory,0
+            commands.command.txt=""
+        
+        Touch Release Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxSend 0
+            /// @brief Send command queue, waiting for ok between each command
+            /// @brief Waits a max of 10 times for each ok
+            ///////////////////////////////////////////////////////////////////////////////
+            strlen commands.queue.txt,QueueLen //get the length of the command queue
+            if(ok==1&&busy==0) //Send Queue
+            {
+                QueueBlocks=0
+                while(QueueLen>0&&QueueBlocks<=10)
+                {
+                    click luxRead,1
+                    if(ok==1&&busy==0)
+                    {
+                        spstr commands.queue.txt,vars.s.txt,"\r",0
+                        if(vars.s.txt!="")
+                        {
+                            strlen vars.s.txt,CommandLen //get the lenght of the command
+                            CharLen=QueueLen-CommandLen //calc the amount of chars to copy
+                            //remove the command from the queue by getting a substring of the commandqueue
+                            substr commands.queue.txt,commands.queue.txt,CommandLen+2,CharLen //+2 to count \r
+                            commands.command.txt=vars.s.txt
+                            click luxSend,1
+                        }else
+                        {
+                            commands.queue.txt=""
+                            QueueLen=0
+                        }
+                    }else
+                    {
+                        QueueBlocks+=1
+                    }
+                    strlen commands.queue.txt,QueueLen //Refresh the command queue lenght
+                }
+            }
+        
+Hotspot luxRead
+    Attributes
+        ID               : 9
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 65535
+        y coordinate     : 65492
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxRead 1
+            /// @brief Read the buffer and notify when end of line is reached
+            ///////////////////////////////////////////////////////////////////////////////
+            if(usize>0)
+            {
+                while(SerialPos<usize)
+                {
+                    ucopy parse.startChar.txt,SerialPos,1,0 //Check next character
+                    if(u[SerialPos]==10||u[SerialPos]==13) //If linefeed or carriage return
+                    {
+                        //EOL reached
+                        strlen parse.buffer.txt,BufferLen //Record buffer length
+                        click luxNotify,1 //Notify listeners
+                        parse.buffer.txt="" //Clear buffer
+                    }
+                    if(u[SerialPos]==13) //Cariage return
+                    {
+                        SerialPos++       //Lookahead to next char
+                        if(SerialPos<usize) //If under buffersize
+                        {
+                            if(u[SerialPos]!=10) //But no linefeed
+                            {
+                                SerialPos-- //Rollback
+                            }
+                        }else
+                        {
+                            SerialPos-- //Rollback if over buffersize
+                        }
+                    }else
+                    {
+                        if(u[SerialPos]!=10) //Add character to line if not CR or LF
+                        {
+                            parse.buffer.txt+=parse.startChar.txt
+                        }
+                    }
+                    SerialPos++ //Next character
+                }
+                if(SerialPos==usize) //End of buffer reached
+                {
+                    code_c
+                    BufferLen=0
+                    SerialPos=0
+                }
+            }
+        
+Timer luxRun
+    Attributes
+        ID         : 4
+        Scope      : local
+        Period (ms): 1000
+        Enabled    : yes
+    
+    Events
+        Timer Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxRun
+            /// @breif Main Program Loop
+            ///////////////////////////////////////////////////////////////////////////////
+            click luxView,1
+            click luxRead,1
+            doevents
+        

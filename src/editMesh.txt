@@ -1,0 +1,800 @@
+Page editMesh
+    Attributes
+        ID                 : 0
+        Scope              : local
+        Send Component ID  : disabled
+        Opacity            : 127
+        Width              : 480
+        Effect             : load
+        Locked             : no
+        Swide up page ID   : disabled
+        Swide down page ID : disabled
+        Swide left page ID : disabled
+        Swide right page ID: disabled
+        Fill               : solid color
+        Back. Color        : 65535
+    
+Variable (string) concat
+    Attributes
+        ID            : 12
+        Scope         : local
+        Text          : 
+        Max. Text Size: 5
+    
+Variable (int32) tmp
+    Attributes
+        ID   : 13
+        Scope: local
+        Value: 0
+    
+Variable (int32) parsingBed
+    Attributes
+        ID   : 24
+        Scope: local
+        Value: 0
+    
+XFloat offset
+    Attributes
+        ID                      : 6
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 368
+        y coordinate            : 109
+        Width                   : 100
+        Height                  : 30
+        Effect                  : load
+        Fill                    : solid color
+        Style                   : flat
+        Associated Keyboard     : none
+        Font ID                 : 0
+        Back. Color             : 65535
+        Font Color              : 0
+        Horizontal Alignment    : center
+        Vertical Alignment      : center
+        Value                   : 0
+        Significant digits left : 1
+        Significant digits right: 3
+        Word wrap               : enabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+XFloat column
+    Attributes
+        ID                      : 8
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 368
+        y coordinate            : 79
+        Width                   : 100
+        Height                  : 30
+        Effect                  : load
+        Fill                    : solid color
+        Style                   : flat
+        Associated Keyboard     : none
+        Font ID                 : 0
+        Back. Color             : 65535
+        Font Color              : 0
+        Horizontal Alignment    : center
+        Vertical Alignment      : center
+        Value                   : 0
+        Significant digits left : 0
+        Significant digits right: 0
+        Word wrap               : enabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+XFloat row
+    Attributes
+        ID                      : 9
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 368
+        y coordinate            : 49
+        Width                   : 100
+        Height                  : 30
+        Effect                  : load
+        Fill                    : solid color
+        Style                   : flat
+        Associated Keyboard     : none
+        Font ID                 : 0
+        Back. Color             : 65535
+        Font Color              : 0
+        Horizontal Alignment    : center
+        Vertical Alignment      : center
+        Value                   : 0
+        Significant digits left : 0
+        Significant digits right: 0
+        Word wrap               : enabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+Text arrPoints
+    Attributes
+        ID                  : 3
+        Scope               : local
+        Dragging            : 0
+        Send Component ID   : disabled
+        Opacity             : 127
+        x coordinate        : 65534
+        y coordinate        : 243
+        Width               : 480
+        Height              : 30
+        Effect              : load
+        Fill                : solid color
+        Style               : flat
+        Associated Keyboard : none
+        Font ID             : 0
+        Back. Color         : 65535
+        Font Color          : 0
+        Horizontal Alignment: center
+        Vertical Alignment  : center
+        Input Type          : character
+        Text                : -0186;-0100;-0075;-0069;-0033;-0029;-0015;0019;0035;0006;0025;0012;0020;0002;-0014;-0110;-0116;-0071;-0040;-0046;-0010;-0003;-0005;-0003;-0013;0000;-0008;-0030;-0040;-0044;-0110;-0102;-0058;-0061;-0005;-0013;-0025;0016;-0008;-0011;-0016;-0018;-0054;-0065;-0086;-0133;-0111;-0095;-0065;-0046;-0030;-0030;0002;-0001;-0031;-0038;-0048;-0053;-0095;-0110;-0119;-0100;-0070;-0061;-0036;-0013;-0010;-0004;-0024;-0020;-0029;-0070;-0085;-0129;-0155;-0153;-0116;-0067;-0051;-0056;-0049;-0015;-0008;-0045;-0029;-0030;-0036;-0051;-0133;-0118;-0134;-0124;-0076;-0038;-0038;-0034;-0009;-0001;-0019;-0038;-0035;-0031;-0059;-0114;-0161;-0131;-0102;-0099;-0043;-0038;-0066;-0048;-0008;-0041;-0041;-0048;-0075;-0107;-0123;-0116;-0097;-0118;-0084;-0043;-0035;-0041;-0014;-0015;-0019;-0066;-0040;-0064;-0066;-0125;-0114;-0081;-0089;-0077;-0059;-0020;-0025;-0021;-0006;-0010;-0044;-0019;-0054;-0077;-0134;-0130;-0095;-0092;-0069;-0035;0014;-0018;0011;-0003;0010;-0018;-0025;0005;-0023;-0054;-0081;-0085;-0095;-0060;0010;0011;-0016;0026;0023;0031;0025;0048;0010;-0001;0006;-0029;-0076;-0084;-0056;-0011;-0010;0043;0031;0069;0055;0015;0066;0063;0039;0034;0041;-0107;-0085;-0045;-0049;0010;0004;0025;0046;0060;0050;0056;0066;0063;0086;0075;-0107;-0085;-0034;-0049;0030;0004;0025;0046;0065;0085;0056;0070;0086;0139;0109
+        Max. Text Size      : 2040
+        Word wrap           : disabled
+        Horizontal Spacing  : 0
+        Vertical Spacing    : 0
+    
+Text arrMeshRows
+    Attributes
+        ID                  : 4
+        Scope               : local
+        Dragging            : 0
+        Send Component ID   : disabled
+        Opacity             : 127
+        x coordinate        : 1
+        y coordinate        : 337
+        Width               : 480
+        Height              : 28
+        Effect              : load
+        Fill                : solid color
+        Style               : flat
+        Associated Keyboard : none
+        Font ID             : 0
+        Back. Color         : 65535
+        Font Color          : 0
+        Horizontal Alignment: left
+        Vertical Alignment  : center
+        Input Type          : character
+        Text                : 14;14;14;14;14;14;14;14;14;14;14;14;14;14
+        Max. Text Size      : 1024
+        Word wrap           : disabled
+        Horizontal Spacing  : 0
+        Vertical Spacing    : 0
+    
+Text arrMeshColumns
+    Attributes
+        ID                  : 5
+        Scope               : local
+        Dragging            : 0
+        Send Component ID   : disabled
+        Opacity             : 127
+        x coordinate        : 1
+        y coordinate        : 365
+        Width               : 480
+        Height              : 30
+        Effect              : load
+        Fill                : solid color
+        Style               : flat
+        Associated Keyboard : none
+        Font ID             : 0
+        Back. Color         : 65535
+        Font Color          : 0
+        Horizontal Alignment: left
+        Vertical Alignment  : center
+        Input Type          : character
+        Text                : 0;1;2;3;4;5;6;7;8;9;10;11;12;13;14
+        Max. Text Size      : 1024
+        Word wrap           : disabled
+        Horizontal Spacing  : 0
+        Vertical Spacing    : 0
+    
+Text tDebug
+    Attributes
+        ID                  : 7
+        Scope               : local
+        Dragging            : 0
+        Send Component ID   : disabled
+        Opacity             : 127
+        x coordinate        : 215
+        y coordinate        : 174
+        Width               : 100
+        Height              : 30
+        Effect              : load
+        Fill                : solid color
+        Style               : flat
+        Associated Keyboard : none
+        Font ID             : 0
+        Back. Color         : 65535
+        Font Color          : 0
+        Horizontal Alignment: center
+        Vertical Alignment  : center
+        Input Type          : character
+        Text                : 
+        Max. Text Size      : 32
+        Word wrap           : disabled
+        Horizontal Spacing  : 0
+        Vertical Spacing    : 0
+    
+Text posColors
+    Attributes
+        ID                  : 10
+        Scope               : local
+        Dragging            : 0
+        Send Component ID   : disabled
+        Opacity             : 127
+        x coordinate        : 1
+        y coordinate        : 281
+        Width               : 480
+        Height              : 28
+        Effect              : load
+        Fill                : solid color
+        Style               : flat
+        Associated Keyboard : none
+        Font ID             : 0
+        Back. Color         : 65535
+        Font Color          : 0
+        Horizontal Alignment: left
+        Vertical Alignment  : center
+        Input Type          : character
+        Text                : 992;1024;3072;5152;5184;7232;9312;11392;11392;13472;15552;17600;19680;21728;23808;25888;27936;30016;32096;34144;36224;40352;42400;44480;46528;48576;48544;50528;50496;50432;52448;52384;52352;52288;54272;54208;54176;56160;56096;56032;58016;57920;57856;59840;59776;59680;61664;61600;61504;63488
+        Max. Text Size      : 1024
+        Word wrap           : disabled
+        Horizontal Spacing  : 0
+        Vertical Spacing    : 0
+    
+Text negColors
+    Attributes
+        ID                  : 11
+        Scope               : local
+        Dragging            : 0
+        Send Component ID   : disabled
+        Opacity             : 127
+        x coordinate        : 1
+        y coordinate        : 309
+        Width               : 480
+        Height              : 28
+        Effect              : load
+        Fill                : solid color
+        Style               : flat
+        Associated Keyboard : none
+        Font ID             : 0
+        Back. Color         : 65535
+        Font Color          : 0
+        Horizontal Alignment: left
+        Vertical Alignment  : center
+        Input Type          : character
+        Text                : 992;992;993;994;995;996;997;998;999;1000;1001;1002;1003;1004;1005;1006;1007;975;911;847;783;719;655;591;527;463;399;335;303;239;175;111;47;15;2063;4111;6159;8207;10255;12303;12303;14351;16399;18447;20495;22543;24591;26639;28687;30735
+        Max. Text Size      : 1024
+        Word wrap           : disabled
+        Horizontal Spacing  : 0
+        Vertical Spacing    : 0
+    
+Crop Picture q0
+    Attributes
+        ID                      : 25
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 10
+        y coordinate            : 9
+        Width                   : 249
+        Height                  : 230
+        Effect                  : load
+        Cropped Back. Picture ID: 0
+    
+Button bParseBed
+    Attributes
+        ID                        : 2
+        Scope                     : local
+        Dragging                  : 0
+        Send Component ID         : disabled
+        Opacity                   : 127
+        x coordinate              : 348
+        y coordinate              : 184
+        Width                     : 100
+        Height                    : 50
+        Effect                    : load
+        Fill                      : solid color
+        Style                     : 3D auto
+        Font ID                   : 0
+        Back. Color               : 50712
+        Back. Picture ID (Pressed): 65535
+        Back. Color (Pressed)     : 1024
+        Font Color (Unpressed)    : 0
+        Font Color (Pressed)      : 65535
+        Horizontal Alignment      : center
+        Vertical Alignment        : center
+        State                     : unpressed
+        Text                      : Go
+        Max. Text Size            : 10
+        Word wrap                 : disabled
+        Horizontal Spacing        : 0
+        Vertical Spacing          : 0
+    
+    Events
+        Touch Press Event
+            // parseBed
+            click colorize,1
+            commands.command.txt="G29 T0"
+            click luxSend,1
+        
+Hotspot colorize
+    Attributes
+        ID               : 14
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 65364
+        y coordinate     : 33
+        Width            : 128
+        Height           : 16
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            for(ii=0;ii<50;ii++) //type 3 denotes end of page controls
+            {
+                tt=b[ii].type
+                if(tt==54) //number control
+                {
+                    //colorize
+                    pp=b[ii].val
+                    spstr arrPoints.txt,vars.s.txt,";",pp // Get the offset value for this point
+                    covx vars.s.txt,kk,0,0
+                    if(kk>0)
+                    {
+                        kk/=10
+                        spstr posColors.txt,vars.s.txt,";",kk
+                        covx vars.s.txt,b[ii].bco,0,0
+                        b[ii].pco=b[ii].bco
+                    }else
+                    {
+                        kk/=10
+                        kk*=-1
+                        spstr negColors.txt,vars.s.txt,";",kk
+                        covx vars.s.txt,b[ii].bco,0,0
+                        b[ii].pco=b[ii].bco
+                    }
+                }
+            }
+        
+Hotspot luxInit
+    Attributes
+        ID               : 15
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 116
+        y coordinate     : 65419
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxInitialize 1
+            /// @brief Sets up the lux framework
+            ///////////////////////////////////////////////////////////////////////////////
+            // ReturnPage=dp
+            DiagReturnPage=dp
+            if(HandleCallback==0)
+            {
+                //  click luxRunOnce,1
+            }else
+            {
+                //  click luxDoCallback,1
+            }
+            click luxView,1
+            //click luxAnimate,1
+            //click luxSleep,1
+            click luxController,1
+            //click luxDoCallback,0 //Clears callback vars
+        
+        Touch Release Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxInitialize 0
+            /// @brief Call when perminently exiting the page
+            ///////////////////////////////////////////////////////////////////////////////
+            //click luxSleep,0
+        
+Hotspot luxSend
+    Attributes
+        ID               : 16
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 65535
+        y coordinate     : 65437
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxSend 1
+            /// @brief Send a single command
+            /// @param[in] command.command.txt
+            ///////////////////////////////////////////////////////////////////////////////
+            prints commands.command.txt,0
+            printh 0A
+            ok=0
+            click serialHistory,0
+            commands.command.txt=""
+        
+        Touch Release Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxSend 0
+            /// @brief Send command queue, waiting for ok between each command
+            /// @brief Waits a max of 10 times for each ok
+            ///////////////////////////////////////////////////////////////////////////////
+            strlen commands.queue.txt,QueueLen //get the length of the command queue
+            if(ok==1&&busy==0) //Send Queue
+            {
+                QueueBlocks=0
+                while(QueueLen>0&&QueueBlocks<=10)
+                {
+                    click luxRead,1
+                    if(ok==1&&busy==0)
+                    {
+                        spstr commands.queue.txt,vars.s.txt,"\r",0
+                        if(vars.s.txt!="")
+                        {
+                            strlen vars.s.txt,CommandLen //get the lenght of the command
+                            CharLen=QueueLen-CommandLen //calc the amount of chars to copy
+                            //remove the command from the queue by getting a substring of the commandqueue
+                            substr commands.queue.txt,commands.queue.txt,CommandLen+2,CharLen //+2 to count \r
+                            commands.command.txt=vars.s.txt
+                            click luxSend,1
+                        }else
+                        {
+                            commands.queue.txt=""
+                            QueueLen=0
+                        }
+                    }else
+                    {
+                        QueueBlocks+=1
+                    }
+                    strlen commands.queue.txt,QueueLen //Refresh the command queue lenght
+                }
+            }
+        
+Hotspot luxRead
+    Attributes
+        ID               : 17
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 65535
+        y coordinate     : 65462
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxRead 1
+            /// @brief Read the buffer and notify when end of line is reached
+            ///////////////////////////////////////////////////////////////////////////////
+            if(usize>0)
+            {
+                while(SerialPos<usize)
+                {
+                    ucopy parse.startChar.txt,SerialPos,1,0 //Check next character
+                    if(u[SerialPos]==10||u[SerialPos]==13) //If linefeed or carriage return
+                    {
+                        //EOL reached
+                        strlen parse.buffer.txt,BufferLen //Record buffer length
+                        click luxNotify,1 //Notify listeners
+                        parse.buffer.txt="" //Clear buffer
+                    }
+                    if(u[SerialPos]==13) //Cariage return
+                    {
+                        SerialPos++       //Lookahead to next char
+                        if(SerialPos<usize) //If under buffersize
+                        {
+                            if(u[SerialPos]!=10) //But no linefeed
+                            {
+                                SerialPos-- //Rollback
+                            }
+                        }else
+                        {
+                            SerialPos-- //Rollback if over buffersize
+                        }
+                    }else
+                    {
+                        if(u[SerialPos]!=10) //Add character to line if not CR or LF
+                        {
+                            parse.buffer.txt+=parse.startChar.txt
+                        }
+                    }
+                    SerialPos++ //Next character
+                }
+                if(SerialPos==usize) //End of buffer reached
+                {
+                    code_c
+                    BufferLen=0
+                    SerialPos=0
+                }
+            }
+        
+Hotspot luxView
+    Attributes
+        ID               : 18
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 116
+        y coordinate     : 65487
+        Width            : 106
+        Height           : 15
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxView,1
+            /// @brief Updates states for controls
+            ///////////////////////////////////////////////////////////////////////////////
+        
+Hotspot luxNotify
+    Attributes
+        ID               : 20
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 488
+        y coordinate     : 3
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+Hotspot luxController
+    Attributes
+        ID               : 21
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 116
+        y coordinate     : 65465
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxController,1
+            /// @brief Program loop
+            ///////////////////////////////////////////////////////////////////////////////
+        
+        Touch Release Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxController,0
+            /// @brief Custom on page callback handling
+            ///////////////////////////////////////////////////////////////////////////////
+        
+Hotspot serialHistory
+    Attributes
+        ID               : 22
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 488
+        y coordinate     : 20
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn serialHistory 1
+            /// @brief Preserves command recieved history
+            ///////////////////////////////////////////////////////////////////////////////
+            click historyFilters,1
+            parse.last.txt=parse.buffer.txt
+            if(parse.last.txt!="")
+            {
+                strlen parse.last.txt,BuffHistNewLineLen
+                strlen connect.history.txt,BuffHistLen
+                BuffHistNewLen=BuffHistLen+BuffHistNewLineLen
+                if(BuffHistNewLen>=connect.history.txt_maxl) //Check if reached buffer lenght
+                {
+                    //Cut lenght of new command out of buffer
+                    substr connect.history.txt,vars.slarge.txt,BuffHistNewLineLen,connect.history.txt_maxl
+                    connect.history.txt=vars.slarge.txt
+                    //Find length until next \r
+                    spstr connect.history.txt,vars.slarge.txt,"\r",0
+                    strlen vars.slarge.txt,BuffHistTrimLen
+                    BuffHistTrimLen+=1 // Trim one more char
+                    //Cut that out of the rest of the buffer
+                    strlen connect.history.txt,BuffHistLen //Get new buffer len
+                    substr connect.history.txt,vars.slarge.txt,BuffHistTrimLen+1,BuffHistLen-BuffHistTrimLen //+1 is to advance cursor
+                    connect.history.txt=vars.slarge.txt
+                }
+                //connect.history.txt+="R: "
+                connect.history.txt+=parse.last.txt
+                connect.history.txt+="\r"
+            }
+        
+        Touch Release Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn serialHistory 0
+            /// @brief Preserves command sent history
+            ///////////////////////////////////////////////////////////////////////////////
+            // Scroll up command history
+            commands.last.txt=commands.command.txt
+            strlen commands.last.txt,BuffHistNewLineLen
+            strlen connect.history.txt,BuffHistLen
+            BuffHistNewLen=BuffHistLen+BuffHistNewLineLen
+            if(BuffHistNewLen>=connect.history.txt_maxl) //Check if reached buffer lenght
+            {
+                //Cut lenght of new command out of buffer
+                substr connect.history.txt,vars.slarge.txt,BuffHistNewLineLen,connect.history.txt_maxl
+                connect.history.txt=vars.slarge.txt
+                //Find length until next \r
+                spstr connect.history.txt,vars.slarge.txt,"\r",0
+                strlen vars.slarge.txt,BuffHistTrimLen
+                BuffHistTrimLen+=1 // Trim one more char
+                //Cut that out of the rest of the buffer
+                strlen connect.history.txt,BuffHistLen //Get new buffer len
+                substr connect.history.txt,vars.slarge.txt,BuffHistTrimLen+1,BuffHistLen-BuffHistTrimLen //+1 is to advance cursor
+                connect.history.txt=vars.slarge.txt
+            }
+            connect.history.txt+="S: "
+            connect.history.txt+=commands.last.txt
+            connect.history.txt+="\r"
+        
+Hotspot historyFilters
+    Attributes
+        ID               : 23
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 488
+        y coordinate     : 37
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            //Qualify Line
+            parse.matched.val=0
+            if(historyFilters.swTemp.val==1)
+            {
+                parse.lineMatch.txt=" T:"
+                strlen parse.lineMatch.txt,j
+                substr parse.buffer.txt,parse.eval.txt,0,j
+                if(parse.eval.txt==parse.lineMatch.txt)
+                {
+                    parse.matched.val=1
+                }
+                parse.lineMatch.txt="ok T:" //Handle M105 Temp Response
+                strlen parse.lineMatch.txt,j
+                substr parse.buffer.txt,parse.eval.txt,0,j
+                if(parse.eval.txt==parse.lineMatch.txt)
+                {
+                    parse.matched.val=1
+                }
+            }
+            if(historyFilters.swBusy.val==1)
+            {
+                parse.lineMatch.txt="echo:busy: processing" //Busy
+                strlen parse.lineMatch.txt,j
+                substr parse.buffer.txt,parse.eval.txt,0,j
+                if(parse.eval.txt==parse.lineMatch.txt)
+                {
+                    parse.matched.val=1
+                }
+            }
+            if(historyFilters.swSDCard.val==1)
+            {
+                parse.lineMatch.txt="Not SD printing" //SD Status
+                strlen parse.lineMatch.txt,j
+                substr parse.buffer.txt,parse.eval.txt,0,j
+                if(parse.eval.txt==parse.lineMatch.txt)
+                {
+                    parse.matched.val=1
+                }
+                parse.lineMatch.txt="SD printing byte " //SD Progress
+                strlen parse.lineMatch.txt,j
+                substr parse.buffer.txt,parse.eval.txt,0,j
+                if(parse.eval.txt==parse.lineMatch.txt)
+                {
+                    parse.matched.val=1
+                }
+            }
+            if(historyFilters.swEcho.val==1)
+            {
+                parse.lineMatch.txt="echo:echo:"
+                strlen parse.lineMatch.txt,j
+                substr parse.buffer.txt,parse.eval.txt,0,j
+                if(parse.eval.txt==parse.lineMatch.txt)
+                {
+                    spstr parse.buffer.txt,parse.buffer.txt,"echo:",2
+                }
+            }
+            if(historyFilters.swEcho.val==1)
+            {
+                parse.lineMatch.txt="echo:"
+                strlen parse.lineMatch.txt,j
+                substr parse.buffer.txt,parse.eval.txt,0,j
+                if(parse.eval.txt==parse.lineMatch.txt)
+                {
+                    spstr parse.buffer.txt,parse.buffer.txt,"echo:",1
+                }
+            }
+            parse.lineMatch.txt="X:"
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                parse.matched.val=1
+            }
+            if(parse.matched.val==1)
+            {
+                parse.buffer.txt=""
+                parse.matched.val=0
+            }
+        
+Timer luxRun
+    Attributes
+        ID         : 19
+        Scope      : local
+        Period (ms): 100
+        Enabled    : yes
+    
+    Events
+        Timer Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxRun
+            /// @breif Main Program Loop
+            ///////////////////////////////////////////////////////////////////////////////
+            click luxRead,1
+            click luxView,1
+            click luxController,1
+            click luxSend,0
+        
+TouchCap touchAction
+    Attributes
+        ID   : 1
+        Scope: local
+        Value: 0
+    
+    Events
+        Touch Release Event
+            // touchAction
+            tDebug.txt="Firing touch action"
+            if(b[touchAction.val].type==54) // Is a number box
+            {
+                // Get the offset value for this point
+                spstr arrPoints.txt,vars.s.txt,";",b[touchAction.val].val
+                covx vars.s.txt,offset.val,0,0
+                // Get the mesh column and row
+                spstr arrMeshRows.txt,vars.s.txt,";",b[touchAction.val].val
+                covx vars.s.txt,row.val,0,0
+                spstr arrMeshColumns.txt,vars.s.txt,";",b[touchAction.val].val
+                covx vars.s.txt,column.val,0,0
+            }
+        

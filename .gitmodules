@@ -1,0 +1,3 @@
+[submodule "scripts/Nextion2Text"]
+	path = scripts/Nextion2Text
+	url = git@github.com:klack/Nextion2Text.git

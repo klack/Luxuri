@@ -1,8 +1,0 @@
-//Page Load
-swRecmod.val=recmod
-nDebug.val=recmod
-
-//click swRecmod
-recmod=1-recmod
-swRecmod.val=recmod
-nDebug.val=recmod

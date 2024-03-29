@@ -1,0 +1,56 @@
+Page commands
+    Attributes
+        ID                 : 0
+        Scope              : local
+        Send Component ID  : disabled
+        Opacity            : 127
+        Width              : 480
+        Effect             : load
+        Locked             : no
+        Swide up page ID   : disabled
+        Swide down page ID : disabled
+        Swide left page ID : disabled
+        Swide right page ID: disabled
+        Fill               : solid color
+        Back. Color        : 65535
+    
+Variable (string) queue
+    Attributes
+        ID            : 1
+        Scope         : global
+        Text          : 
+        Max. Text Size: 34463
+    
+Variable (string) command
+    Attributes
+        ID            : 2
+        Scope         : global
+        Text          : 
+        Max. Text Size: 2048
+    
+Variable (string) last
+    Attributes
+        ID            : 3
+        Scope         : global
+        Text          : 
+        Max. Text Size: 80
+    
+Variable (string) history
+    Attributes
+        ID            : 4
+        Scope         : global
+        Text          : G28\r\nG0 Z10 X117.5 YX117.5
+        Max. Text Size: 2048
+    
+Variable (int32) linesNotBusy
+    Attributes
+        ID   : 5
+        Scope: global
+        Value: 0
+    
+Variable (int32) pauseAction
+    Attributes
+        ID   : 6
+        Scope: global
+        Value: 0
+    

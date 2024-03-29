@@ -1,0 +1,314 @@
+Page historyFilters
+    Attributes
+        ID                 : 0
+        Scope              : local
+        Send Component ID  : disabled
+        Opacity            : 127
+        Width              : 480
+        Effect             : load
+        Locked             : no
+        Swide up page ID   : disabled
+        Swide down page ID : disabled
+        Swide left page ID : disabled
+        Swide right page ID: disabled
+        Fill               : no background (transparent)
+    
+Text t0
+    Attributes
+        ID                      : 8
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 256
+        y coordinate            : 48
+        Width                   : 133
+        Height                  : 48
+        Effect                  : right fly into
+        Effect Priority         : 0
+        Effect Time             : 150
+        Fill                    : transparent
+        Associated Keyboard     : none
+        Font ID                 : 4
+        Back. Color             : 65535
+        Cropped Back. Picture ID: 65535
+        Back. Picture ID        : 65535
+        Font Color              : 59164
+        Horizontal Alignment    : left
+        Vertical Alignment      : center
+        Input Type              : character
+        Text                    : Temperature
+        Max. Text Size          : 18
+        Word wrap               : disabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+Text t1
+    Attributes
+        ID                      : 9
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 256
+        y coordinate            : 201
+        Width                   : 142
+        Height                  : 48
+        Effect                  : right fly into
+        Effect Priority         : 0
+        Effect Time             : 150
+        Fill                    : transparent
+        Associated Keyboard     : none
+        Font ID                 : 4
+        Back. Color             : 65535
+        Cropped Back. Picture ID: 65535
+        Back. Picture ID        : 65535
+        Font Color              : 59164
+        Horizontal Alignment    : left
+        Vertical Alignment      : center
+        Input Type              : character
+        Text                    : SD Card Status
+        Max. Text Size          : 18
+        Word wrap               : disabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+Text t2
+    Attributes
+        ID                      : 10
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 256
+        y coordinate            : 150
+        Width                   : 140
+        Height                  : 48
+        Effect                  : right fly into
+        Effect Priority         : 0
+        Effect Time             : 150
+        Fill                    : transparent
+        Associated Keyboard     : none
+        Font ID                 : 4
+        Back. Color             : 65535
+        Cropped Back. Picture ID: 65535
+        Back. Picture ID        : 65535
+        Font Color              : 59164
+        Horizontal Alignment    : left
+        Vertical Alignment      : center
+        Input Type              : character
+        Text                    : Echo Label
+        Max. Text Size          : 18
+        Word wrap               : disabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+Text t3
+    Attributes
+        ID                      : 11
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 256
+        y coordinate            : 99
+        Width                   : 141
+        Height                  : 48
+        Effect                  : right fly into
+        Effect Priority         : 0
+        Effect Time             : 150
+        Fill                    : transparent
+        Associated Keyboard     : none
+        Font ID                 : 4
+        Back. Color             : 65535
+        Cropped Back. Picture ID: 65535
+        Back. Picture ID        : 65535
+        Font Color              : 59164
+        Horizontal Alignment    : left
+        Vertical Alignment      : center
+        Input Type              : character
+        Text                    : Busy
+        Max. Text Size          : 18
+        Word wrap               : disabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+Text t4
+    Attributes
+        ID                      : 12
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 256
+        y coordinate            : 18
+        Width                   : 132
+        Height                  : 30
+        Effect                  : right fly into
+        Effect Priority         : 0
+        Effect Time             : 150
+        Fill                    : transparent
+        Associated Keyboard     : none
+        Font ID                 : 3
+        Back. Color             : 65535
+        Cropped Back. Picture ID: 65535
+        Back. Picture ID        : 65535
+        Font Color              : 48729
+        Horizontal Alignment    : left
+        Vertical Alignment      : center
+        Input Type              : character
+        Text                    : Filter Incoming
+        Max. Text Size          : 18
+        Word wrap               : disabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+Picture p0
+    Attributes
+        ID               : 1
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 96
+        x coordinate     : 0
+        y coordinate     : 0
+        Width            : 480
+        Height           : 272
+        Effect           : load
+        Picture ID       : 87
+    
+    Events
+        Touch Press Event
+            console.console.effect=0
+            page console
+        
+Crop Picture q1
+    Attributes
+        ID                      : 2
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 221
+        y coordinate            : 0
+        Width                   : 259
+        Height                  : 272
+        Effect                  : right fly into
+        Effect Priority         : 0
+        Effect Time             : 150
+        Cropped Back. Picture ID: 86
+    
+Dual-state Button swTemp
+    Attributes
+        ID                               : 4
+        Scope                            : global
+        Dragging                         : 0
+        Send Component ID                : disabled
+        Opacity                          : 127
+        x coordinate                     : 423
+        y coordinate                     : 48
+        Width                            : 48
+        Height                           : 48
+        Effect                           : right fly into
+        Effect Priority                  : 0
+        Effect Time                      : 150
+        Fill                             : image
+        Font ID                          : 0
+        Background Picture ID (Unpressed): 89
+        Back. Picture ID (Pressed)       : 88
+        Horizontal Alignment             : center
+        Vertical Alignment               : center
+        State                            : unpressed
+        Text                             : 
+        Max. Text Size                   : 0
+        Word wrap                        : disabled
+        Horizontal Spacing               : 0
+        Vertical Spacing                 : 0
+    
+Dual-state Button swBusy
+    Attributes
+        ID                               : 5
+        Scope                            : global
+        Dragging                         : 0
+        Send Component ID                : disabled
+        Opacity                          : 127
+        x coordinate                     : 423
+        y coordinate                     : 99
+        Width                            : 48
+        Height                           : 48
+        Effect                           : right fly into
+        Effect Priority                  : 0
+        Effect Time                      : 150
+        Fill                             : image
+        Font ID                          : 0
+        Background Picture ID (Unpressed): 89
+        Back. Picture ID (Pressed)       : 88
+        Horizontal Alignment             : center
+        Vertical Alignment               : center
+        State                            : unpressed
+        Text                             : 
+        Max. Text Size                   : 0
+        Word wrap                        : disabled
+        Horizontal Spacing               : 0
+        Vertical Spacing                 : 0
+    
+Dual-state Button swEcho
+    Attributes
+        ID                               : 6
+        Scope                            : global
+        Dragging                         : 0
+        Send Component ID                : disabled
+        Opacity                          : 127
+        x coordinate                     : 423
+        y coordinate                     : 150
+        Width                            : 48
+        Height                           : 48
+        Effect                           : right fly into
+        Effect Priority                  : 0
+        Effect Time                      : 150
+        Fill                             : image
+        Font ID                          : 0
+        Background Picture ID (Unpressed): 89
+        Back. Picture ID (Pressed)       : 88
+        Horizontal Alignment             : center
+        Vertical Alignment               : center
+        State                            : pressed
+        Text                             : 
+        Max. Text Size                   : 0
+        Word wrap                        : disabled
+        Horizontal Spacing               : 0
+        Vertical Spacing                 : 0
+    
+Dual-state Button swSDCard
+    Attributes
+        ID                               : 7
+        Scope                            : global
+        Dragging                         : 0
+        Send Component ID                : disabled
+        Opacity                          : 127
+        x coordinate                     : 423
+        y coordinate                     : 201
+        Width                            : 48
+        Height                           : 48
+        Effect                           : right fly into
+        Effect Priority                  : 0
+        Effect Time                      : 150
+        Fill                             : image
+        Font ID                          : 0
+        Background Picture ID (Unpressed): 89
+        Back. Picture ID (Pressed)       : 88
+        Horizontal Alignment             : center
+        Vertical Alignment               : center
+        State                            : pressed
+        Text                             : 
+        Max. Text Size                   : 0
+        Word wrap                        : disabled
+        Horizontal Spacing               : 0
+        Vertical Spacing                 : 0
+    
+TouchCap tc0
+    Attributes
+        ID   : 3
+        Scope: local
+        Value: 0
+    

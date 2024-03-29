@@ -1,6 +1,0 @@
-//init
-WakeReturnPage=DIAG_CONFIRM //Return to ok page if coming back from sleep mode
-
-//btn Ok
-WakeReturnPage=-1
-page DiagReturnPage

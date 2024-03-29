@@ -1,0 +1,1976 @@
+Page gcodeKeyb
+    Attributes
+        ID                 : 0
+        Scope              : global
+        Send Component ID  : disabled
+        Opacity            : 127
+        Width              : 480
+        Effect             : top fly into
+        Effect Priority    : 0
+        Effect Time        : 150
+        Locked             : no
+        Swide up page ID   : disabled
+        Swide down page ID : disabled
+        Swide left page ID : disabled
+        Swide right page ID: disabled
+        Fill               : solid color
+        Back. Color        : 6371
+    
+    Events
+        Preinitialize Event
+            click luxInit,1
+        
+        Page Exit Event
+            click luxInit,0
+        
+Text tCommand
+    Attributes
+        ID                      : 2
+        Scope                   : global
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 29
+        y coordinate            : 7
+        Width                   : 404
+        Height                  : 30
+        Effect                  : load
+        Fill                    : crop image
+        Associated Keyboard     : none
+        Font ID                 : 3
+        Cropped Back. Picture ID: 92
+        Horizontal Alignment    : left
+        Vertical Alignment      : center
+        Input Type              : character
+        Text                    : 
+        Max. Text Size          : 100
+        Word wrap               : disabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+Crop Picture q0
+    Attributes
+        ID                      : 1
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 0
+        y coordinate            : 0
+        Width                   : 480
+        Height                  : 48
+        Effect                  : load
+        Cropped Back. Picture ID: 93
+    
+Button b1
+    Attributes
+        ID                                  : 3
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 304
+        y coordinate                        : 50
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 1
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b1.txt
+            click luxView,1
+        
+Button b2
+    Attributes
+        ID                                  : 4
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 346
+        y coordinate                        : 50
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 2
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b2.txt
+            click luxView,1
+        
+Button b3
+    Attributes
+        ID                                  : 5
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 388
+        y coordinate                        : 50
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 3
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b3.txt
+            click luxView,1
+        
+Button b4
+    Attributes
+        ID                                  : 6
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 304
+        y coordinate                        : 97
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 4
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b4.txt
+            click luxView,1
+        
+Button b5
+    Attributes
+        ID                                  : 7
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 346
+        y coordinate                        : 97
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 5
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b5.txt
+            click luxView,1
+        
+Button b6
+    Attributes
+        ID                                  : 8
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 388
+        y coordinate                        : 97
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 6
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b6.txt
+            click luxView,1
+        
+Button b7
+    Attributes
+        ID                                  : 9
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 304
+        y coordinate                        : 144
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 7
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b7.txt
+            click luxView,1
+        
+Button b8
+    Attributes
+        ID                                  : 10
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 346
+        y coordinate                        : 144
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 8
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b8.txt
+            click luxView,1
+        
+Button b9
+    Attributes
+        ID                                  : 11
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 388
+        y coordinate                        : 144
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 9
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b9.txt
+            click luxView,1
+        
+Button b10
+    Attributes
+        ID                                  : 12
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 304
+        y coordinate                        : 191
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : -
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b10.txt
+            click luxView,1
+        
+Button b11
+    Attributes
+        ID                                  : 13
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 346
+        y coordinate                        : 191
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 0
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b11.txt
+            click luxView,1
+        
+Button b12
+    Attributes
+        ID                                  : 14
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 388
+        y coordinate                        : 191
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : .
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b12.txt
+            click luxView,1
+        
+Button b13
+    Attributes
+        ID                                  : 15
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 262
+        y coordinate                        : 97
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : M
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b13.txt
+        
+Button b14
+    Attributes
+        ID                                  : 16
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 262
+        y coordinate                        : 50
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : G
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b14.txt
+            click luxView,1
+        
+Button b15
+    Attributes
+        ID                                  : 17
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 262
+        y coordinate                        : 144
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : S
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b15.txt
+        
+Button b16
+    Attributes
+        ID                                  : 18
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 262
+        y coordinate                        : 191
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : Z
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b16.txt
+            click luxView,1
+        
+Button b17
+    Attributes
+        ID                                  : 19
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 178
+        y coordinate                        : 191
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : X
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b17.txt
+            click luxView,1
+        
+Button b18
+    Attributes
+        ID                                  : 20
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 220
+        y coordinate                        : 191
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : Y
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b18.txt
+            click luxView,1
+        
+Button b19
+    Attributes
+        ID                                  : 21
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 93
+        y coordinate                        : 240
+        Width                               : 293
+        Height                              : 31
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                :  
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b19.txt
+        
+Button b20
+    Attributes
+        ID                                  : 22
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 30
+        y coordinate                        : 97
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : H
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b20.txt
+            click luxView,1
+        
+Button b21
+    Attributes
+        ID                                  : 23
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 30
+        y coordinate                        : 144
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : N
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b21.txt
+            click luxView,1
+        
+Button b22
+    Attributes
+        ID                                  : 24
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 10
+        y coordinate                        : 191
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : T
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b22.txt
+            click luxView,1
+        
+Button b23
+    Attributes
+        ID                                  : 25
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 72
+        y coordinate                        : 144
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : O
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b23.txt
+            click luxView,1
+        
+Button b24
+    Attributes
+        ID                                  : 26
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 72
+        y coordinate                        : 97
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : I
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b24.txt
+            click luxView,1
+        
+Button b25
+    Attributes
+        ID                                  : 27
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 52
+        y coordinate                        : 191
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : U
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b25.txt
+            click luxView,1
+        
+Button b26
+    Attributes
+        ID                                  : 28
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 94
+        y coordinate                        : 191
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : V
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b26.txt
+            click luxView,1
+        
+Button b27
+    Attributes
+        ID                                  : 29
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 114
+        y coordinate                        : 97
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : J
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b27.txt
+            click luxView,1
+        
+Button b28
+    Attributes
+        ID                                  : 30
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 114
+        y coordinate                        : 144
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : P
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b28.txt
+            click luxView,1
+        
+Button b29
+    Attributes
+        ID                                  : 31
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 156
+        y coordinate                        : 97
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : K
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b29.txt
+            click luxView,1
+        
+Button b30
+    Attributes
+        ID                                  : 32
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 156
+        y coordinate                        : 144
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : Q
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b30.txt
+            click luxView,1
+        
+Button b31
+    Attributes
+        ID                                  : 33
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 198
+        y coordinate                        : 97
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : L
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b31.txt
+            click luxView,1
+        
+Button b32
+    Attributes
+        ID                                  : 34
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 198
+        y coordinate                        : 144
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : R
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b32.txt
+            click luxView,1
+        
+Button b33
+    Attributes
+        ID                                  : 35
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 10
+        y coordinate                        : 50
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : A
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b33.txt
+            click luxView,1
+        
+Button b34
+    Attributes
+        ID                                  : 36
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 52
+        y coordinate                        : 50
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : B
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b34.txt
+            click luxView,1
+        
+Button b35
+    Attributes
+        ID                                  : 37
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 94
+        y coordinate                        : 50
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : C
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b35.txt
+            click luxView,1
+        
+Button b36
+    Attributes
+        ID                                  : 38
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 136
+        y coordinate                        : 50
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : D
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b36.txt
+            click luxView,1
+        
+Button b37
+    Attributes
+        ID                                  : 39
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 178
+        y coordinate                        : 50
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : E
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b37.txt
+            click luxView,1
+        
+Button b38
+    Attributes
+        ID                                  : 40
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 220
+        y coordinate                        : 50
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : F
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b38.txt
+            click luxView,1
+        
+Button b39
+    Attributes
+        ID                                  : 41
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 430
+        y coordinate                        : 50
+        Width                               : 50
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 
+        Max. Text Size                      : 0
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt-=1
+            click luxView,1
+        
+Button b40
+    Attributes
+        ID                                  : 46
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 430
+        y coordinate                        : 145
+        Width                               : 50
+        Height                              : 90
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 
+        Max. Text Size                      : 0
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            //Set
+            if(tCommand.txt!="")
+            {
+                vars.returnVal.txt=tCommand.txt
+                HandleCallback=1
+                page DiagReturnPage
+            }
+        
+Button b41
+    Attributes
+        ID                                  : 47
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 0
+        y coordinate                        : 238
+        Width                               : 57
+        Height                              : 34
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 
+        Max. Text Size                      : 0
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Release Event
+            console.console.effect=1
+            page console
+        
+Button b42
+    Attributes
+        ID                                  : 48
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 136
+        y coordinate                        : 191
+        Width                               : 40
+        Height                              : 46
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : W
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            tCommand.txt+=b42.txt
+            click luxView,1
+        
+Button bErase
+    Attributes
+        ID                                  : 49
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 430
+        y coordinate                        : 0
+        Width                               : 50
+        Height                              : 42
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 92
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 91
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 
+        Max. Text Size                      : 0
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Release Event
+            tCommand.txt=""
+            click luxView,1
+        
+Button b43
+    Attributes
+        ID                                  : 50
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 418
+        y coordinate                        : 237
+        Width                               : 62
+        Height                              : 35
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 10
+        Cropped Back. Picture ID (Unpressed): 85
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 84
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 
+        Max. Text Size                      : 0
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            page sendHistory
+        
+Hotspot parsePrintSet
+    Attributes
+        ID               : 42
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 490
+        y coordinate     : 49
+        Width            : 105
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            // Feed Rate / Speed
+            // FR:100%
+            parse.lineMatch.txt="FR:" //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,":",1
+                spstr vars.s.txt,vars.s2.txt,"%",0
+                covx vars.s2.txt,printer.speed.val,0,0
+            }
+            // Flow
+            // echo:E0 Flow: 100%
+            parse.lineMatch.txt=" Flow: " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,7,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt," ",2
+                spstr vars.s.txt,vars.s2.txt,"%",0
+                covx vars.s2.txt,printer.flow.val,0,0
+            }
+        
+Hotspot luxNotify
+    Attributes
+        ID               : 43
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 490
+        y coordinate     : 65521
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            click parseCommon,1
+            click serialHistory,1
+        
+Hotspot luxInit
+    Attributes
+        ID               : 44
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 116
+        y coordinate     : 65419
+        Width            : 106
+        Height           : 18
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxInitialize 1
+            /// @brief Sets up the lux framework
+            ///////////////////////////////////////////////////////////////////////////////
+            click luxView,1
+        
+        Touch Release Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxInitialize 0
+            /// @brief Should run on any close button
+            ///////////////////////////////////////////////////////////////////////////////
+            tCommand.txt=""
+        
+Hotspot luxView
+    Attributes
+        ID               : 51
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 116
+        y coordinate     : 65487
+        Width            : 106
+        Height           : 16
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxView,1
+            /// @brief Updates states for controls
+            ///////////////////////////////////////////////////////////////////////////////
+            if(tCommand.txt=="")
+            {
+                bErase.aph=0
+            }else
+            {
+                bErase.aph=127
+            }
+        
+Hotspot parseCommon
+    Attributes
+        ID               : 52
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 490
+        y coordinate     : 17
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn     parseCommon 1
+            /// @brief  Essential items to be parsed
+            ///////////////////////////////////////////////////////////////////////////////
+            parse.lineMatch.txt="//action:paused filament_runout"
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                printer.filamentRunout.val=1
+                printer.paused.val=1
+                parse.buffer.txt=""
+                if(dp!=PAUSE_PAGE)
+                {
+                    page PAUSE_PAGE
+                }
+            }
+            parse.lineMatch.txt="//action:resumed"
+            if(parse.buffer.txt==parse.lineMatch.txt)
+            {
+                printer.filamentRunout.val=0
+                printer.paused.val=0
+            }
+            parse.lineMatch.txt="echo:busy: paused for user"
+            if(parse.buffer.txt==parse.lineMatch.txt)
+            {
+                printer.paused.val=1
+                parse.buffer.txt=""
+                if(dp!=PAUSE_PAGE)
+                {
+                    page PAUSE_PAGE
+                }
+            }
+            parse.lineMatch.txt=" External Reset" //Shutdown
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt) //This one only works when using substring for some reason
+            {
+                ExternalReset=1
+            }
+            parse.lineMatch.txt="start"
+            if(parse.buffer.txt==parse.lineMatch.txt)
+            {
+                ExternalReset=1
+            }
+            parse.lineMatch.txt="//lux:power_pin" //Shutdown
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt) //This one only works when using substring for some reason
+            {
+                ShutDown=1
+            }
+            parse.lineMatch.txt="echo://lux:power_pin" //Shutdown
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt) //This one only works when using substring for some reason
+            {
+                ShutDown=1
+            }
+            parse.lineMatch.txt="ok" //Ok
+            if(parse.buffer.txt==parse.lineMatch.txt)
+            {
+                ok=1
+                busy=0
+            }
+            parse.lineMatch.txt="ok T:" //M105 ok
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                ok=1
+                busy=0
+            }
+            parse.lineMatch.txt="ok " //Advanced ok
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                ok=1
+                busy=0
+            }
+            parse.lineMatch.txt="echo:busy: processing" //Busy
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                busy=1
+            }else
+            {
+                commands.linesNotBusy.val+=1
+                if(commands.linesNotBusy.val>=5)
+                {
+                    busy=0
+                    commands.linesNotBusy.val=0
+                }
+            }
+            parse.lineMatch.txt="Active Extruder: " //Active Extruder
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,parse.match.txt,"Active Extruder: ",1
+                covx parse.match.txt,j,0,0
+                Tool=j
+            }
+            parse.lineMatch.txt="M106 P0 S" //Fan
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,parse.match.txt,"M106 P0 S",1
+                covx parse.match.txt,printer.fanSpeed.val,0,0
+            }
+            parse.lineMatch.txt="//lux:callback " //Serial callback
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,parse.callbackReturn.txt,parse.lineMatch.txt,1
+            }
+            parse.lineMatch.txt="//lux:M117 " //M117
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,printer.m117.txt,parse.lineMatch.txt,1
+            }
+            parse.lineMatch.txt="Error:" //Error
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                printer.error.txt=parse.buffer.txt
+                printer.error.txt+="\r"
+                parse.buffer.txt=""
+                Error=1
+            }
+            if(ShutDown==1)
+            {
+                ShutDown=0
+                page shutdown
+            }
+            if(Error==1)
+            {
+                Error=0
+                page ERROR_PAGE
+            }
+            if(ExternalReset==1)
+            {
+                ExternalReset=0
+                parse.buffer.txt=""
+                BufferLen=0
+                code_c
+                page connect
+            }
+        
+        Touch Release Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn         parseCommon 0
+            ///
+            /// @brief      Parse buffer using a starting and ending position
+            /// @param[in]  parse.search.txt      Text to search for
+            /// @param[in]  parse.startPos.val    Starting char postion to search from
+            /// @param[out] parse.matched.val     1 if match, 0 if no match
+            ///////////////////////////////////////////////////////////////////////////////
+            parse.matched.val=0
+            parse.eval.txt=parse.buffer.txt
+            strlen parse.search.txt,j
+            substr parse.eval.txt,parse.result.txt,parse.startPos.val,j
+            if(parse.result.txt==parse.search.txt)
+            {
+                parse.matched.val=1
+            }else
+            {
+                parse.matched.val=0
+            }
+        
+Hotspot serialHistory
+    Attributes
+        ID               : 53
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 490
+        y coordinate     : 81
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn serialHistory 1
+            /// @brief Preserves command recieved history
+            ///////////////////////////////////////////////////////////////////////////////
+            click historyFilters,1
+            parse.last.txt=parse.buffer.txt
+            if(parse.last.txt!="")
+            {
+                strlen parse.last.txt,BuffHistNewLineLen
+                strlen connect.history.txt,BuffHistLen
+                BuffHistNewLen=BuffHistLen+BuffHistNewLineLen
+                if(BuffHistNewLen>=connect.history.txt_maxl) //Check if reached buffer lenght
+                {
+                    //Cut lenght of new command out of buffer
+                    substr connect.history.txt,vars.slarge.txt,BuffHistNewLineLen,connect.history.txt_maxl
+                    connect.history.txt=vars.slarge.txt
+                    //Find length until next \r
+                    spstr connect.history.txt,vars.slarge.txt,"\r",0
+                    strlen vars.slarge.txt,BuffHistTrimLen
+                    BuffHistTrimLen+=1 // Trim one more char
+                    //Cut that out of the rest of the buffer
+                    strlen connect.history.txt,BuffHistLen //Get new buffer len
+                    substr connect.history.txt,vars.slarge.txt,BuffHistTrimLen+1,BuffHistLen-BuffHistTrimLen //+1 is to advance cursor
+                    connect.history.txt=vars.slarge.txt
+                }
+                //connect.history.txt+="R: "
+                connect.history.txt+=parse.last.txt
+                connect.history.txt+="\r"
+            }
+        
+        Touch Release Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn serialHistory 0
+            /// @brief Preserves command sent history
+            ///////////////////////////////////////////////////////////////////////////////
+            // Scroll up command history
+            commands.last.txt=commands.command.txt
+            strlen commands.last.txt,BuffHistNewLineLen
+            strlen connect.history.txt,BuffHistLen
+            BuffHistNewLen=BuffHistLen+BuffHistNewLineLen
+            if(BuffHistNewLen>=connect.history.txt_maxl) //Check if reached buffer lenght
+            {
+                //Cut lenght of new command out of buffer
+                substr connect.history.txt,vars.slarge.txt,BuffHistNewLineLen,connect.history.txt_maxl
+                connect.history.txt=vars.slarge.txt
+                //Find length until next \r
+                spstr connect.history.txt,vars.slarge.txt,"\r",0
+                strlen vars.slarge.txt,BuffHistTrimLen
+                BuffHistTrimLen+=1 // Trim one more char
+                //Cut that out of the rest of the buffer
+                strlen connect.history.txt,BuffHistLen //Get new buffer len
+                substr connect.history.txt,vars.slarge.txt,BuffHistTrimLen+1,BuffHistLen-BuffHistTrimLen //+1 is to advance cursor
+                connect.history.txt=vars.slarge.txt
+            }
+            connect.history.txt+="S: "
+            connect.history.txt+=commands.last.txt
+            connect.history.txt+="\r"
+        
+Hotspot historyFilters
+    Attributes
+        ID               : 54
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 490
+        y coordinate     : 113
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            //Qualify Line
+            parse.matched.val=0
+            if(historyFilters.swTemp.val==1)
+            {
+                parse.lineMatch.txt=" T:"
+                strlen parse.lineMatch.txt,j
+                substr parse.buffer.txt,parse.eval.txt,0,j
+                if(parse.eval.txt==parse.lineMatch.txt)
+                {
+                    parse.matched.val=1
+                }
+                parse.lineMatch.txt="ok T:" //Handle M105 Temp Response
+                strlen parse.lineMatch.txt,j
+                substr parse.buffer.txt,parse.eval.txt,0,j
+                if(parse.eval.txt==parse.lineMatch.txt)
+                {
+                    parse.matched.val=1
+                }
+            }
+            if(historyFilters.swBusy.val==1)
+            {
+                parse.lineMatch.txt="echo:busy: processing" //Busy
+                strlen parse.lineMatch.txt,j
+                substr parse.buffer.txt,parse.eval.txt,0,j
+                if(parse.eval.txt==parse.lineMatch.txt)
+                {
+                    parse.matched.val=1
+                }
+            }
+            if(historyFilters.swSDCard.val==1)
+            {
+                parse.lineMatch.txt="Not SD printing" //SD Status
+                strlen parse.lineMatch.txt,j
+                substr parse.buffer.txt,parse.eval.txt,0,j
+                if(parse.eval.txt==parse.lineMatch.txt)
+                {
+                    parse.matched.val=1
+                }
+                parse.lineMatch.txt="SD printing byte " //SD Progress
+                strlen parse.lineMatch.txt,j
+                substr parse.buffer.txt,parse.eval.txt,0,j
+                if(parse.eval.txt==parse.lineMatch.txt)
+                {
+                    parse.matched.val=1
+                }
+            }
+            if(historyFilters.swEcho.val==1)
+            {
+                parse.lineMatch.txt="echo:echo:"
+                strlen parse.lineMatch.txt,j
+                substr parse.buffer.txt,parse.eval.txt,0,j
+                if(parse.eval.txt==parse.lineMatch.txt)
+                {
+                    spstr parse.buffer.txt,parse.buffer.txt,"echo:",2
+                }
+            }
+            if(historyFilters.swEcho.val==1)
+            {
+                parse.lineMatch.txt="echo:"
+                strlen parse.lineMatch.txt,j
+                substr parse.buffer.txt,parse.eval.txt,0,j
+                if(parse.eval.txt==parse.lineMatch.txt)
+                {
+                    spstr parse.buffer.txt,parse.buffer.txt,"echo:",1
+                }
+            }
+            parse.lineMatch.txt="X:"
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                parse.matched.val=1
+            }
+            if(parse.matched.val==1)
+            {
+                parse.buffer.txt=""
+                parse.matched.val=0
+            }
+        
+Hotspot luxRead
+    Attributes
+        ID               : 55
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 65535
+        y coordinate     : 65492
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxRead 1
+            /// @brief Read the buffer and notify when end of line is reached
+            ///////////////////////////////////////////////////////////////////////////////
+            if(usize>0)
+            {
+                while(SerialPos<usize)
+                {
+                    ucopy parse.startChar.txt,SerialPos,1,0 //Check next character
+                    if(u[SerialPos]==10||u[SerialPos]==13) //If linefeed or carriage return
+                    {
+                        //EOL reached
+                        strlen parse.buffer.txt,BufferLen //Record buffer length
+                        click luxNotify,1 //Notify listeners
+                        parse.buffer.txt="" //Clear buffer
+                    }
+                    if(u[SerialPos]==13) //Cariage return
+                    {
+                        SerialPos++       //Lookahead to next char
+                        if(SerialPos<usize) //If under buffersize
+                        {
+                            if(u[SerialPos]!=10) //But no linefeed
+                            {
+                                SerialPos-- //Rollback
+                            }
+                        }else
+                        {
+                            SerialPos-- //Rollback if over buffersize
+                        }
+                    }else
+                    {
+                        if(u[SerialPos]!=10) //Add character to line if not CR or LF
+                        {
+                            parse.buffer.txt+=parse.startChar.txt
+                        }
+                    }
+                    SerialPos++ //Next character
+                }
+                if(SerialPos==usize) //End of buffer reached
+                {
+                    code_c
+                    BufferLen=0
+                    SerialPos=0
+                }
+            }
+        
+Timer luxRun
+    Attributes
+        ID         : 45
+        Scope      : local
+        Period (ms): 100
+        Enabled    : yes
+    
+    Events
+        Timer Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxRun
+            /// @breif Main Program Loop
+            ///////////////////////////////////////////////////////////////////////////////
+            click luxRead,1
+            doevents
+        

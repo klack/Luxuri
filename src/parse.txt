@@ -1,0 +1,98 @@
+Page parse
+    Attributes
+        ID                 : 0
+        Scope              : local
+        Send Component ID  : disabled
+        Opacity            : 127
+        Width              : 480
+        Effect             : load
+        Locked             : no
+        Swide up page ID   : disabled
+        Swide down page ID : disabled
+        Swide left page ID : disabled
+        Swide right page ID: disabled
+        Fill               : solid color
+        Back. Color        : 65535
+    
+Variable (string) eval
+    Attributes
+        ID            : 1
+        Scope         : global
+        Text          : 
+        Max. Text Size: 255
+    
+Variable (string) lineMatch
+    Attributes
+        ID            : 2
+        Scope         : global
+        Text          : 
+        Max. Text Size: 64
+    
+Variable (string) buffer
+    Attributes
+        ID            : 3
+        Scope         : global
+        Text          : 
+        Max. Text Size: 1024
+    
+Variable (string) startChar
+    Attributes
+        ID            : 4
+        Scope         : global
+        Text          : 
+        Max. Text Size: 1
+    
+Variable (string) match
+    Attributes
+        ID            : 5
+        Scope         : global
+        Text          : 
+        Max. Text Size: 255
+    
+Variable (string) search
+    Attributes
+        ID            : 6
+        Scope         : global
+        Text          : 
+        Max. Text Size: 64
+    
+Variable (int32) matched
+    Attributes
+        ID   : 7
+        Scope: global
+        Value: 0
+    
+Variable (int32) startPos
+    Attributes
+        ID   : 8
+        Scope: global
+        Value: 0
+    
+Variable (string) result
+    Attributes
+        ID            : 9
+        Scope         : global
+        Text          : 
+        Max. Text Size: 255
+    
+Variable (string) callback
+    Attributes
+        ID            : 10
+        Scope         : global
+        Text          : 
+        Max. Text Size: 32
+    
+Variable (string) callbackReturn
+    Attributes
+        ID            : 11
+        Scope         : global
+        Text          : 
+        Max. Text Size: 32
+    
+Variable (string) last
+    Attributes
+        ID            : 12
+        Scope         : global
+        Text          : 
+        Max. Text Size: 2048
+    

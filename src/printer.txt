@@ -1,0 +1,295 @@
+Page printer
+    Attributes
+        ID                 : 0
+        Scope              : local
+        Send Component ID  : disabled
+        Opacity            : 127
+        Width              : 480
+        Effect             : load
+        Locked             : no
+        Swide up page ID   : disabled
+        Swide down page ID : disabled
+        Swide left page ID : disabled
+        Swide right page ID: disabled
+        Fill               : solid color
+        Back. Color        : 65535
+    
+Variable (int32) bedTemp
+    Attributes
+        ID   : 1
+        Scope: global
+        Value: 0
+    
+Variable (int32) setBedTemp
+    Attributes
+        ID   : 2
+        Scope: global
+        Value: 0
+    
+Variable (int32) T0Temp
+    Attributes
+        ID   : 3
+        Scope: global
+        Value: 0
+    
+Variable (int32) T0SetTemp
+    Attributes
+        ID   : 4
+        Scope: global
+        Value: 0
+    
+Variable (int32) T1Temp
+    Attributes
+        ID   : 5
+        Scope: global
+        Value: 0
+    
+Variable (int32) T1SetTemp
+    Attributes
+        ID   : 6
+        Scope: global
+        Value: 0
+    
+Variable (int32) fanSpeed
+    Attributes
+        ID   : 7
+        Scope: global
+        Value: 0
+    
+Variable (string) x
+    Attributes
+        ID            : 8
+        Scope         : global
+        Text          : ?
+        Max. Text Size: 9
+    
+Variable (string) y
+    Attributes
+        ID            : 9
+        Scope         : global
+        Text          : ?
+        Max. Text Size: 9
+    
+Variable (string) z
+    Attributes
+        ID            : 10
+        Scope         : global
+        Text          : ?
+        Max. Text Size: 9
+    
+Variable (string) T0Esteps
+    Attributes
+        ID            : 11
+        Scope         : global
+        Text          : ?
+        Max. Text Size: 9
+    
+Variable (string) T1Esteps
+    Attributes
+        ID            : 12
+        Scope         : global
+        Text          : ?
+        Max. Text Size: 9
+    
+Variable (string) zOffset
+    Attributes
+        ID            : 13
+        Scope         : global
+        Text          : ?
+        Max. Text Size: 9
+    
+Variable (string) x2Offset
+    Attributes
+        ID            : 14
+        Scope         : global
+        Text          : ?
+        Max. Text Size: 9
+    
+Variable (string) y2Offset
+    Attributes
+        ID            : 15
+        Scope         : global
+        Text          : ?
+        Max. Text Size: 9
+    
+Variable (string) z2Offset
+    Attributes
+        ID            : 16
+        Scope         : global
+        Text          : ?
+        Max. Text Size: 9
+    
+Variable (int32) currentByte
+    Attributes
+        ID   : 17
+        Scope: global
+        Value: 0
+    
+Variable (int32) totalBytes
+    Attributes
+        ID   : 18
+        Scope: global
+        Value: 0
+    
+Variable (string) printState
+    Attributes
+        ID            : 19
+        Scope         : global
+        Text          : null
+        Max. Text Size: 24
+    
+Variable (string) error
+    Attributes
+        ID            : 20
+        Scope         : global
+        Text          : 
+        Max. Text Size: 255
+    
+Variable (int32) speed
+    Attributes
+        ID   : 21
+        Scope: global
+        Value: 0
+    
+Variable (int32) flow
+    Attributes
+        ID   : 22
+        Scope: global
+        Value: 0
+    
+Variable (string) printTime
+    Attributes
+        ID            : 23
+        Scope         : global
+        Text          : 
+        Max. Text Size: 18
+    
+Variable (string) m117
+    Attributes
+        ID            : 24
+        Scope         : global
+        Text          : 
+        Max. Text Size: 128
+    
+Variable (int32) sdPrinting
+    Attributes
+        ID   : 25
+        Scope: global
+        Value: 4294967295
+    
+Variable (string) command
+    Attributes
+        ID            : 26
+        Scope         : global
+        Text          : 
+        Max. Text Size: 128
+    
+Variable (string) fileName
+    Attributes
+        ID            : 27
+        Scope         : global
+        Text          : null
+        Max. Text Size: 255
+    
+Variable (string) goX
+    Attributes
+        ID            : 28
+        Scope         : global
+        Text          : ?
+        Max. Text Size: 9
+    
+Variable (string) goY
+    Attributes
+        ID            : 29
+        Scope         : global
+        Text          : ?
+        Max. Text Size: 9
+    
+Variable (string) goZ
+    Attributes
+        ID            : 30
+        Scope         : global
+        Text          : ?
+        Max. Text Size: 9
+    
+Variable (string) storedX
+    Attributes
+        ID            : 31
+        Scope         : global
+        Text          : 
+        Max. Text Size: 9
+    
+Variable (string) storedY
+    Attributes
+        ID            : 32
+        Scope         : global
+        Text          : 
+        Max. Text Size: 9
+    
+Variable (string) storedZ
+    Attributes
+        ID            : 33
+        Scope         : global
+        Text          : 
+        Max. Text Size: 9
+    
+Variable (string) pausedX
+    Attributes
+        ID            : 34
+        Scope         : global
+        Text          : -48
+        Max. Text Size: 9
+    
+Variable (string) pausedY
+    Attributes
+        ID            : 35
+        Scope         : global
+        Text          : 155
+        Max. Text Size: 9
+    
+Variable (string) pausedZ
+    Attributes
+        ID            : 36
+        Scope         : global
+        Text          : ?
+        Max. Text Size: 9
+    
+Variable (string) echo
+    Attributes
+        ID            : 37
+        Scope         : global
+        Text          : null
+        Max. Text Size: 80
+    
+Variable (string) firmwareName
+    Attributes
+        ID            : 38
+        Scope         : global
+        Text          : 
+        Max. Text Size: 64
+    
+Variable (string) machineType
+    Attributes
+        ID            : 39
+        Scope         : global
+        Text          : 
+        Max. Text Size: 64
+    
+Variable (int32) x_max
+    Attributes
+        ID   : 40
+        Scope: global
+        Value: 0
+    
+Variable (int32) filamentRunout
+    Attributes
+        ID   : 41
+        Scope: global
+        Value: 0
+    
+Variable (int32) paused
+    Attributes
+        ID   : 42
+        Scope: global
+        Value: 0
+    
