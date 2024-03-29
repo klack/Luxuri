@@ -293,3 +293,21 @@ Variable (int32) paused
         Scope: global
         Value: 0
     
+Variable (int32) heating
+    Attributes
+        ID   : 43
+        Scope: global
+        Value: 0
+    
+Variable (int32) hot
+    Attributes
+        ID   : 44
+        Scope: global
+        Value: 0
+    
+Variable (int32) printing
+    Attributes
+        ID   : 45
+        Scope: global
+        Value: 0
+    

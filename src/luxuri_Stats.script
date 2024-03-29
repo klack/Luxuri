@@ -39,7 +39,7 @@ numpad
 	396  Line(s) of event code
 	203  Unique line(s) of event code
 printer
-	43   Component(s)
+	46   Component(s)
 	0    Line(s) of event code
 	0    Unique line(s) of event code
 diagPrompt
@@ -58,14 +58,14 @@ sdPrint
 	31   Component(s)
 	534  Line(s) of event code
 	282  Unique line(s) of event code
-diagConfirm
-	21   Component(s)
-	368  Line(s) of event code
-	186  Unique line(s) of event code
 wake
 	18   Component(s)
 	381  Line(s) of event code
 	193  Unique line(s) of event code
+diagConfirm
+	21   Component(s)
+	368  Line(s) of event code
+	186  Unique line(s) of event code
 pidTune
 	35   Component(s)
 	579  Line(s) of event code
@@ -82,10 +82,10 @@ print
 	50   Component(s)
 	849  Line(s) of event code
 	433  Unique line(s) of event code
-preheat
-	44   Component(s)
-	579  Line(s) of event code
-	298  Unique line(s) of event code
+menu
+	29   Component(s)
+	495  Line(s) of event code
+	255  Unique line(s) of event code
 gcodeKeyb
 	56   Component(s)
 	439  Line(s) of event code
@@ -98,10 +98,10 @@ sendHistory
 	30   Component(s)
 	499  Line(s) of event code
 	238  Unique line(s) of event code
-menu
-	28   Component(s)
-	428  Line(s) of event code
-	226  Unique line(s) of event code
+connect
+	36   Component(s)
+	654  Line(s) of event code
+	317  Unique line(s) of event code
 mesh
 	69   Component(s)
 	913  Line(s) of event code
@@ -124,15 +124,15 @@ console
 	340  Unique line(s) of event code
 dashboard
 	31   Component(s)
-	626  Line(s) of event code
-	308  Unique line(s) of event code
-connect
-	36   Component(s)
-	625  Line(s) of event code
-	304  Unique line(s) of event code
+	733  Line(s) of event code
+	350  Unique line(s) of event code
+preheat
+	44   Component(s)
+	608  Line(s) of event code
+	311  Unique line(s) of event code
 
 Total
 	32   Page(s)
-	1014 Component(s)
-	14128 Line(s) of event code
-	1654 Unique line(s) of event code
+	1018 Component(s)
+	14360 Line(s) of event code
+	1701 Unique line(s) of event code

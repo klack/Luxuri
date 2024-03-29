@@ -315,8 +315,8 @@ Hotspot luxNotify
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 6
+        x coordinate     : 485
+        y coordinate     : 0
         Width            : 105
         Height           : 16
         Effect           : load

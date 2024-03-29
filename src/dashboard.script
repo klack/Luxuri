@@ -29,7 +29,7 @@ Text tT1Temp
         Send Component ID       : disabled
         Opacity                 : 127
         x coordinate            : 302
-        y coordinate            : 42
+        y coordinate            : 40
         Width                   : 70
         Height                  : 45
         Effect                  : load
@@ -53,6 +53,9 @@ Text tT1Temp
         Touch Press Event
             click bT1Temp,1
         
+        Touch Release Event
+            click bT1Temp,0
+        
 Text tBedTemp
     Attributes
         ID                      : 6
@@ -61,7 +64,7 @@ Text tBedTemp
         Send Component ID       : disabled
         Opacity                 : 127
         x coordinate            : 393
-        y coordinate            : 42
+        y coordinate            : 40
         Width                   : 70
         Height                  : 45
         Effect                  : load
@@ -85,6 +88,9 @@ Text tBedTemp
         Touch Press Event
             click bBedTemp,1
         
+        Touch Release Event
+            click bBedTemp,0
+        
 Text tStatus
     Attributes
         ID                  : 7
@@ -92,9 +98,9 @@ Text tStatus
         Dragging            : 0
         Send Component ID   : disabled
         Opacity             : 127
-        x coordinate        : 264
+        x coordinate        : 262
         y coordinate        : 118
-        Width               : 138
+        Width               : 146
         Height              : 36
         Effect              : load
         Fill                : solid color
@@ -112,43 +118,15 @@ Text tStatus
         Horizontal Spacing  : 0
         Vertical Spacing    : 0
     
-Text tM117
-    Attributes
-        ID                      : 8
-        Scope                   : local
-        Dragging                : 0
-        Send Component ID       : disabled
-        Opacity                 : 127
-        x coordinate            : 141
-        y coordinate            : 328
-        Width                   : 283
-        Height                  : 27
-        Effect                  : load
-        Fill                    : transparent
-        Associated Keyboard     : none
-        Font ID                 : 6
-        Back. Color             : 65535
-        Cropped Back. Picture ID: 65535
-        Back. Picture ID        : 65535
-        Font Color              : 59165
-        Horizontal Alignment    : left
-        Vertical Alignment      : top
-        Input Type              : character
-        Text                    : 
-        Max. Text Size          : 64
-        Word wrap               : disabled
-        Horizontal Spacing      : 0
-        Vertical Spacing        : 0
-    
 Text tT0Temp
     Attributes
-        ID                      : 10
+        ID                      : 9
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
         x coordinate            : 211
-        y coordinate            : 42
+        y coordinate            : 40
         Width                   : 70
         Height                  : 44
         Effect                  : load
@@ -172,9 +150,12 @@ Text tT0Temp
         Touch Press Event
             click bT0Temp,1
         
+        Touch Release Event
+            click bT0Temp,0
+        
 Picture p0
     Attributes
-        ID               : 30
+        ID               : 27
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -186,17 +167,17 @@ Picture p0
         Effect           : load
         Picture ID       : 109
     
-Crop Picture q0
+Crop Picture qLine
     Attributes
         ID                      : 1
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 211
-        y coordinate            : 101
-        Width                   : 244
-        Height                  : 55
+        x coordinate            : 196
+        y coordinate            : 126
+        Width                   : 278
+        Height                  : 23
         Effect                  : load
         Cropped Back. Picture ID: 105
     
@@ -229,7 +210,6 @@ Button bBedTemp
     Events
         Touch Press Event
             //bBedTemp click
-            ReturnObj=1
             numpad.tCaption.txt="Bed Temperature"
             vars.returnVal.txt=""
             page numpad
@@ -273,7 +253,6 @@ Button bT1Temp
     Events
         Touch Press Event
             //bT1Temp click
-            ReturnObj=2
             numpad.tCaption.txt="T1 Temperature"
             vars.returnVal.txt=""
             page numpad
@@ -317,7 +296,6 @@ Button bT0Temp
     Events
         Touch Press Event
             //bT0Temp click
-            ReturnObj=3
             numpad.tCaption.txt="T0 Temperature"
             vars.returnVal.txt=""
             page numpad
@@ -334,7 +312,7 @@ Button bT0Temp
         
 Button bPrint
     Attributes
-        ID                                  : 9
+        ID                                  : 8
         Scope                               : local
         Dragging                            : 0
         Send Component ID                   : disabled
@@ -364,7 +342,7 @@ Button bPrint
         
 Button bMenu
     Attributes
-        ID                                  : 29
+        ID                                  : 26
         Scope                               : local
         Dragging                            : 0
         Send Component ID                   : disabled
@@ -394,7 +372,7 @@ Button bMenu
         
 Hotspot luxNotify
     Attributes
-        ID               : 12
+        ID               : 11
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -415,7 +393,7 @@ Hotspot luxNotify
         
 Hotspot parseTemp
     Attributes
-        ID               : 13
+        ID               : 12
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -465,10 +443,48 @@ Hotspot parseTemp
                 spstr parse.match.txt,vars.s.txt," ",0 //Split substring by space
                 covx vars.s.txt,printer.T1SetTemp.val,0,0
             }
+            printer.heating.val=0
+            if(printer.bedTemp.val<printer.setBedTemp.val)
+            {
+                printer.heating.val=1
+            }
+            if(printer.T0Temp.val<printer.T0SetTemp.val)
+            {
+                printer.heating.val=1
+            }
+            if(printer.T1Temp.val<printer.T1SetTemp.val)
+            {
+                printer.heating.val=1
+            }
+            printer.hot.val=0
+            if(printer.setBedTemp.val!=0&&printer.bedTemp.val>=printer.setBedTemp.val)
+            {
+                printer.hot.val=1
+            }
+            if(printer.T0SetTemp.val!=0&&printer.T0Temp.val>=printer.T0SetTemp.val)
+            {
+                printer.hot.val=1
+            }
+            if(printer.T1SetTemp.val!=0&&printer.T1Temp.val>=printer.T1SetTemp.val)
+            {
+                printer.hot.val=1
+            }
+            if(printer.setBedTemp.val!=0&&printer.bedTemp.val<printer.setBedTemp.val)
+            {
+                printer.hot.val=0
+            }
+            if(printer.T0SetTemp.val!=0&&printer.T0Temp.val<printer.T0SetTemp.val)
+            {
+                printer.hot.val=0
+            }
+            if(printer.T1SetTemp.val!=0&&printer.T1Temp.val<printer.T1SetTemp.val)
+            {
+                printer.hot.val=0
+            }
         
 Hotspot serialHistory
     Attributes
-        ID               : 14
+        ID               : 13
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -541,12 +557,12 @@ Hotspot serialHistory
         
 Hotspot historyFilters
     Attributes
-        ID               : 15
+        ID               : 14
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 488
+        x coordinate     : 487
         y coordinate     : 131
         Width            : 106
         Height           : 17
@@ -635,13 +651,13 @@ Hotspot historyFilters
         
 Hotspot luxSend
     Attributes
-        ID               : 16
+        ID               : 15
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
         x coordinate     : 65535
-        y coordinate     : 65437
+        y coordinate     : 65474
         Width            : 106
         Height           : 17
         Effect           : load
@@ -698,7 +714,7 @@ Hotspot luxSend
         
 Hotspot luxInit
     Attributes
-        ID               : 17
+        ID               : 16
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -729,8 +745,6 @@ Hotspot luxInit
             //click luxSleep,1
             //click luxController,1
             click luxDoCallback,0 //Clears callback vars
-            commands.command.txt="M105"
-            click luxSend,1
         
         Touch Release Event
             ///////////////////////////////////////////////////////////////////////////////
@@ -741,7 +755,7 @@ Hotspot luxInit
         
 Hotspot luxAnimate
     Attributes
-        ID               : 18
+        ID               : 17
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -758,11 +772,12 @@ Hotspot luxAnimate
             /// @fn luxAnimate,1
             /// @brief Updates states for controls
             ///////////////////////////////////////////////////////////////////////////////
+            Frame=Frame^1 //Toggle Frame between 0 and 1
             click luxControlBar,1
         
 Hotspot luxControlBar
     Attributes
-        ID               : 19
+        ID               : 18
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -777,157 +792,150 @@ Hotspot luxControlBar
         Touch Press Event
             ///////////////////////////////////////////////////////////////////////////////
             // @fn luxControlBar 1
-            // @brief Animate control bar
+            // @brief Animate control bar.  picc2 is used to reference the "pressed" frame.
             ///////////////////////////////////////////////////////////////////////////////
             if(printer.T0SetTemp.val!=0) //T0 Temp is set
             {
                 if(printer.T0Temp.val<printer.T0SetTemp.val) //Heating
                 {
-                    //    bT0.picc=bT0.picc2+2
+                    bT0Temp.picc=bT0Temp.picc2+2
                     if(Frame==0)
                     {
                         covx printer.T0Temp.val,vars.s.txt,0,0 //Update T0
                         tT0Temp.txt=vars.s.txt
-                        tT0Temp.pco=57119
+                        tT0Temp.pco=pal_error90
                     }else
                     {
                         covx printer.T0SetTemp.val,vars.s.txt,0,0 //Update T0 Set Temp
                         tT0Temp.txt=vars.s.txt
-                        tT0Temp.pco=65242
+                        tT0Temp.pco=pal_error70
                     }
                 }else //At or above Temp
                 {
-                    //    bT0.picc=bT0.picc2
+                    bT0Temp.picc=bT0Temp.picc2
                     if(printer.T0Temp.val==printer.T0SetTemp.val)
                     {
                         covx printer.T0Temp.val,vars.s.txt,0,0 //Update T0
                         tT0Temp.txt=vars.s.txt
-                        tT0Temp.pco=64591
+                        tT0Temp.pco=pal_error70
                     }else
                     {
                         if(Frame==0)
                         {
                             covx printer.T0Temp.val,vars.s.txt,0,0 //Update T0
                             tT0Temp.txt=vars.s.txt
-                            tT0Temp.pco=64591
+                            tT0Temp.pco=pal_error90
                         }else
                         {
                             covx printer.T0SetTemp.val,vars.s.txt,0,0 //Update T0 Set Temp
                             tT0Temp.txt=vars.s.txt
-                            tT0Temp.pco=65242
+                            tT0Temp.pco=pal_error70
                         }
                     }
                 }
             }else //Cooling
             {
-                //  bT0.picc=bT0.picc2+1
+                bT0Temp.picc=bT0Temp.picc2-1
                 covx printer.T0Temp.val,vars.s.txt,0,0 //Update T0
                 tT0Temp.txt=vars.s.txt
-                tT0Temp.pco=57119
+                tT0Temp.pco=WHITE
             }
             if(printer.T1SetTemp.val!=0) //T1 Temp is set
             {
                 if(printer.T1Temp.val<printer.T1SetTemp.val) //Heating
                 {
-                    //    bT1.picc=bT1.picc2+2
+                    bT1Temp.picc=bT1Temp.picc2+2
                     if(Frame==0)
                     {
                         covx printer.T1Temp.val,vars.s.txt,0,0 //Update T1
                         tT1Temp.txt=vars.s.txt
-                        tT1Temp.pco=57119
+                        tT1Temp.pco=pal_error90
                     }else
                     {
                         covx printer.T1SetTemp.val,vars.s.txt,0,0 //Update T1 Set Temp
                         tT1Temp.txt=vars.s.txt
-                        tT1Temp.pco=65242
+                        tT1Temp.pco=pal_error70
                     }
                 }else //At or above Temp
                 {
-                    //    bT1.picc=bT1.picc2
+                    bT1Temp.picc=bT1Temp.picc2
                     if(printer.T1Temp.val==printer.T1SetTemp.val)
                     {
                         covx printer.T1Temp.val,vars.s.txt,0,0 //Update T1
                         tT1Temp.txt=vars.s.txt
-                        tT1Temp.pco=64591
+                        tT1Temp.pco=pal_error70
                     }else
                     {
                         if(Frame==0)
                         {
                             covx printer.T1Temp.val,vars.s.txt,0,0 //Update T1
                             tT1Temp.txt=vars.s.txt
-                            tT1Temp.pco=64591
+                            tT1Temp.pco=pal_error90
                         }else
                         {
                             covx printer.T1SetTemp.val,vars.s.txt,0,0 //Update T1 Set Temp
                             tT1Temp.txt=vars.s.txt
-                            tT1Temp.pco=65242
+                            tT1Temp.pco=pal_error70
                         }
                     }
                 }
             }else //Cooling
             {
-                //  bT1.picc=bT1.picc2+1
+                bT1Temp.picc=bT1Temp.picc2-1
                 covx printer.T1Temp.val,vars.s.txt,0,0 //Update T1
                 tT1Temp.txt=vars.s.txt
-                tT1Temp.pco=57119
+                tT1Temp.pco=WHITE
             }
             if(printer.setBedTemp.val!=0) //Bed Temp is set
             {
                 if(printer.bedTemp.val<printer.setBedTemp.val) //Heating
                 {
-                    //    bBed.picc=bBed.picc2+2
+                    bBedTemp.picc=bBedTemp.picc2+2
                     if(Frame==0)
                     {
                         covx printer.bedTemp.val,vars.s.txt,0,0 //Update Bed
                         tBedTemp.txt=vars.s.txt
-                        tBedTemp.pco=57119
+                        tBedTemp.pco=pal_error90
                     }else
                     {
                         covx printer.setBedTemp.val,vars.s.txt,0,0 //Update Bed Set Temp
                         tBedTemp.txt=vars.s.txt
-                        tBedTemp.pco=65242
+                        tBedTemp.pco=pal_error70
                     }
                 }else //At or above Temp
                 {
-                    //    bBed.picc=bBed.picc2
+                    bBedTemp.picc=bBedTemp.picc2
                     if(printer.bedTemp.val==printer.setBedTemp.val)
                     {
                         covx printer.bedTemp.val,vars.s.txt,0,0 //Update Bed
                         tBedTemp.txt=vars.s.txt
-                        tBedTemp.pco=64591
+                        tBedTemp.pco=pal_error70
                     }else
                     {
                         if(Frame==0)
                         {
                             covx printer.bedTemp.val,vars.s.txt,0,0 //Update Bed
                             tBedTemp.txt=vars.s.txt
-                            tBedTemp.pco=64591
+                            tBedTemp.pco=pal_error90
                         }else
                         {
                             covx printer.setBedTemp.val,vars.s.txt,0,0 //Update Bed Set Temp
                             tBedTemp.txt=vars.s.txt
-                            tBedTemp.pco=65242
+                            tBedTemp.pco=pal_error70
                         }
                     }
                 }
             }else //Cooling
             {
-                //  bBed.picc=bBed.picc2
+                bBedTemp.picc=bBedTemp.picc2-1
                 covx printer.bedTemp.val,vars.s.txt,0,0 //Update Bed
                 tBedTemp.txt=vars.s.txt
-                tBedTemp.pco=57119
+                tBedTemp.pco=WHITE
             }
-            //if(IdexMode==0||IdexMode==1)
-            //{
-            //  bTool.picc=bTool.picc2+Tool
-            //}else
-            //{
-            //  bTool.picc=bTool.picc2+2
-            //}
         
 Hotspot luxDoCallback
     Attributes
-        ID               : 20
+        ID               : 19
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -963,62 +971,9 @@ Hotspot luxDoCallback
             parse.callback.txt="null"
             parse.callbackReturn.txt="null"
         
-Hotspot luxView
-    Attributes
-        ID               : 22
-        Scope            : local
-        Dragging         : 0
-        Send Component ID: disabled
-        Opacity          : 127
-        x coordinate     : 117
-        y coordinate     : 65467
-        Width            : 106
-        Height           : 16
-        Effect           : load
-    
-    Events
-        Touch Press Event
-            ///////////////////////////////////////////////////////////////////////////////
-            /// @fn luxView,1
-            /// @brief Updates states for controls
-            ///////////////////////////////////////////////////////////////////////////////
-            tM117.txt=printer.m117.txt
-        
-Hotspot luxFlow
-    Attributes
-        ID               : 23
-        Scope            : local
-        Dragging         : 0
-        Send Component ID: disabled
-        Opacity          : 127
-        x coordinate     : 244
-        y coordinate     : 65513
-        Width            : 106
-        Height           : 17
-        Effect           : load
-    
-    Events
-        Touch Press Event
-            ///////////////////////////////////////////////////////////////////////////////
-            /// @fn luxFlow 1
-            /// @brief Get Flow
-            ///////////////////////////////////////////////////////////////////////////////
-            commands.queue.txt+="M221\r"
-            click luxSend,0
-        
-        Touch Release Event
-            ///////////////////////////////////////////////////////////////////////////////
-            /// @fn luxFlow 0
-            /// @brief Set Flow
-            ///////////////////////////////////////////////////////////////////////////////
-            commands.queue.txt+="M221 S"
-            commands.queue.txt+=vars.returnVal.txt
-            commands.queue.txt+="\rM221\r"
-            click luxSend,0
-        
 Hotspot parsePrintSet
     Attributes
-        ID               : 24
+        ID               : 21
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -1056,7 +1011,7 @@ Hotspot parsePrintSet
         
 Hotspot parsePosition
     Attributes
-        ID               : 25
+        ID               : 22
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -1085,13 +1040,13 @@ Hotspot parsePosition
         
 Hotspot luxRead
     Attributes
-        ID               : 26
+        ID               : 23
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
         x coordinate     : 65535
-        y coordinate     : 65492
+        y coordinate     : 65493
         Width            : 106
         Height           : 17
         Effect           : load
@@ -1146,7 +1101,7 @@ Hotspot luxRead
         
 Hotspot parseCommon
     Attributes
-        ID               : 28
+        ID               : 25
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -1224,7 +1179,7 @@ Hotspot parseCommon
                 ok=1
                 busy=0
             }
-            parse.lineMatch.txt="ok T:" //M105 ok
+            parse.lineMatch.txt="ok B:" //Handle M105
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
             if(parse.eval.txt==parse.lineMatch.txt)
@@ -1336,9 +1291,116 @@ Hotspot parseCommon
                 parse.matched.val=0
             }
         
+Hotspot parseSDPrint
+    Attributes
+        ID               : 28
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 489
+        y coordinate     : 205
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            // Starting
+            // TODO Get long filename
+            parse.lineMatch.txt="echo:Now fresh file: " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,printer.fileName.txt,parse.lineMatch.txt,1
+            }
+            // Progress
+            parse.lineMatch.txt="SD printing byte " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1 //Split by qualifier
+                spstr vars.s.txt,vars.s2.txt,"/",0 //Current Byte
+                covx vars.s2.txt,printer.currentByte.val,0,0
+                spstr vars.s.txt,vars.s2.txt,"/",1 //Total Bytes
+                covx vars.s2.txt,printer.totalBytes.val,0,0
+                printer.sdPrinting.val=1
+            }
+            // Paused or Finished
+            parse.lineMatch.txt="Not SD printing" //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                printer.sdPrinting.val=0
+            }
+            // Finished
+            parse.lineMatch.txt="Done printing file" //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                printer.printState.txt="finished"
+            }
+            // Print Time
+            parse.lineMatch.txt="echo:Print time: " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,printer.printTime.txt,": ",1
+            }
+            // Error
+            parse.lineMatch.txt="open failed, " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                printer.printState.txt="error"
+                printer.error.txt+=parse.buffer.txt
+            }
+        
+Hotspot luxView
+    Attributes
+        ID               : 30
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 116
+        y coordinate     : 65465
+        Width            : 106
+        Height           : 15
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxView,1
+            /// @brief Updates states for controls
+            ///////////////////////////////////////////////////////////////////////////////
+            if(printer.paused.val==1)
+            {
+                tStatus.txt="PAUSED"
+            }else if(printer.printing.val==1)
+            {
+                tStatus.txt="PRINTING"
+            }else if(printer.hot.val==1)
+            {
+                tStatus.txt="HOT"
+            }else if(printer.heating.val==1)
+            {
+                tStatus.txt="HEATING"
+            }else
+            {
+                tStatus.txt="READY"
+            }
+        
 Timer luxRun
     Attributes
-        ID         : 11
+        ID         : 10
         Scope      : local
         Period (ms): 100
         Enabled    : yes
@@ -1355,7 +1417,7 @@ Timer luxRun
         
 Timer luxAnimTimer
     Attributes
-        ID         : 21
+        ID         : 20
         Scope      : local
         Period (ms): 2000
         Enabled    : yes
@@ -1366,21 +1428,34 @@ Timer luxAnimTimer
             /// @fn luxAnimate
             /// @brief Flow, and speed indicators
             ///////////////////////////////////////////////////////////////////////////////
-            Frame=Frame^1 //Toggle Frame between 0 and 1
             click luxAnimate,1
         
-Timer tmGetTempPos
+Timer tmGetStatus
     Attributes
-        ID         : 27
+        ID         : 24
         Scope      : local
-        Period (ms): 5000
+        Period (ms): 100
         Enabled    : yes
     
     Events
         Timer Event
+            if(tmGetStatus.tim==100)
+            {
+                tmGetStatus.tim=2000
+            }
             if(ok==1)
             {
                 commands.command.txt="M105\rM114\rM27"
                 click luxSend,1
             }
+        
+TouchCap tCap
+    Attributes
+        ID   : 29
+        Scope: local
+        Value: 0
+    
+    Events
+        Touch Press Event
+            ReturnObj=tCap.val
         
