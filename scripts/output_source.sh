@@ -1,0 +1,1 @@
+python3 ./Nextion2Text/Nextion2Text.py -i ../luxuri.HMI -o ../src -d -s -p visual
