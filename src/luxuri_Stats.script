@@ -38,10 +38,6 @@ numpad
 	29   Component(s)
 	396  Line(s) of event code
 	203  Unique line(s) of event code
-printer
-	46   Component(s)
-	0    Line(s) of event code
-	0    Unique line(s) of event code
 diagPrompt
 	14   Component(s)
 	380  Line(s) of event code
@@ -58,6 +54,10 @@ sdPrint
 	31   Component(s)
 	534  Line(s) of event code
 	282  Unique line(s) of event code
+printer
+	45   Component(s)
+	0    Line(s) of event code
+	0    Unique line(s) of event code
 wake
 	18   Component(s)
 	381  Line(s) of event code
@@ -118,14 +118,14 @@ luxSkel
 	39   Component(s)
 	564  Line(s) of event code
 	294  Unique line(s) of event code
+dashboard
+	31   Component(s)
+	734  Line(s) of event code
+	351  Unique line(s) of event code
 console
 	48   Component(s)
 	674  Line(s) of event code
 	340  Unique line(s) of event code
-dashboard
-	31   Component(s)
-	733  Line(s) of event code
-	350  Unique line(s) of event code
 preheat
 	44   Component(s)
 	608  Line(s) of event code
@@ -133,6 +133,6 @@ preheat
 
 Total
 	32   Page(s)
-	1018 Component(s)
-	14360 Line(s) of event code
+	1017 Component(s)
+	14361 Line(s) of event code
 	1701 Unique line(s) of event code
