@@ -68,8 +68,8 @@ dashboard
 	335  Unique line(s) of event code
 printing
 	35   Component(s)
-	694  Line(s) of event code
-	343  Unique line(s) of event code
+	686  Line(s) of event code
+	340  Unique line(s) of event code
 levelBed
 	29   Component(s)
 	469  Line(s) of event code
@@ -134,5 +134,5 @@ gcodeKeyb
 Total
 	32   Page(s)
 	1001 Component(s)
-	14161 Line(s) of event code
-	1644 Unique line(s) of event code
+	14153 Line(s) of event code
+	1646 Unique line(s) of event code

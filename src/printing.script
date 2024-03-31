@@ -160,9 +160,9 @@ Text tPercent
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 63
+        x coordinate            : 52
         y coordinate            : 173
-        Width                   : 70
+        Width                   : 92
         Height                  : 44
         Effect                  : load
         Fill                    : transparent
@@ -175,8 +175,8 @@ Text tPercent
         Horizontal Alignment    : center
         Vertical Alignment      : center
         Input Type              : character
-        Text                    : 78%
-        Max. Text Size          : 3
+        Text                    : 
+        Max. Text Size          : 4
         Word wrap               : disabled
         Horizontal Spacing      : 0
         Vertical Spacing        : 0
@@ -294,7 +294,7 @@ Progress Bar jProgress
         Effect               : load
         Fill                 : solid color
         Direction            : horizontal
-        Value                : 92
+        Value                : 0
         Corner Radius (Perc.): 25
         Back. Color          : 48631
         Background Picture ID: 113
@@ -430,7 +430,7 @@ Button bT0Temp
                 click luxSend,0
             }
         
-Button bEmergencyStop
+Button bStop
     Attributes
         ID                                  : 10
         Scope                               : local
@@ -489,7 +489,7 @@ Button bPrintMenu
     
     Events
         Touch Press Event
-            page menu
+            page printSettings
         
 Hotspot luxNotify
     Attributes
@@ -1351,15 +1351,6 @@ Hotspot parseSDPrint
     
     Events
         Touch Press Event
-            // Starting
-            // TODO Get long filename
-            parse.lineMatch.txt="echo:Now fresh file: " //Qualify Line
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                spstr parse.buffer.txt,printer.fileName.txt,parse.lineMatch.txt,1
-            }
             // Progress
             parse.lineMatch.txt="SD printing byte " //Qualify Line
             strlen parse.lineMatch.txt,j
@@ -1373,14 +1364,13 @@ Hotspot parseSDPrint
                 covx vars.s2.txt,printer.totalBytes.val,0,0
                 printer.sdPrinting.val=1
             }
-            // Paused or Finished
             parse.lineMatch.txt="Not SD printing" //Qualify Line
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
             if(parse.eval.txt==parse.lineMatch.txt)
             {
                 printer.sdPrinting.val=0
-                page MAIN
+                //  page MAIN
             }
             // Finished
             parse.lineMatch.txt="Done printing file" //Qualify Line
@@ -1388,7 +1378,7 @@ Hotspot parseSDPrint
             substr parse.buffer.txt,parse.eval.txt,0,j
             if(parse.eval.txt==parse.lineMatch.txt)
             {
-                printer.printState.txt="finished"
+                printer.currentByte.val=printer.totalBytes.val
             }
             // Print Time
             parse.lineMatch.txt="echo:Print time: " //Qualify Line
@@ -1447,8 +1437,8 @@ Hotspot luxView
             ii=printer.currentByte.val*100/printer.totalBytes.val
             covx ii,tPercent.txt,0,0
             tPercent.txt+="%"
-            NewMin=8
-            NewMax=92
+            NewMin=7
+            NewMax=94
             jj=ii-1
             kk=NewMax-NewMin
             jj*=kk
