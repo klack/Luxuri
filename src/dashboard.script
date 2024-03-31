@@ -35,7 +35,7 @@ Text tT1Temp
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 14
+        Font ID                 : 12
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -70,7 +70,7 @@ Text tBedTemp
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 14
+        Font ID                 : 12
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -106,7 +106,7 @@ Text tStatus
         Fill                : solid color
         Style               : flat
         Associated Keyboard : none
-        Font ID             : 14
+        Font ID             : 12
         Back. Color         : 0
         Font Color          : 65535
         Horizontal Alignment: center
@@ -132,7 +132,7 @@ Text tT0Temp
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 14
+        Font ID                 : 12
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -387,7 +387,7 @@ Hotspot luxNotify
         Touch Press Event
             click parseCommon,1
             click parseTemp,1
-            click parseSDPrint,1
+            click parseRedirect,1
             click parsePosition,1
             click serialHistory,1
         
@@ -979,9 +979,9 @@ Hotspot parsePosition
         Send Component ID: disabled
         Opacity          : 127
         x coordinate     : 488
-        y coordinate     : 57
+        y coordinate     : 59
         Width            : 106
-        Height           : 15
+        Height           : 13
         Effect           : load
     
     Events
@@ -1253,7 +1253,7 @@ Hotspot parseCommon
                 parse.matched.val=0
             }
         
-Hotspot parseSDPrint
+Hotspot parseRedirect
     Attributes
         ID               : 27
         Scope            : local
@@ -1268,16 +1268,6 @@ Hotspot parseSDPrint
     
     Events
         Touch Press Event
-            // Starting
-            // TODO Get long filename
-            parse.lineMatch.txt="echo:Now fresh file: " //Qualify Line
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                spstr parse.buffer.txt,printer.fileName.txt,parse.lineMatch.txt,1
-            }
-            // Progress
             parse.lineMatch.txt="SD printing byte " //Qualify Line
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
@@ -1289,39 +1279,17 @@ Hotspot parseSDPrint
                 spstr vars.s.txt,vars.s2.txt,"/",1 //Total Bytes
                 covx vars.s2.txt,printer.totalBytes.val,0,0
                 printer.sdPrinting.val=1
+                page printing
             }
-            // Paused or Finished
-            parse.lineMatch.txt="Not SD printing" //Qualify Line
+            parse.lineMatch.txt="File selected" //Qualify Line
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
             if(parse.eval.txt==parse.lineMatch.txt)
             {
-                printer.sdPrinting.val=0
-            }
-            // Finished
-            parse.lineMatch.txt="Done printing file" //Qualify Line
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                printer.printState.txt="finished"
-            }
-            // Print Time
-            parse.lineMatch.txt="echo:Print time: " //Qualify Line
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                spstr parse.buffer.txt,printer.printTime.txt,": ",1
-            }
-            // Error
-            parse.lineMatch.txt="open failed, " //Qualify Line
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                printer.printState.txt="error"
-                printer.error.txt+=parse.buffer.txt
+                printer.currentByte.val=0
+                printer.totalBytes.val=0
+                printer.sdPrinting.val=1
+                page printing
             }
         
 Hotspot luxView
