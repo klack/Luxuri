@@ -513,7 +513,7 @@ Button bFlow
         Height                              : 94
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 11
+        Font ID                             : 10
         Cropped Back. Picture ID (Unpressed): 47
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 46
@@ -556,7 +556,7 @@ Button bSpeed
         Height                              : 94
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 11
+        Font ID                             : 10
         Cropped Back. Picture ID (Unpressed): 47
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 46
@@ -599,7 +599,7 @@ Button bStop
         Height                              : 104
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 11
+        Font ID                             : 10
         Cropped Back. Picture ID (Unpressed): 47
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 46
@@ -648,7 +648,7 @@ Button bPauseResume
         Height                              : 94
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 11
+        Font ID                             : 10
         Cropped Back. Picture ID (Unpressed): 47
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 46
@@ -721,7 +721,7 @@ Button bSettings
         Height                              : 104
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 11
+        Font ID                             : 10
         Cropped Back. Picture ID (Unpressed): 47
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 46
@@ -1122,7 +1122,7 @@ Hotspot luxController
             }
             if(printer.printState.txt=="finished")
             {
-                page print
+                page printing
             }
             if(printer.printState.txt=="paused"||printer.printState.txt=="printing")
             {

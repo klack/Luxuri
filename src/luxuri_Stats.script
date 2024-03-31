@@ -1,11 +1,7 @@
 Program.s
 	0    Component(s)
-	23   Line(s) of event code
-	23   Unique line(s) of event code
-shutdown
-	3    Component(s)
-	4    Line(s) of event code
-	4    Unique line(s) of event code
+	24   Line(s) of event code
+	24   Unique line(s) of event code
 vars
 	10   Component(s)
 	0    Line(s) of event code
@@ -18,6 +14,10 @@ parse
 	13   Component(s)
 	0    Line(s) of event code
 	0    Unique line(s) of event code
+shutdown
+	3    Component(s)
+	4    Line(s) of event code
+	4    Unique line(s) of event code
 error
 	10   Component(s)
 	88   Line(s) of event code
@@ -26,74 +26,58 @@ historyFilters
 	13   Component(s)
 	2    Line(s) of event code
 	2    Unique line(s) of event code
-octoprint
-	38   Component(s)
-	589  Line(s) of event code
-	300  Unique line(s) of event code
-editMesh
-	26   Component(s)
-	239  Line(s) of event code
-	142  Unique line(s) of event code
-numpad
-	29   Component(s)
-	396  Line(s) of event code
-	203  Unique line(s) of event code
-diagPrompt
-	14   Component(s)
-	380  Line(s) of event code
-	186  Unique line(s) of event code
-settings
-	34   Component(s)
-	551  Line(s) of event code
-	266  Unique line(s) of event code
-loadFilament
-	47   Component(s)
-	663  Line(s) of event code
-	335  Unique line(s) of event code
-sdPrint
-	31   Component(s)
-	534  Line(s) of event code
-	282  Unique line(s) of event code
-printer
-	45   Component(s)
-	0    Line(s) of event code
-	0    Unique line(s) of event code
-wake
-	18   Component(s)
-	381  Line(s) of event code
-	193  Unique line(s) of event code
-diagConfirm
-	21   Component(s)
-	368  Line(s) of event code
-	186  Unique line(s) of event code
-pidTune
-	35   Component(s)
-	579  Line(s) of event code
-	301  Unique line(s) of event code
-idexMode
-	25   Component(s)
-	493  Line(s) of event code
-	249  Unique line(s) of event code
-pause
-	31   Component(s)
-	631  Line(s) of event code
-	307  Unique line(s) of event code
-print
-	50   Component(s)
-	849  Line(s) of event code
-	433  Unique line(s) of event code
 menu
 	29   Component(s)
 	495  Line(s) of event code
 	255  Unique line(s) of event code
-gcodeKeyb
-	56   Component(s)
-	439  Line(s) of event code
-	214  Unique line(s) of event code
+editMesh
+	26   Component(s)
+	239  Line(s) of event code
+	142  Unique line(s) of event code
+wake
+	18   Component(s)
+	381  Line(s) of event code
+	193  Unique line(s) of event code
+diagPrompt
+	14   Component(s)
+	380  Line(s) of event code
+	186  Unique line(s) of event code
+sdPrint
+	31   Component(s)
+	532  Line(s) of event code
+	280  Unique line(s) of event code
+preheat
+	44   Component(s)
+	608  Line(s) of event code
+	311  Unique line(s) of event code
+idexMode
+	25   Component(s)
+	493  Line(s) of event code
+	249  Unique line(s) of event code
+printer
+	45   Component(s)
+	0    Line(s) of event code
+	0    Unique line(s) of event code
+diagConfirm
+	21   Component(s)
+	368  Line(s) of event code
+	186  Unique line(s) of event code
+dashboard
+	30   Component(s)
+	690  Line(s) of event code
+	335  Unique line(s) of event code
+printing
+	35   Component(s)
+	694  Line(s) of event code
+	343  Unique line(s) of event code
 levelBed
 	29   Component(s)
 	469  Line(s) of event code
 	250  Unique line(s) of event code
+mesh
+	69   Component(s)
+	913  Line(s) of event code
+	453  Unique line(s) of event code
 sendHistory
 	30   Component(s)
 	499  Line(s) of event code
@@ -102,37 +86,53 @@ connect
 	36   Component(s)
 	654  Line(s) of event code
 	317  Unique line(s) of event code
-mesh
-	69   Component(s)
-	913  Line(s) of event code
-	453  Unique line(s) of event code
-move
-	53   Component(s)
-	605  Line(s) of event code
-	305  Unique line(s) of event code
-printSettings
-	53   Component(s)
-	937  Line(s) of event code
-	484  Unique line(s) of event code
+loadFilament
+	47   Component(s)
+	663  Line(s) of event code
+	335  Unique line(s) of event code
 luxSkel
 	39   Component(s)
 	564  Line(s) of event code
 	294  Unique line(s) of event code
-dashboard
-	31   Component(s)
-	734  Line(s) of event code
-	351  Unique line(s) of event code
 console
 	48   Component(s)
 	674  Line(s) of event code
 	340  Unique line(s) of event code
-preheat
-	44   Component(s)
-	608  Line(s) of event code
-	311  Unique line(s) of event code
+move
+	53   Component(s)
+	605  Line(s) of event code
+	305  Unique line(s) of event code
+pidTune
+	35   Component(s)
+	579  Line(s) of event code
+	301  Unique line(s) of event code
+numpad
+	29   Component(s)
+	396  Line(s) of event code
+	203  Unique line(s) of event code
+pause
+	31   Component(s)
+	631  Line(s) of event code
+	307  Unique line(s) of event code
+settings
+	34   Component(s)
+	551  Line(s) of event code
+	266  Unique line(s) of event code
+printSettings
+	53   Component(s)
+	937  Line(s) of event code
+	484  Unique line(s) of event code
+octoprint
+	38   Component(s)
+	589  Line(s) of event code
+	300  Unique line(s) of event code
+gcodeKeyb
+	56   Component(s)
+	439  Line(s) of event code
+	214  Unique line(s) of event code
 
 Total
 	32   Page(s)
-	1017 Component(s)
-	14361 Line(s) of event code
-	1701 Unique line(s) of event code
+	1001 Component(s)
+	14161 Line(s) of event code
+	1644 Unique line(s) of event code

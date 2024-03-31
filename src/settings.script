@@ -35,7 +35,7 @@ Text tTitle
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 10
+        Font ID                 : 9
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : top
@@ -148,7 +148,7 @@ Button eStepsVal
         Height                              : 28
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 7
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 0
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 38
@@ -194,7 +194,7 @@ Button zOffsetVal
         Height                              : 28
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 7
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 0
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 38
@@ -238,7 +238,7 @@ Button x2Val
         Height                              : 28
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 7
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 0
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 38
@@ -282,7 +282,7 @@ Button y2Val
         Height                              : 28
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 7
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 0
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 38
@@ -326,7 +326,7 @@ Button z2Val
         Height                              : 28
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 7
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 0
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 38
@@ -370,7 +370,7 @@ Button tEsteps
         Height                              : 28
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 7
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 0
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 0
@@ -396,7 +396,7 @@ Button tZOffset
         Height                              : 28
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 7
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 0
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 0
@@ -422,7 +422,7 @@ Button bX2
         Height                              : 28
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 7
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 0
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 0
@@ -448,7 +448,7 @@ Button bY2
         Height                              : 28
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 7
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 0
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 0
@@ -474,7 +474,7 @@ Button bZ2
         Height                              : 28
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 7
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 0
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 0

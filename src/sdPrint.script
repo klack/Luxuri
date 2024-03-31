@@ -4,7 +4,7 @@ Page sdPrint
         Scope              : local
         Send Component ID  : disabled
         Opacity            : 127
-        Width              : 1024
+        Width              : 480
         Effect             : load
         Locked             : no
         Swide up page ID   : disabled
@@ -194,7 +194,7 @@ Text tMessage
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 7
+        Font ID                 : 11
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -219,7 +219,7 @@ Text tTitle
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 10
+        Font ID                 : 9
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : top
@@ -331,10 +331,10 @@ Button bPrint
     Events
         Touch Press Event
             //bPrint
-            print.fileName.txt=selectedFile.txt
+            //print.fileName.txt=selectedFile.txt
             printer.sdPrinting.val=0
             printer.printState.txt="null"
-            page print
+            //page print
         
 Button bClose
     Attributes

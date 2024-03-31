@@ -37,7 +37,7 @@ Text title
         Associated Keyboard     : none
         Border Color            : 0
         Border Width            : 2
-        Font ID                 : 8
+        Font ID                 : 7
         Back. Color             : 0
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -67,7 +67,7 @@ Text message
         Associated Keyboard     : none
         Border Color            : 0
         Border Width            : 2
-        Font ID                 : 7
+        Font ID                 : 11
         Back. Color             : 0
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -97,7 +97,7 @@ Text action
         Associated Keyboard     : none
         Border Color            : 0
         Border Width            : 2
-        Font ID                 : 8
+        Font ID                 : 7
         Back. Color             : 0
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535

@@ -32,7 +32,7 @@ Text tIdexMode
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 10
+        Font ID                 : 9
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center

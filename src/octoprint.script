@@ -249,7 +249,7 @@ Text tTitle
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 10
+        Font ID                 : 9
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : top
@@ -287,7 +287,7 @@ Button bStop
         Height                              : 80
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 11
+        Font ID                             : 10
         Cropped Back. Picture ID (Unpressed): 74
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 73
@@ -331,7 +331,7 @@ Button bPause
         Height                              : 80
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 11
+        Font ID                             : 10
         Cropped Back. Picture ID (Unpressed): 74
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 73
@@ -362,7 +362,7 @@ Button bPrint
         Height                              : 80
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 11
+        Font ID                             : 10
         Cropped Back. Picture ID (Unpressed): 74
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 73

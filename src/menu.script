@@ -35,7 +35,7 @@ Text tStatus
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 7
+        Font ID                 : 11
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -63,7 +63,7 @@ Text bMenu
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 12
+        Font ID                 : 14
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -95,7 +95,7 @@ Text t0
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 12
+        Font ID                 : 14
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -127,7 +127,7 @@ Text t1
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 12
+        Font ID                 : 14
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
