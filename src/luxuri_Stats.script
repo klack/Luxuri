@@ -87,9 +87,9 @@ dashboard
 	690  Line(s) of event code
 	335  Unique line(s) of event code
 printing
-	37   Component(s)
-	697  Line(s) of event code
-	353  Unique line(s) of event code
+	39   Component(s)
+	713  Line(s) of event code
+	360  Unique line(s) of event code
 console
 	48   Component(s)
 	674  Line(s) of event code
@@ -133,6 +133,6 @@ printSettings
 
 Total
 	32   Page(s)
-	1003 Component(s)
-	14162 Line(s) of event code
-	1663 Unique line(s) of event code
+	1005 Component(s)
+	14178 Line(s) of event code
+	1668 Unique line(s) of event code

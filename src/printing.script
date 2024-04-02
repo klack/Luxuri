@@ -21,6 +21,33 @@ Page printing
         Page Exit Event
             click luxInit,0
         
+Number n0
+    Attributes
+        ID                      : 38
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 98
+        y coordinate            : 0
+        Width                   : 100
+        Height                  : 30
+        Effect                  : load
+        Fill                    : solid color
+        Style                   : flat
+        Associated Keyboard     : none
+        Font ID                 : 0
+        Back. Color             : 65535
+        Font Color              : 0
+        Horizontal Alignment    : center
+        Vertical Alignment      : center
+        Value                   : 0
+        Significant digits shown: all
+        Format                  : decimal
+        Word wrap               : enabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
 Text tT1Temp
     Attributes
         ID                      : 7
@@ -188,21 +215,46 @@ Text tPercent
         Touch Release Event
             click bT0Temp,0
         
-Text tTimeRemaining
+Text tZ
     Attributes
         ID                      : 33
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 238
-        y coordinate            : 170
-        Width                   : 150
-        Height                  : 35
+        x coordinate            : 384
+        y coordinate            : 178
+        Width                   : 60
+        Height                  : 21
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 2
+        Font ID                 : 1
+        Cropped Back. Picture ID: 110
+        Horizontal Alignment    : left
+        Vertical Alignment      : center
+        Input Type              : character
+        Text                    : 999.99
+        Max. Text Size          : 10
+        Word wrap               : disabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+Text tTimeRemaining
+    Attributes
+        ID                      : 36
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 253
+        y coordinate            : 178
+        Width                   : 113
+        Height                  : 21
+        Effect                  : load
+        Fill                    : crop image
+        Associated Keyboard     : none
+        Font ID                 : 1
         Cropped Back. Picture ID: 110
         Horizontal Alignment    : left
         Vertical Alignment      : center
@@ -213,27 +265,27 @@ Text tTimeRemaining
         Horizontal Spacing      : 0
         Vertical Spacing        : 0
     
-Text tZ
+Text t0
     Attributes
-        ID                      : 34
+        ID                      : 37
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 395
-        y coordinate            : 166
-        Width                   : 73
-        Height                  : 35
+        x coordinate            : 202
+        y coordinate            : 146
+        Width                   : 266
+        Height                  : 21
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 5
+        Font ID                 : 1
         Cropped Back. Picture ID: 110
-        Horizontal Alignment    : left
+        Horizontal Alignment    : center
         Vertical Alignment      : center
         Input Type              : character
-        Text                    : 999.99
-        Max. Text Size          : 10
+        Text                    : Semi-long gcode filename.gcode
+        Max. Text Size          : 64
         Word wrap               : disabled
         Horizontal Spacing      : 0
         Vertical Spacing        : 0
@@ -493,7 +545,7 @@ Button bPrintMenu
         
 Button bHome
     Attributes
-        ID                                  : 36
+        ID                                  : 35
         Scope                               : local
         Dragging                            : 0
         Send Component ID                   : disabled
@@ -1393,14 +1445,25 @@ Hotspot parseSDPrint
                 spstr vars.s.txt,vars.s2.txt,"/",1 //Total Bytes
                 covx vars.s2.txt,printer.totalBytes.val,0,0
                 printer.sdPrinting.val=1
+                printer.paused.val=0
             }
-            parse.lineMatch.txt="Not SD printing" //Qualify Line
+            parse.lineMatch.txt="Not SD printing." //Qualify Line
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
             if(parse.eval.txt==parse.lineMatch.txt)
             {
                 printer.sdPrinting.val=0
-                //  page MAIN
+                printer.paused.val=0
+                printer.currentByte.val=0
+                printer.totalBytes.val=0
+                printer.printTime.txt="0m 0h 0s"
+            }
+            parse.lineMatch.txt="// Print Paused" //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                printer.paused.val=1
             }
             // Finished
             parse.lineMatch.txt="Done printing file" //Qualify Line
@@ -1411,7 +1474,7 @@ Hotspot parseSDPrint
                 printer.currentByte.val=printer.totalBytes.val
             }
             // Print Time
-            parse.lineMatch.txt="// Print Time:" //Qualify Line
+            parse.lineMatch.txt="// Print Time: " //Qualify Line
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
             if(parse.eval.txt==parse.lineMatch.txt)
@@ -1436,9 +1499,9 @@ Hotspot luxView
         Send Component ID: disabled
         Opacity          : 127
         x coordinate     : 371
-        y coordinate     : 65475
+        y coordinate     : 65476
         Width            : 106
-        Height           : 17
+        Height           : 16
         Effect           : load
     
     Events
@@ -1459,6 +1522,9 @@ Hotspot luxView
             {
                 tStatus.txt="COMPLETE"
                 click swapState,0
+            }else if(printer.sdPrinting.val==0&&printer.paused.val==0)
+            {
+                page MAIN
             }
             // Percent text
             tZ.txt=printer.z.txt
@@ -1469,17 +1535,18 @@ Hotspot luxView
             // Percent bar, linear transformation to account for progress bar borders
             NewMin=7
             NewMax=94
-            jj=ii-NewMin
+            jj=ii-1
             kk=NewMax-NewMin
             jj*=kk
             kk=100
             NewValue=jj/kk
             NewValue+=NewMin
             jProgress.val=NewValue
+            n0.val=NewValue
         
 Hotspot swapState
     Attributes
-        ID               : 35
+        ID               : 34
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
