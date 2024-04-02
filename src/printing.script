@@ -195,9 +195,9 @@ Text tTimeRemaining
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 251
+        x coordinate            : 228
         y coordinate            : 166
-        Width                   : 107
+        Width                   : 150
         Height                  : 35
         Effect                  : load
         Fill                    : crop image
@@ -207,8 +207,8 @@ Text tTimeRemaining
         Horizontal Alignment    : left
         Vertical Alignment      : center
         Input Type              : character
-        Text                    : 
-        Max. Text Size          : 10
+        Text                    : 99m 99h 99s
+        Max. Text Size          : 16
         Word wrap               : disabled
         Horizontal Spacing      : 0
         Vertical Spacing        : 0
@@ -220,9 +220,9 @@ Text tZ
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 389
+        x coordinate            : 395
         y coordinate            : 166
-        Width                   : 91
+        Width                   : 73
         Height                  : 35
         Effect                  : load
         Fill                    : crop image
@@ -232,7 +232,7 @@ Text tZ
         Horizontal Alignment    : left
         Vertical Alignment      : center
         Input Type              : character
-        Text                    : 
+        Text                    : 999.99
         Max. Text Size          : 10
         Word wrap               : disabled
         Horizontal Spacing      : 0
@@ -259,9 +259,9 @@ Crop Picture q0
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 218
+        x coordinate            : 190
         y coordinate            : 164
-        Width                   : 171
+        Width                   : 247
         Height                  : 36
         Effect                  : load
         Cropped Back. Picture ID: 110
@@ -1154,7 +1154,7 @@ Hotspot parseCommon
         x coordinate     : 488
         y coordinate     : 21
         Width            : 106
-        Height           : 15
+        Height           : 14
         Effect           : load
     
     Events
@@ -1381,7 +1381,7 @@ Hotspot parseSDPrint
                 printer.currentByte.val=printer.totalBytes.val
             }
             // Print Time
-            parse.lineMatch.txt="echo:Print time: " //Qualify Line
+            parse.lineMatch.txt="// Print Time:" //Qualify Line
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
             if(parse.eval.txt==parse.lineMatch.txt)
@@ -1437,6 +1437,8 @@ Hotspot luxView
             ii=printer.currentByte.val*100/printer.totalBytes.val
             covx ii,tPercent.txt,0,0
             tPercent.txt+="%"
+            tTimeRemaining.txt=printer.printTime.txt
+            // Percent bar (account for pic borders)
             NewMin=7
             NewMax=94
             jj=ii-1
@@ -1494,7 +1496,7 @@ Timer tmGetStatus
             }
             if(ok==1)
             {
-                commands.command.txt="M105\rM114\rM27"
+                commands.command.txt="M105\rM114\rM27\rM31"
                 click luxSend,1
             }
         

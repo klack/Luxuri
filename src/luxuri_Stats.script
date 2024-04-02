@@ -66,14 +66,18 @@ dashboard
 	30   Component(s)
 	690  Line(s) of event code
 	335  Unique line(s) of event code
-printing
-	35   Component(s)
-	686  Line(s) of event code
-	340  Unique line(s) of event code
+connect
+	36   Component(s)
+	652  Line(s) of event code
+	316  Unique line(s) of event code
 levelBed
 	29   Component(s)
 	469  Line(s) of event code
 	250  Unique line(s) of event code
+printing
+	35   Component(s)
+	687  Line(s) of event code
+	341  Unique line(s) of event code
 mesh
 	69   Component(s)
 	913  Line(s) of event code
@@ -82,10 +86,6 @@ sendHistory
 	30   Component(s)
 	499  Line(s) of event code
 	238  Unique line(s) of event code
-connect
-	36   Component(s)
-	654  Line(s) of event code
-	317  Unique line(s) of event code
 loadFilament
 	47   Component(s)
 	663  Line(s) of event code
@@ -134,5 +134,5 @@ gcodeKeyb
 Total
 	32   Page(s)
 	1001 Component(s)
-	14153 Line(s) of event code
-	1646 Unique line(s) of event code
+	14152 Line(s) of event code
+	1647 Unique line(s) of event code

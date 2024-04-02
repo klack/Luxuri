@@ -438,9 +438,7 @@ Hotspot setDefaults
             /// @fn setDefaults,1
             /// @brief Report printer settings and set printer defaults
             ///////////////////////////////////////////////////////////////////////////////
-            commands.queue.txt="" //Clear connection preamble sent by tft
-            commands.queue.txt+="M105\r"
-            commands.queue.txt+="M115\rM114\r" //Get version
+            commands.command.txt="M105\rM115\rM114\r"
             //commands.command.txt+="M503\r" //Get settings
             //commands.command.txt+="M154 S5\r" //Position autoreport
             //commands.command.txt+="M155 S5\r" //Temp auto report
@@ -449,7 +447,7 @@ Hotspot setDefaults
             //commands.command.txt+="T0\r" //Select T0
             //commands.command.txt+="M220\rM221\r" //Get flow and speed
             //commands.command.txt+="M420 L0" //Load bed mesh
-            click luxSend,0
+            click luxSend,1
         
 Hotspot parsePrintSet
     Attributes
