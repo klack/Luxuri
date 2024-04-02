@@ -32,7 +32,7 @@ Text tIdexMode
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 9
+        Font ID                 : 8
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -57,7 +57,7 @@ Text tManual
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 6
+        Font ID                 : 4
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -82,7 +82,7 @@ Text tClone
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 6
+        Font ID                 : 4
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -107,7 +107,7 @@ Text tMirror
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 6
+        Font ID                 : 4
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -132,7 +132,7 @@ Text tAuto
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 6
+        Font ID                 : 4
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -170,7 +170,7 @@ Button bAuto
         Height                              : 90
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 20
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 19
@@ -208,7 +208,7 @@ Button bClone
         Height                              : 90
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 20
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 19
@@ -246,7 +246,7 @@ Button bMirror
         Height                              : 90
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 20
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 19
@@ -284,7 +284,7 @@ Button bManual
         Height                              : 90
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 20
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 19
@@ -322,7 +322,7 @@ Button bClose
         Height                              : 41
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 6
         Back. Picture ID (Pressed)          : 40
         Cropped Back. Picture ID (Pressed)  : 5

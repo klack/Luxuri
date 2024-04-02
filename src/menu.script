@@ -35,7 +35,7 @@ Text tStatus
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 11
+        Font ID                 : 5
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -63,7 +63,7 @@ Text bMenu
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 14
+        Font ID                 : 12
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -95,7 +95,7 @@ Text t0
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 14
+        Font ID                 : 12
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -127,7 +127,7 @@ Text t1
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 14
+        Font ID                 : 12
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -176,7 +176,7 @@ Button b9
         Effect Priority                     : 0
         Effect Time                         : 150
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 97
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 96
@@ -208,7 +208,7 @@ Button b0
         Effect Priority                     : 0
         Effect Time                         : 150
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 97
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 96
@@ -240,7 +240,7 @@ Button b1
         Effect Priority                     : 0
         Effect Time                         : 150
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 97
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 96
@@ -272,7 +272,7 @@ Button b2
         Effect Priority                     : 0
         Effect Time                         : 150
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 97
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 96
@@ -304,7 +304,7 @@ Button b3
         Effect Priority                     : 0
         Effect Time                         : 150
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 97
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 96
@@ -336,7 +336,7 @@ Button bPowerOff
         Effect Priority                     : 0
         Effect Time                         : 150
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 97
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 96
@@ -374,7 +374,7 @@ Button b5
         Effect Priority                     : 0
         Effect Time                         : 150
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 97
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 96
@@ -406,7 +406,7 @@ Button b6
         Effect Priority                     : 0
         Effect Time                         : 150
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 97
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 96
@@ -438,7 +438,7 @@ Button bHeaters
         Effect Priority                     : 0
         Effect Time                         : 150
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 97
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 96
@@ -479,7 +479,7 @@ Button bMotors
         Effect Priority                     : 0
         Effect Time                         : 150
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 97
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 96
@@ -517,7 +517,7 @@ Button bMesh
         Effect Priority                     : 0
         Effect Time                         : 150
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 97
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 96

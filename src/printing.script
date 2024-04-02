@@ -35,7 +35,7 @@ Text tT1Temp
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 12
+        Font ID                 : 9
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -70,7 +70,7 @@ Text tBedTemp
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 12
+        Font ID                 : 9
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -99,14 +99,14 @@ Text tStatus
         Send Component ID   : disabled
         Opacity             : 127
         x coordinate        : 262
-        y coordinate        : 118
+        y coordinate        : 108
         Width               : 146
         Height              : 36
         Effect              : load
         Fill                : solid color
         Style               : flat
         Associated Keyboard : none
-        Font ID             : 12
+        Font ID             : 9
         Back. Color         : 0
         Font Color          : 65535
         Horizontal Alignment: center
@@ -132,7 +132,7 @@ Text tT0Temp
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 12
+        Font ID                 : 9
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -167,7 +167,7 @@ Text tPercent
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 15
+        Font ID                 : 13
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -195,14 +195,14 @@ Text tTimeRemaining
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 228
-        y coordinate            : 166
+        x coordinate            : 238
+        y coordinate            : 170
         Width                   : 150
         Height                  : 35
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 11
+        Font ID                 : 2
         Cropped Back. Picture ID: 110
         Horizontal Alignment    : left
         Vertical Alignment      : center
@@ -227,7 +227,7 @@ Text tZ
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 11
+        Font ID                 : 5
         Cropped Back. Picture ID: 110
         Horizontal Alignment    : left
         Vertical Alignment      : center
@@ -259,10 +259,10 @@ Crop Picture q0
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 190
-        y coordinate            : 164
-        Width                   : 247
-        Height                  : 36
+        x coordinate            : 227
+        y coordinate            : 172
+        Width                   : 160
+        Height                  : 30
         Effect                  : load
         Cropped Back. Picture ID: 110
     
@@ -274,11 +274,11 @@ Crop Picture qLine
         Send Component ID       : disabled
         Opacity                 : 127
         x coordinate            : 196
-        y coordinate            : 126
+        y coordinate            : 116
         Width                   : 278
         Height                  : 23
         Effect                  : load
-        Cropped Back. Picture ID: 105
+        Cropped Back. Picture ID: 110
     
 Progress Bar jProgress
     Attributes
@@ -438,7 +438,7 @@ Button bStop
         Send Component ID                   : disabled
         Opacity                             : 127
         x coordinate                        : 249
-        y coordinate                        : 201
+        y coordinate                        : 197
         Width                               : 64
         Height                              : 64
         Effect                              : load
@@ -469,7 +469,7 @@ Button bPrintMenu
         Send Component ID                   : disabled
         Opacity                             : 127
         x coordinate                        : 357
-        y coordinate                        : 200
+        y coordinate                        : 197
         Width                               : 64
         Height                              : 64
         Effect                              : load
@@ -490,6 +490,36 @@ Button bPrintMenu
     Events
         Touch Press Event
             page printSettings
+        
+Button bHome
+    Attributes
+        ID                                  : 36
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 303
+        y coordinate                        : 197
+        Width                               : 64
+        Height                              : 64
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 0
+        Cropped Back. Picture ID (Unpressed): 110
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 111
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 
+        Max. Text Size                      : 0
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            page MAIN
         
 Hotspot luxNotify
     Attributes
@@ -1420,34 +1450,64 @@ Hotspot luxView
             if(printer.paused.val==1)
             {
                 tStatus.txt="PAUSED"
+                click swapState,1
             }else if(printer.sdPrinting.val==1)
             {
                 tStatus.txt="PRINTING"
-            }else if(printer.hot.val==1)
+                click swapState,1
+            }else if(printer.totalBytes.val!=0&&printer.currentByte.val==printer.totalBytes.val)
             {
-                tStatus.txt="HOT"
-            }else if(printer.heating.val==1)
-            {
-                tStatus.txt="HEATING"
-            }else
-            {
-                tStatus.txt="READY"
+                tStatus.txt="COMPLETE"
+                click swapState,0
             }
+            // Percent text
             tZ.txt=printer.z.txt
             ii=printer.currentByte.val*100/printer.totalBytes.val
             covx ii,tPercent.txt,0,0
             tPercent.txt+="%"
             tTimeRemaining.txt=printer.printTime.txt
-            // Percent bar (account for pic borders)
+            // Percent bar, linear transformation to account for progress bar borders
             NewMin=7
             NewMax=94
-            jj=ii-1
+            jj=ii-NewMin
             kk=NewMax-NewMin
             jj*=kk
             kk=100
             NewValue=jj/kk
             NewValue+=NewMin
             jProgress.val=NewValue
+        
+Hotspot swapState
+    Attributes
+        ID               : 35
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 171
+        y coordinate     : 65465
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            // Show printing state
+            tsw bStop,1
+            tsw bPrintMenu,1
+            tsw bHome,0
+            bStop.aph=127
+            bPrintMenu.aph=127
+            bHome.aph=0
+        
+        Touch Release Event
+            // Show completed state
+            tsw bStop,0
+            tsw bPrintMenu,0
+            tsw bHome,1
+            bStop.aph=0
+            bPrintMenu.aph=0
+            bHome.aph=127
         
 Timer luxRun
     Attributes

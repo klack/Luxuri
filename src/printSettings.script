@@ -35,7 +35,7 @@ Text tFanSpeed
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 1
+        Font ID                 : 14
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : center
@@ -64,7 +64,7 @@ Text tT1Temp
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 1
+        Font ID                 : 14
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : center
@@ -93,7 +93,7 @@ Text tBedTemp
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 1
+        Font ID                 : 14
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : center
@@ -124,7 +124,7 @@ Text tT0Temp
         Associated Keyboard     : none
         Border Color            : 0
         Border Width            : 2
-        Font ID                 : 1
+        Font ID                 : 14
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : top
@@ -149,7 +149,7 @@ Text tSpeed
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 5
+        Font ID                 : 2
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -174,7 +174,7 @@ Text tFlow
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 5
+        Font ID                 : 2
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -199,7 +199,7 @@ Text tStop
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 5
+        Font ID                 : 2
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -224,7 +224,7 @@ Text tBusy
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 3
+        Font ID                 : 15
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -249,7 +249,7 @@ Text tPlayPause
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 5
+        Font ID                 : 2
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -274,7 +274,7 @@ Text tSettings
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 5
+        Font ID                 : 2
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -299,7 +299,7 @@ Text tAdjustZ
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 5
+        Font ID                 : 2
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -337,7 +337,7 @@ Button bFan
         Height                              : 30
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 7
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 7
@@ -381,7 +381,7 @@ Button bT0
         Height                              : 30
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 8
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 7
@@ -425,7 +425,7 @@ Button bT1
         Height                              : 30
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 8
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 7
@@ -469,7 +469,7 @@ Button bBed
         Height                              : 30
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 8
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 7
@@ -513,7 +513,7 @@ Button bFlow
         Height                              : 94
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 47
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 46
@@ -556,7 +556,7 @@ Button bSpeed
         Height                              : 94
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 47
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 46
@@ -599,7 +599,7 @@ Button bStop
         Height                              : 104
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 47
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 46
@@ -648,7 +648,7 @@ Button bPauseResume
         Height                              : 94
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 47
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 46
@@ -691,7 +691,7 @@ Button bClose
         Height                              : 40
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 6
         Back. Picture ID (Pressed)          : 40
         Cropped Back. Picture ID (Pressed)  : 5
@@ -721,7 +721,7 @@ Button bSettings
         Height                              : 104
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 47
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 46
@@ -753,7 +753,7 @@ Button bStepdown
         Fill                                : crop image
         Border Color                        : 0
         Border Width                        : 2
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 47
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 46
@@ -789,7 +789,7 @@ Button bStepup
         Fill                                : crop image
         Border Color                        : 0
         Border Width                        : 2
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 47
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 46
@@ -824,7 +824,7 @@ SLText tDebug
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 1
+        Font ID                 : 14
         Cropped Back. Picture ID: 4
         Horizontal Alignment    : left
         Swide left page ID      : 0

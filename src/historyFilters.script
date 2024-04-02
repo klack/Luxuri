@@ -29,7 +29,7 @@ Text t0
         Effect Time             : 150
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 4
+        Font ID                 : 16
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -59,7 +59,7 @@ Text t1
         Effect Time             : 150
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 4
+        Font ID                 : 16
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -89,7 +89,7 @@ Text t2
         Effect Time             : 150
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 4
+        Font ID                 : 16
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -119,7 +119,7 @@ Text t3
         Effect Time             : 150
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 4
+        Font ID                 : 16
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -149,7 +149,7 @@ Text t4
         Effect Time             : 150
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 3
+        Font ID                 : 15
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535

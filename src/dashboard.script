@@ -35,7 +35,7 @@ Text tT1Temp
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 12
+        Font ID                 : 9
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -70,7 +70,7 @@ Text tBedTemp
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 12
+        Font ID                 : 9
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535
@@ -106,7 +106,7 @@ Text tStatus
         Fill                : solid color
         Style               : flat
         Associated Keyboard : none
-        Font ID             : 12
+        Font ID             : 9
         Back. Color         : 0
         Font Color          : 65535
         Horizontal Alignment: center
@@ -132,7 +132,7 @@ Text tT0Temp
         Effect                  : load
         Fill                    : transparent
         Associated Keyboard     : none
-        Font ID                 : 12
+        Font ID                 : 9
         Back. Color             : 65535
         Cropped Back. Picture ID: 65535
         Back. Picture ID        : 65535

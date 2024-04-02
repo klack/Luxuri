@@ -35,7 +35,7 @@ Text tValue
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 10
+        Font ID                 : 11
         Cropped Back. Picture ID: 18
         Horizontal Alignment    : center
         Vertical Alignment      : top
@@ -62,7 +62,7 @@ Text tCaption
         Associated Keyboard     : none
         Border Color            : 0
         Border Width            : 2
-        Font ID                 : 6
+        Font ID                 : 4
         Cropped Back. Picture ID: 18
         Horizontal Alignment    : center
         Vertical Alignment      : bottom
@@ -102,7 +102,7 @@ Button set
         Fill                                : crop image
         Border Color                        : 7583
         Border Width                        : 1
-        Font ID                             : 11
+        Font ID                             : 5
         Cropped Back. Picture ID (Unpressed): 18
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 17
@@ -137,7 +137,7 @@ Button b2
         Fill                                : crop image
         Border Color                        : 7583
         Border Width                        : 1
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 18
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 17
@@ -169,7 +169,7 @@ Button close
         Fill                                : crop image
         Border Color                        : 7583
         Border Width                        : 1
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 6
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 5
@@ -201,7 +201,7 @@ Button b5
         Fill                                : crop image
         Border Color                        : 7583
         Border Width                        : 1
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 18
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 17
@@ -233,7 +233,7 @@ Button b8
         Fill                                : crop image
         Border Color                        : 7583
         Border Width                        : 1
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 18
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 17
@@ -265,7 +265,7 @@ Button b0
         Fill                                : crop image
         Border Color                        : 7583
         Border Width                        : 1
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 18
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 17
@@ -297,7 +297,7 @@ Button b3
         Fill                                : crop image
         Border Color                        : 7583
         Border Width                        : 1
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 18
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 17
@@ -329,7 +329,7 @@ Button b6
         Fill                                : crop image
         Border Color                        : 7583
         Border Width                        : 1
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 18
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 17
@@ -361,7 +361,7 @@ Button b9
         Fill                                : crop image
         Border Color                        : 7583
         Border Width                        : 1
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 18
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 17
@@ -393,7 +393,7 @@ Button bDot
         Fill                                : crop image
         Border Color                        : 7583
         Border Width                        : 1
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 18
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 17
@@ -425,7 +425,7 @@ Button b4
         Fill                                : crop image
         Border Color                        : 7583
         Border Width                        : 1
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 18
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 17
@@ -457,7 +457,7 @@ Button b7
         Fill                                : crop image
         Border Color                        : 7583
         Border Width                        : 1
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 18
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 17
@@ -489,7 +489,7 @@ Button bDash
         Fill                                : crop image
         Border Color                        : 7583
         Border Width                        : 1
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 18
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 17
@@ -521,7 +521,7 @@ Button b1
         Fill                                : crop image
         Border Color                        : 7583
         Border Width                        : 1
-        Font ID                             : 10
+        Font ID                             : 11
         Cropped Back. Picture ID (Unpressed): 0
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 17
@@ -553,7 +553,7 @@ Button clear
         Fill                                : crop image
         Border Color                        : 7583
         Border Width                        : 1
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 18
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 17

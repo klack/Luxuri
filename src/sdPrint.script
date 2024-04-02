@@ -70,7 +70,7 @@ Text f0
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 6
+        Font ID                 : 4
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : center
@@ -101,7 +101,7 @@ Text f4
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 6
+        Font ID                 : 4
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : center
@@ -132,7 +132,7 @@ Text f3
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 6
+        Font ID                 : 4
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : center
@@ -163,7 +163,7 @@ Text f1
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 6
+        Font ID                 : 4
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : center
@@ -194,7 +194,7 @@ Text tMessage
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 11
+        Font ID                 : 5
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -219,7 +219,7 @@ Text tTitle
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 9
+        Font ID                 : 8
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : top
@@ -271,7 +271,7 @@ Text f2
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 6
+        Font ID                 : 4
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : center
@@ -315,7 +315,7 @@ Button bPrint
         Height                              : 88
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 50
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 49
@@ -349,7 +349,7 @@ Button bClose
         Height                              : 41
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 6
         Back. Picture ID (Pressed)          : 40
         Cropped Back. Picture ID (Pressed)  : 5
@@ -382,7 +382,7 @@ Button bUp
         Height                              : 52
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 51
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 49
@@ -423,7 +423,7 @@ Button bDown
         Height                              : 52
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 51
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 49

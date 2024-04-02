@@ -65,7 +65,7 @@ Text tMachine
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 1
+        Font ID                 : 14
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -90,7 +90,7 @@ Text tFirmwareName
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 1
+        Font ID                 : 14
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -115,7 +115,7 @@ Text tLuxVersion
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 1
+        Font ID                 : 14
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : center
@@ -141,7 +141,7 @@ Text state2
         Fill                : solid color
         Style               : flat
         Associated Keyboard : none
-        Font ID             : 1
+        Font ID             : 14
         Back. Color         : 65535
         Font Color          : 0
         Horizontal Alignment: center
@@ -167,7 +167,7 @@ Text tStatus
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 1
+        Font ID                 : 14
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center

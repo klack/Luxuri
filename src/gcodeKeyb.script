@@ -37,7 +37,7 @@ Text tCommand
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 3
+        Font ID                 : 15
         Cropped Back. Picture ID: 92
         Horizontal Alignment    : left
         Vertical Alignment      : center
@@ -75,7 +75,7 @@ Button b1
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -106,7 +106,7 @@ Button b2
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -137,7 +137,7 @@ Button b3
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -168,7 +168,7 @@ Button b4
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -199,7 +199,7 @@ Button b5
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -230,7 +230,7 @@ Button b6
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -261,7 +261,7 @@ Button b7
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -292,7 +292,7 @@ Button b8
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -323,7 +323,7 @@ Button b9
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -354,7 +354,7 @@ Button b10
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -385,7 +385,7 @@ Button b11
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -416,7 +416,7 @@ Button b12
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -447,7 +447,7 @@ Button b13
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -477,7 +477,7 @@ Button b14
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -508,7 +508,7 @@ Button b15
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -538,7 +538,7 @@ Button b16
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -569,7 +569,7 @@ Button b17
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -600,7 +600,7 @@ Button b18
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -631,7 +631,7 @@ Button b19
         Height                              : 31
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -661,7 +661,7 @@ Button b20
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -692,7 +692,7 @@ Button b21
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -723,7 +723,7 @@ Button b22
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -754,7 +754,7 @@ Button b23
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -785,7 +785,7 @@ Button b24
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -816,7 +816,7 @@ Button b25
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -847,7 +847,7 @@ Button b26
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -878,7 +878,7 @@ Button b27
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -909,7 +909,7 @@ Button b28
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -940,7 +940,7 @@ Button b29
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -971,7 +971,7 @@ Button b30
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -1002,7 +1002,7 @@ Button b31
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -1033,7 +1033,7 @@ Button b32
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -1064,7 +1064,7 @@ Button b33
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -1095,7 +1095,7 @@ Button b34
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -1126,7 +1126,7 @@ Button b35
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -1157,7 +1157,7 @@ Button b36
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -1188,7 +1188,7 @@ Button b37
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -1219,7 +1219,7 @@ Button b38
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -1250,7 +1250,7 @@ Button b39
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -1281,7 +1281,7 @@ Button b40
         Height                              : 90
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -1317,7 +1317,7 @@ Button b41
         Height                              : 34
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -1348,7 +1348,7 @@ Button b42
         Height                              : 46
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84
@@ -1379,7 +1379,7 @@ Button bErase
         Height                              : 42
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 92
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 91
@@ -1410,7 +1410,7 @@ Button b43
         Height                              : 35
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 9
+        Font ID                             : 8
         Cropped Back. Picture ID (Unpressed): 85
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 84

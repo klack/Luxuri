@@ -32,7 +32,7 @@ Text tMessage
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 5
+        Font ID                 : 2
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center

@@ -54,7 +54,7 @@ Text tStatus
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 6
+        Font ID                 : 4
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -79,7 +79,7 @@ Text tProgress
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 6
+        Font ID                 : 4
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -104,7 +104,7 @@ Text tTitle
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 9
+        Font ID                 : 8
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : top
@@ -129,7 +129,7 @@ Text tT0Temp
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 5
+        Font ID                 : 2
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : center
@@ -154,7 +154,7 @@ Text tBedTemp
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 5
+        Font ID                 : 2
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : center
         Vertical Alignment      : center
@@ -180,7 +180,7 @@ Text tState
         Fill                : solid color
         Style               : flat
         Associated Keyboard : none
-        Font ID             : 1
+        Font ID             : 14
         Back. Color         : 65535
         Font Color          : 0
         Horizontal Alignment: center
@@ -206,7 +206,7 @@ Text tT1Temp
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 5
+        Font ID                 : 2
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : center
@@ -288,7 +288,7 @@ Button bClose
         Height                              : 41
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 1
+        Font ID                             : 14
         Cropped Back. Picture ID (Unpressed): 6
         Back. Picture ID (Pressed)          : 40
         Cropped Back. Picture ID (Pressed)  : 5

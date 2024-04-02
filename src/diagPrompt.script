@@ -28,7 +28,7 @@ Text tMessage
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 6
+        Font ID                 : 4
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : top
@@ -80,7 +80,7 @@ Button bYes
         Height                              : 47
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 6
+        Font ID                             : 4
         Cropped Back. Picture ID (Unpressed): 0
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 58
@@ -111,7 +111,7 @@ Button bCancel
         Height                              : 47
         Effect                              : load
         Fill                                : crop image
-        Font ID                             : 6
+        Font ID                             : 4
         Cropped Back. Picture ID (Unpressed): 0
         Back. Picture ID (Pressed)          : 65535
         Cropped Back. Picture ID (Pressed)  : 58
