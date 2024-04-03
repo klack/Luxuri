@@ -1289,6 +1289,7 @@ Hotspot parseRedirect
                 printer.currentByte.val=0
                 printer.totalBytes.val=0
                 printer.sdPrinting.val=1
+                printer.printTime.txt=""
                 page printing
             }
         

@@ -84,12 +84,8 @@ connect
 	316  Unique line(s) of event code
 dashboard
 	30   Component(s)
-	690  Line(s) of event code
-	335  Unique line(s) of event code
-printing
-	39   Component(s)
-	713  Line(s) of event code
-	360  Unique line(s) of event code
+	691  Line(s) of event code
+	336  Unique line(s) of event code
 console
 	48   Component(s)
 	674  Line(s) of event code
@@ -114,6 +110,10 @@ preheat
 	44   Component(s)
 	608  Line(s) of event code
 	311  Unique line(s) of event code
+printing
+	37   Component(s)
+	740  Line(s) of event code
+	372  Unique line(s) of event code
 loadFilament
 	47   Component(s)
 	663  Line(s) of event code
@@ -133,6 +133,6 @@ printSettings
 
 Total
 	32   Page(s)
-	1005 Component(s)
-	14178 Line(s) of event code
-	1668 Unique line(s) of event code
+	1003 Component(s)
+	14206 Line(s) of event code
+	1679 Unique line(s) of event code
