@@ -1098,13 +1098,6 @@ Hotspot parseCommon
             substr parse.buffer.txt,parse.eval.txt,0,j
             if(parse.eval.txt==parse.lineMatch.txt)
             {
-                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1 //Split by qualifier
-                spstr vars.s.txt,vars.s2.txt,"/",0 //Current Byte
-                covx vars.s2.txt,printer.currentByte.val,0,0
-                spstr vars.s.txt,vars.s2.txt,"/",1 //Total Bytes
-                covx vars.s2.txt,printer.totalBytes.val,0,0
-                printer.sdPrinting.val=1
-                printer.paused.val=0
                 page printing
             }
             parse.lineMatch.txt="File selected" //Qualify Line
@@ -1112,10 +1105,6 @@ Hotspot parseCommon
             substr parse.buffer.txt,parse.eval.txt,0,j
             if(parse.eval.txt==parse.lineMatch.txt)
             {
-                printer.currentByte.val=0
-                printer.totalBytes.val=0
-                printer.sdPrinting.val=1
-                printer.printTime.txt=""
                 page printing
             }
             parse.lineMatch.txt="File opened:" //Qualify Line

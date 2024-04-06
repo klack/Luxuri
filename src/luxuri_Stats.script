@@ -54,10 +54,6 @@ diagConfirm
 	21   Component(s)
 	368  Line(s) of event code
 	186  Unique line(s) of event code
-sdPrint
-	31   Component(s)
-	532  Line(s) of event code
-	280  Unique line(s) of event code
 wake
 	18   Component(s)
 	381  Line(s) of event code
@@ -82,14 +78,18 @@ connect
 	36   Component(s)
 	652  Line(s) of event code
 	316  Unique line(s) of event code
+printing
+	42   Component(s)
+	659  Line(s) of event code
+	350  Unique line(s) of event code
 dashboard
 	29   Component(s)
-	563  Line(s) of event code
-	291  Unique line(s) of event code
-printing
-	41   Component(s)
-	679  Line(s) of event code
-	353  Unique line(s) of event code
+	552  Line(s) of event code
+	281  Unique line(s) of event code
+sdPrint
+	32   Component(s)
+	532  Line(s) of event code
+	280  Unique line(s) of event code
 console
 	48   Component(s)
 	674  Line(s) of event code
@@ -133,6 +133,6 @@ printSettings
 
 Total
 	32   Page(s)
-	1006 Component(s)
-	14017 Line(s) of event code
-	1692 Unique line(s) of event code
+	1008 Component(s)
+	13986 Line(s) of event code
+	1699 Unique line(s) of event code

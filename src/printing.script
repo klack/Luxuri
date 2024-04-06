@@ -885,7 +885,7 @@ Hotspot luxInit
             DiagReturnPage=dp
             if(HandleCallback==0)
             {
-                //  click luxRunOnce,1
+                click luxRunOnce,1
             }else
             {
                 click luxDoCallback,1
@@ -1237,6 +1237,14 @@ Hotspot parseSDPrint
             {
                 spstr parse.buffer.txt,printer.printTime.txt,": ",1
             }
+            // Print Time
+            parse.lineMatch.txt="// M117: " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,printer.m117.txt,parse.lineMatch.txt,1
+            }
         
 Hotspot luxView
     Attributes
@@ -1257,6 +1265,11 @@ Hotspot luxView
             /// @fn luxView,1
             /// @brief Updates states for controls
             ///////////////////////////////////////////////////////////////////////////////
+            // M117
+            if(printer.m117.txt!="")
+            {
+                tMsg.txt=printer.m117.txt
+            }
             // Percent text
             tZ.txt=printer.z.txt
             ii=printer.currentByte.val*100/printer.totalBytes.val
@@ -1336,8 +1349,8 @@ Hotspot swapState
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 170
-        y coordinate     : 65466
+        x coordinate     : 173
+        y coordinate     : 65506
         Width            : 106
         Height           : 17
         Effect           : load
@@ -1410,44 +1423,6 @@ Hotspot parseTemp
                 spstr parse.buffer.txt,parse.match.txt," /",3
                 spstr parse.match.txt,vars.s.txt," ",0 //Split substring by space
                 covx vars.s.txt,printer.T1SetTemp.val,0,0
-            }
-            printer.heating.val=0
-            if(printer.bedTemp.val<printer.setBedTemp.val)
-            {
-                printer.heating.val=1
-            }
-            if(printer.T0Temp.val<printer.T0SetTemp.val)
-            {
-                printer.heating.val=1
-            }
-            if(printer.T1Temp.val<printer.T1SetTemp.val)
-            {
-                printer.heating.val=1
-            }
-            printer.hot.val=0
-            if(printer.setBedTemp.val!=0&&printer.bedTemp.val>=printer.setBedTemp.val)
-            {
-                printer.hot.val=1
-            }
-            if(printer.T0SetTemp.val!=0&&printer.T0Temp.val>=printer.T0SetTemp.val)
-            {
-                printer.hot.val=1
-            }
-            if(printer.T1SetTemp.val!=0&&printer.T1Temp.val>=printer.T1SetTemp.val)
-            {
-                printer.hot.val=1
-            }
-            if(printer.setBedTemp.val!=0&&printer.bedTemp.val<printer.setBedTemp.val)
-            {
-                printer.hot.val=0
-            }
-            if(printer.T0SetTemp.val!=0&&printer.T0Temp.val<printer.T0SetTemp.val)
-            {
-                printer.hot.val=0
-            }
-            if(printer.T1SetTemp.val!=0&&printer.T1Temp.val<printer.T1SetTemp.val)
-            {
-                printer.hot.val=0
             }
         
 Hotspot parseCommon
@@ -1538,6 +1513,32 @@ Hotspot parseCommon
             {
                 parse.matched.val=0
             }
+        
+Hotspot luxRunOnce
+    Attributes
+        ID               : 41
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 173
+        y coordinate     : 65484
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxRunOnce
+            /// @breif Does not run when returning from dialog boxes
+            ///////////////////////////////////////////////////////////////////////////////
+            printer.currentByte.val=0
+            printer.totalBytes.val=0
+            printer.sdPrinting.val=1
+            printer.paused.val=0
+            printer.m117.txt=""
+            printer.printTime.txt=""
         
 Timer luxRun
     Attributes
