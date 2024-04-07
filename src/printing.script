@@ -503,14 +503,23 @@ Button bPauseResume
         Touch Press Event
             if(printer.paused.val==0)
             {
-                commands.command.txt="PAUSE"
-                pausePending.val=1
+                diagPrompt.tMessage.txt="Pause Print?"
+                ReturnVal=1
+                page diagPrompt
             }else
             {
                 commands.command.txt="RESUME"
                 resumePending.val=1
             }
             click luxSend,1
+        
+        Touch Release Event
+            if(ReturnVal==1)
+            {
+                commands.command.txt="PAUSE"
+                click luxSend,1
+                pausePending.val=1
+            }
         
 Button bPrintMenu
     Attributes
@@ -574,6 +583,14 @@ Button bStopHome
             {
                 page MAIN
             }else
+            {
+                diagPrompt.tMessage.txt="Stop Print?"
+                ReturnVal=1
+                page diagPrompt
+            }
+        
+        Touch Release Event
+            if(ReturnVal==1)
             {
                 commands.command.txt="CANCEL_PRINT"
                 stopPending.val=1
@@ -1217,6 +1234,8 @@ Hotspot parseSDPrint
                 spstr vars.s.txt,vars.s2.txt,"/",1 //Total Bytes
                 covx vars.s2.txt,printer.totalBytes.val,0,0
                 printer.sdPrinting.val=1
+                printer.paused.val=0
+                resumePending.val=0
             }
             parse.lineMatch.txt="Not SD printing." //Qualify Line
             strlen parse.lineMatch.txt,j
@@ -1225,6 +1244,7 @@ Hotspot parseSDPrint
             {
                 printer.sdPrinting.val=0
                 printer.paused.val=0
+                stopPending.val=0
             }
             parse.lineMatch.txt="// Print Paused" //Qualify Line
             strlen parse.lineMatch.txt,j
