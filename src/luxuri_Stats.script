@@ -38,6 +38,10 @@ idexMode
 	25   Component(s)
 	493  Line(s) of event code
 	249  Unique line(s) of event code
+printer
+	46   Component(s)
+	0    Line(s) of event code
+	0    Unique line(s) of event code
 pidTune
 	35   Component(s)
 	579  Line(s) of event code
@@ -46,10 +50,6 @@ menu
 	29   Component(s)
 	495  Line(s) of event code
 	255  Unique line(s) of event code
-printer
-	45   Component(s)
-	0    Line(s) of event code
-	0    Unique line(s) of event code
 diagConfirm
 	21   Component(s)
 	368  Line(s) of event code
@@ -70,18 +70,14 @@ sendHistory
 	30   Component(s)
 	499  Line(s) of event code
 	238  Unique line(s) of event code
-numpad
-	29   Component(s)
-	396  Line(s) of event code
-	203  Unique line(s) of event code
 pause
 	31   Component(s)
 	631  Line(s) of event code
 	307  Unique line(s) of event code
 printSettings
-	20   Component(s)
-	291  Line(s) of event code
-	162  Unique line(s) of event code
+	21   Component(s)
+	361  Line(s) of event code
+	193  Unique line(s) of event code
 sdPrint
 	32   Component(s)
 	532  Line(s) of event code
@@ -126,13 +122,17 @@ connect
 	36   Component(s)
 	656  Line(s) of event code
 	320  Unique line(s) of event code
+numpad
+	29   Component(s)
+	398  Line(s) of event code
+	204  Unique line(s) of event code
 printing
 	42   Component(s)
-	684  Line(s) of event code
-	359  Unique line(s) of event code
+	703  Line(s) of event code
+	366  Unique line(s) of event code
 
 Total
 	32   Page(s)
-	976  Component(s)
-	13392 Line(s) of event code
-	1626 Unique line(s) of event code
+	978  Component(s)
+	13483 Line(s) of event code
+	1630 Unique line(s) of event code

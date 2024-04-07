@@ -24,19 +24,19 @@ Page printing
 Variable (int32) pausePending
     Attributes
         ID   : 35
-        Scope: local
+        Scope: global
         Value: 0
     
 Variable (int32) resumePending
     Attributes
         ID   : 36
-        Scope: local
+        Scope: global
         Value: 0
     
 Variable (int32) stopPending
     Attributes
         ID   : 39
-        Scope: local
+        Scope: global
         Value: 0
     
 Text tT1Temp
@@ -635,8 +635,8 @@ Hotspot luxNotify
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 3
+        x coordinate     : 65420
+        y coordinate     : 65535
         Width            : 106
         Height           : 15
         Effect           : load
@@ -656,8 +656,8 @@ Hotspot serialHistory
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 93
+        x coordinate     : 65420
+        y coordinate     : 79
         Width            : 106
         Height           : 15
         Effect           : load
@@ -729,8 +729,8 @@ Hotspot historyFilters
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 111
+        x coordinate     : 65420
+        y coordinate     : 95
         Width            : 106
         Height           : 15
         Effect           : load
@@ -1124,8 +1124,8 @@ Hotspot parsePosition
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 56
+        x coordinate     : 65420
+        y coordinate     : 46
         Width            : 106
         Height           : 15
         Effect           : load
@@ -1214,8 +1214,8 @@ Hotspot parseSDPrint
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 74
+        x coordinate     : 65420
+        y coordinate     : 62
         Width            : 106
         Height           : 16
         Effect           : load
@@ -1235,7 +1235,8 @@ Hotspot parseSDPrint
                 covx vars.s2.txt,printer.totalBytes.val,0,0
                 printer.sdPrinting.val=1
                 printer.paused.val=0
-                resumePending.val=0
+                printing.resumePending.val=0
+                printer.printFinished.val=0
             }
             parse.lineMatch.txt="Not SD printing." //Qualify Line
             strlen parse.lineMatch.txt,j
@@ -1244,7 +1245,7 @@ Hotspot parseSDPrint
             {
                 printer.sdPrinting.val=0
                 printer.paused.val=0
-                stopPending.val=0
+                printing.stopPending.val=0
             }
             parse.lineMatch.txt="// Print Paused" //Qualify Line
             strlen parse.lineMatch.txt,j
@@ -1252,7 +1253,7 @@ Hotspot parseSDPrint
             if(parse.eval.txt==parse.lineMatch.txt)
             {
                 printer.paused.val=1
-                pausePending.val=0
+                printing.pausePending.val=0
             }
             // Finished
             parse.lineMatch.txt="Done printing file" //Qualify Line
@@ -1263,6 +1264,7 @@ Hotspot parseSDPrint
                 printer.currentByte.val=printer.totalBytes.val
                 printer.sdPrinting.val=0
                 printer.paused.val=0
+                printer.printFinished.val=1
             }
             // Print Time
             parse.lineMatch.txt="// Print Time: " //Qualify Line
@@ -1290,6 +1292,13 @@ Hotspot parseSDPrint
                 spstr parse.buffer.txt,vars.s.txt," Size:",1
                 covx vars.s.txt,printer.totalBytes.val,0,0
                 printing.tMsg.txt=printer.fileName.txt
+            }
+            parse.lineMatch.txt="File selected" //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                page printing
             }
         
 Hotspot luxView
@@ -1353,7 +1362,7 @@ Hotspot luxView
                 bPauseResume.aph=127
                 bPauseResume.picc=bPauseResume.picc2-1
                 tStatus.txt="PRINTING"
-            }else if(printer.totalBytes.val!=0&&printer.currentByte.val==printer.totalBytes.val)
+            }else if(printer.printFinished.val==1)
             {
                 tStatus.txt="COMPLETE"
                 click swapState,0
@@ -1426,8 +1435,8 @@ Hotspot parseTemp
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 39
+        x coordinate     : 65420
+        y coordinate     : 30
         Width            : 106
         Height           : 15
         Effect           : load
@@ -1491,8 +1500,9 @@ Hotspot luxRunOnce
             /// @fn luxRunOnce
             /// @breif Does not run when returning from dialog boxes
             ///////////////////////////////////////////////////////////////////////////////
-            printer.currentByte.val=1
             printer.sdPrinting.val=1
+            printer.currentByte.val=1
+            printer.printFinished.val=0
             printer.paused.val=0
             printer.m117.txt=""
             printer.printTime.txt=""
@@ -1506,10 +1516,10 @@ Hotspot parseCommon
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 21
+        x coordinate     : 65420
+        y coordinate     : 15
         Width            : 106
-        Height           : 15
+        Height           : 14
         Effect           : load
     
     Events
@@ -1541,12 +1551,23 @@ Hotspot parseCommon
                 parse.buffer.txt=""
                 page error
             }
-            parse.lineMatch.txt="File selected" //Qualify Line
+            // Speed
+            parse.lineMatch.txt="// Speed Percentage: " //Qualify Line
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
             if(parse.eval.txt==parse.lineMatch.txt)
             {
-                page printing
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
+                covx vars.s.txt,printer.speed.val,0,0
+            }
+            // Flow
+            parse.lineMatch.txt="// Extrude Percentage: " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
+                covx vars.s.txt,printer.flow.val,0,0
             }
         
         Touch Release Event

@@ -184,6 +184,8 @@ Button close
     
     Events
         Touch Press Event
+            ReturnObj=-1
+            HandleCallback=1
             page DiagReturnPage
         
 Button b5

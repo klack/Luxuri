@@ -305,3 +305,9 @@ Variable (int32) hot
         Scope: global
         Value: 0
     
+Variable (int32) printFinished
+    Attributes
+        ID   : 45
+        Scope: global
+        Value: 0
+    
