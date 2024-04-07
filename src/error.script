@@ -82,27 +82,37 @@ Text tOK
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 307
+        x coordinate            : 186
         y coordinate            : 175
-        Width                   : 91
+        Width                   : 186
         Height                  : 59
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
         Font ID                 : 7
         Cropped Back. Picture ID: 0
-        Horizontal Alignment    : center
+        Horizontal Alignment    : right
         Vertical Alignment      : center
         Input Type              : character
         Text                    : OK
-        Max. Text Size          : 5
+        Max. Text Size          : 16
         Word wrap               : enabled
         Horizontal Spacing      : 0
         Vertical Spacing        : 0
     
     Events
         Touch Press Event
-            page DiagReturnPage
+            if(tOK.txt=="OK")
+            {
+                page DiagReturnPage
+            }else
+            {
+                commands.command.txt="FIRMWARE_RESTART"
+                click luxSend,1
+                tOK.txt="RESTARTING"
+                delay=5000
+                page connect
+            }
         
 Crop Picture q0
     Attributes
@@ -181,6 +191,10 @@ Hotspot luxView
             /// @fn luxView,1
             /// @brief Updates states for controls
             ///////////////////////////////////////////////////////////////////////////////
+            if(printer.error.txt=="Shutdown due to M112 command"||printer.error.txt=="Shutdown due to webhooks request")
+            {
+                tOK.txt="RESTART"
+            }
             tMessage.txt=printer.error.txt
         
 Hotspot luxSend

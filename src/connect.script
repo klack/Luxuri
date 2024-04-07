@@ -438,6 +438,10 @@ Hotspot setDefaults
             /// @fn setDefaults,1
             /// @brief Report printer settings and set printer defaults
             ///////////////////////////////////////////////////////////////////////////////
+            printer.paused.val=0
+            printer.sdPrinting.val=0
+            printer.currentByte.val=0
+            printer.totalBytes.val=0
             commands.command.txt="M105\rM115\rM114\r"
             //commands.command.txt+="M503\r" //Get settings
             //commands.command.txt+="M154 S5\r" //Position autoreport
