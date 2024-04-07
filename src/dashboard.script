@@ -1093,6 +1093,13 @@ Hotspot parseCommon
                 ok=1
                 busy=0
             }
+            parse.lineMatch.txt="// Print Paused" //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                page printing
+            }
             parse.lineMatch.txt="SD printing byte " //Qualify Line
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
@@ -1112,9 +1119,16 @@ Hotspot parseCommon
             substr parse.buffer.txt,parse.eval.txt,0,j
             if(parse.eval.txt==parse.lineMatch.txt)
             {
-                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
-                spstr vars.s.txt,printer.fileName.txt," Size:",0
-                printing.tMsg.txt=printer.fileName.txt
+                page printing
+            }
+            parse.lineMatch.txt="!! " //Error
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,printer.error.txt,parse.lineMatch.txt,1
+                parse.buffer.txt=""
+                page error
             }
         
         Touch Release Event

@@ -1203,6 +1203,26 @@ Hotspot parseCommon
                 parse.matched.val=0
             }
         
+Hotspot luxRunOnce
+    Attributes
+        ID               : 31
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 116
+        y coordinate     : 65443
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxRunOnce
+            /// @breif Does not run when returning from dialog boxes
+            ///////////////////////////////////////////////////////////////////////////////
+        
 Timer luxRun
     Attributes
         ID         : 18

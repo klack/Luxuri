@@ -30,14 +30,14 @@ editMesh
 	26   Component(s)
 	239  Line(s) of event code
 	142  Unique line(s) of event code
-error
-	10   Component(s)
-	88   Line(s) of event code
-	67   Unique line(s) of event code
 idexMode
 	25   Component(s)
 	493  Line(s) of event code
 	249  Unique line(s) of event code
+error
+	11   Component(s)
+	83   Line(s) of event code
+	61   Unique line(s) of event code
 pidTune
 	35   Component(s)
 	579  Line(s) of event code
@@ -80,12 +80,8 @@ connect
 	316  Unique line(s) of event code
 printing
 	42   Component(s)
-	659  Line(s) of event code
-	350  Unique line(s) of event code
-dashboard
-	29   Component(s)
-	552  Line(s) of event code
-	281  Unique line(s) of event code
+	666  Line(s) of event code
+	351  Unique line(s) of event code
 sdPrint
 	32   Component(s)
 	532  Line(s) of event code
@@ -126,6 +122,10 @@ mesh
 	69   Component(s)
 	913  Line(s) of event code
 	453  Unique line(s) of event code
+dashboard
+	29   Component(s)
+	566  Line(s) of event code
+	282  Unique line(s) of event code
 printSettings
 	53   Component(s)
 	937  Line(s) of event code
@@ -133,6 +133,6 @@ printSettings
 
 Total
 	32   Page(s)
-	1008 Component(s)
-	13986 Line(s) of event code
-	1699 Unique line(s) of event code
+	1009 Component(s)
+	14002 Line(s) of event code
+	1695 Unique line(s) of event code

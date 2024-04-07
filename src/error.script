@@ -11,8 +11,7 @@ Page error
         Swide down page ID : disabled
         Swide left page ID : disabled
         Swide right page ID: disabled
-        Fill               : solid color
-        Back. Color        : 63488
+        Fill               : no background (transparent)
     
     Events
         Preinitialize Event
@@ -20,22 +19,22 @@ Page error
         
 Text tMessage
     Attributes
-        ID                      : 1
+        ID                      : 8
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 0
-        y coordinate            : 91
-        Width                   : 480
-        Height                  : 107
+        x coordinate            : 113
+        y coordinate            : 112
+        Width                   : 260
+        Height                  : 80
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 2
+        Font ID                 : 17
         Cropped Back. Picture ID: 0
-        Horizontal Alignment    : center
-        Vertical Alignment      : center
+        Horizontal Alignment    : left
+        Vertical Alignment      : top
         Input Type              : character
         Text                    : 
         Max. Text Size          : 255
@@ -47,37 +46,87 @@ Text tMessage
         Touch Press Event
             page MAIN
         
-Hotspot parseAll
+Text tError
     Attributes
-        ID               : 2
-        Scope            : local
-        Dragging         : 0
-        Send Component ID: disabled
-        Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 21
-        Width            : 106
-        Height           : 17
-        Effect           : load
+        ID                      : 9
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 112
+        y coordinate            : 61
+        Width                   : 99
+        Height                  : 36
+        Effect                  : load
+        Fill                    : crop image
+        Associated Keyboard     : none
+        Font ID                 : 7
+        Cropped Back. Picture ID: 0
+        Horizontal Alignment    : left
+        Vertical Alignment      : top
+        Input Type              : character
+        Text                    : ERROR
+        Max. Text Size          : 5
+        Word wrap               : enabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
     
     Events
         Touch Press Event
-            ///////////////////////////////////////////////////////////////////////////////
-            /// @fn parseAll
-            /// @brief Used only on the error page
-            ///////////////////////////////////////////////////////////////////////////////
-            printer.error.txt+=parse.buffer.txt
-            printer.error.txt+="\r"
+            page MAIN
         
+Text tOK
+    Attributes
+        ID                      : 10
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 307
+        y coordinate            : 175
+        Width                   : 91
+        Height                  : 59
+        Effect                  : load
+        Fill                    : crop image
+        Associated Keyboard     : none
+        Font ID                 : 7
+        Cropped Back. Picture ID: 0
+        Horizontal Alignment    : center
+        Vertical Alignment      : center
+        Input Type              : character
+        Text                    : OK
+        Max. Text Size          : 5
+        Word wrap               : enabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+    Events
+        Touch Press Event
+            page DiagReturnPage
+        
+Crop Picture q0
+    Attributes
+        ID                      : 7
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 0
+        y coordinate            : 0
+        Width                   : 479
+        Height                  : 272
+        Effect                  : load
+        Cropped Back. Picture ID: 118
+    
 Hotspot luxInit
     Attributes
-        ID               : 3
+        ID               : 1
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 116
-        y coordinate     : 65419
+        x coordinate     : 124
+        y coordinate     : 65498
         Width            : 106
         Height           : 19
         Effect           : load
@@ -89,9 +138,9 @@ Hotspot luxInit
             /// @brief Sets up the lux framework
             ///////////////////////////////////////////////////////////////////////////////
             // ReturnPage=dp
-            DiagReturnPage=dp
+            //DiagReturnPage=dp
             click luxView,1
-            click luxRunOnce,1
+            //click luxRunOnce,1
         
         Touch Release Event
             ///////////////////////////////////////////////////////////////////////////////
@@ -102,30 +151,26 @@ Hotspot luxInit
         
 Hotspot luxNotify
     Attributes
-        ID               : 5
+        ID               : 3
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 65526
+        x coordinate     : 65419
+        y coordinate     : 0
         Width            : 106
         Height           : 17
         Effect           : load
     
-    Events
-        Touch Press Event
-            click parseAll,1
-        
 Hotspot luxView
     Attributes
-        ID               : 6
+        ID               : 4
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 116
-        y coordinate     : 65487
+        x coordinate     : 124
+        y coordinate     : 65517
         Width            : 106
         Height           : 17
         Effect           : load
@@ -138,37 +183,15 @@ Hotspot luxView
             ///////////////////////////////////////////////////////////////////////////////
             tMessage.txt=printer.error.txt
         
-Hotspot luxRunOnce
-    Attributes
-        ID               : 7
-        Scope            : local
-        Dragging         : 0
-        Send Component ID: disabled
-        Opacity          : 127
-        x coordinate     : 116
-        y coordinate     : 65443
-        Width            : 106
-        Height           : 17
-        Effect           : load
-    
-    Events
-        Touch Press Event
-            ///////////////////////////////////////////////////////////////////////////////
-            /// @fn runOnce
-            /// @brief Enable normal sleep settings.  Handles error while fake sleep is in use
-            ///////////////////////////////////////////////////////////////////////////////
-            dim=100
-            thsp=SLEEP_TIME*60
-        
 Hotspot luxSend
     Attributes
-        ID               : 8
+        ID               : 5
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 65535
-        y coordinate     : 65437
+        x coordinate     : 0
+        y coordinate     : 65502
         Width            : 106
         Height           : 17
         Effect           : load
@@ -225,13 +248,13 @@ Hotspot luxSend
         
 Hotspot luxRead
     Attributes
-        ID               : 9
+        ID               : 6
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 65535
-        y coordinate     : 65492
+        x coordinate     : 0
+        y coordinate     : 65519
         Width            : 106
         Height           : 17
         Effect           : load
@@ -286,7 +309,7 @@ Hotspot luxRead
         
 Timer luxRun
     Attributes
-        ID         : 4
+        ID         : 2
         Scope      : local
         Period (ms): 1000
         Enabled    : yes

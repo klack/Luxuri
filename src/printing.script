@@ -35,7 +35,7 @@ Variable (int32) resumePending
     
 Variable (int32) stopPending
     Attributes
-        ID   : 40
+        ID   : 39
         Scope: local
         Value: 0
     
@@ -61,7 +61,7 @@ Text tT1Temp
         Horizontal Alignment    : center
         Vertical Alignment      : center
         Input Type              : character
-        Text                    : 0
+        Text                    : 
         Max. Text Size          : 3
         Word wrap               : disabled
         Horizontal Spacing      : 0
@@ -96,7 +96,7 @@ Text tBedTemp
         Horizontal Alignment    : center
         Vertical Alignment      : center
         Input Type              : character
-        Text                    : 0
+        Text                    : 
         Max. Text Size          : 3
         Word wrap               : disabled
         Horizontal Spacing      : 0
@@ -130,7 +130,7 @@ Text tStatus
         Horizontal Alignment: center
         Vertical Alignment  : center
         Input Type          : character
-        Text                : PRINTING
+        Text                : 
         Max. Text Size      : 10
         Word wrap           : disabled
         Horizontal Spacing  : 0
@@ -158,7 +158,7 @@ Text tT0Temp
         Horizontal Alignment    : center
         Vertical Alignment      : center
         Input Type              : character
-        Text                    : 0
+        Text                    : 
         Max. Text Size          : 3
         Word wrap               : disabled
         Horizontal Spacing      : 0
@@ -570,19 +570,19 @@ Button bStopHome
     
     Events
         Touch Press Event
-            if(printer.totalBytes.val!=0&&printer.currentByte.val==printer.totalBytes.val)
+            if(printer.sdPrinting.val==0&&printer.paused.val==0)
             {
                 page MAIN
             }else
             {
                 commands.command.txt="CANCEL_PRINT"
                 stopPending.val=1
+                click luxSend,1
             }
-            click luxSend,1
         
 Button bEmergencyStop
     Attributes
-        ID                                  : 39
+        ID                                  : 38
         Scope                               : local
         Dragging                            : 0
         Send Component ID                   : disabled
@@ -1205,6 +1205,19 @@ Hotspot parseSDPrint
     
     Events
         Touch Press Event
+            //Progress
+            parse.lineMatch.txt="SD printing byte " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1 //Split by qualifier
+                spstr vars.s.txt,vars.s2.txt,"/",0 //Current Byte
+                covx vars.s2.txt,printer.currentByte.val,0,0
+                spstr vars.s.txt,vars.s2.txt,"/",1 //Total Bytes
+                covx vars.s2.txt,printer.totalBytes.val,0,0
+                printer.sdPrinting.val=1
+            }
             parse.lineMatch.txt="Not SD printing." //Qualify Line
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
@@ -1228,6 +1241,8 @@ Hotspot parseSDPrint
             if(parse.eval.txt==parse.lineMatch.txt)
             {
                 printer.currentByte.val=printer.totalBytes.val
+                printer.sdPrinting.val=0
+                printer.paused.val=0
             }
             // Print Time
             parse.lineMatch.txt="// Print Time: " //Qualify Line
@@ -1237,13 +1252,24 @@ Hotspot parseSDPrint
             {
                 spstr parse.buffer.txt,printer.printTime.txt,": ",1
             }
-            // Print Time
+            // M117
             parse.lineMatch.txt="// M117: " //Qualify Line
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
             if(parse.eval.txt==parse.lineMatch.txt)
             {
                 spstr parse.buffer.txt,printer.m117.txt,parse.lineMatch.txt,1
+            }
+            parse.lineMatch.txt="File opened:" //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
+                spstr vars.s.txt,printer.fileName.txt," Size:",0
+                spstr parse.buffer.txt,vars.s.txt," Size:",1
+                covx vars.s.txt,printer.totalBytes.val,0,0
+                printing.tMsg.txt=printer.fileName.txt
             }
         
 Hotspot luxView
@@ -1313,7 +1339,8 @@ Hotspot luxView
                 click swapState,0
             }else if(printer.sdPrinting.val==0&&printer.paused.val==0)
             {
-                page MAIN
+                tStatus.txt="CANCELED"
+                click swapState,0
             }
             // Pause / Resume Pending
             if(pausePending.val==1)
@@ -1425,9 +1452,34 @@ Hotspot parseTemp
                 covx vars.s.txt,printer.T1SetTemp.val,0,0
             }
         
+Hotspot luxRunOnce
+    Attributes
+        ID               : 40
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 173
+        y coordinate     : 65484
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxRunOnce
+            /// @breif Does not run when returning from dialog boxes
+            ///////////////////////////////////////////////////////////////////////////////
+            printer.currentByte.val=1
+            printer.sdPrinting.val=1
+            printer.paused.val=0
+            printer.m117.txt=""
+            printer.printTime.txt=""
+        
 Hotspot parseCommon
     Attributes
-        ID               : 38
+        ID               : 41
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -1458,38 +1510,20 @@ Hotspot parseCommon
                 ok=1
                 busy=0
             }
-            parse.lineMatch.txt="SD printing byte " //Qualify Line
+            parse.lineMatch.txt="!! " //Error
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
             if(parse.eval.txt==parse.lineMatch.txt)
             {
-                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1 //Split by qualifier
-                spstr vars.s.txt,vars.s2.txt,"/",0 //Current Byte
-                covx vars.s2.txt,printer.currentByte.val,0,0
-                spstr vars.s.txt,vars.s2.txt,"/",1 //Total Bytes
-                covx vars.s2.txt,printer.totalBytes.val,0,0
-                printer.sdPrinting.val=1
-                printer.paused.val=0
-                resumePending.val=0
+                spstr parse.buffer.txt,printer.error.txt,parse.lineMatch.txt,1
+                parse.buffer.txt=""
+                page error
             }
             parse.lineMatch.txt="File selected" //Qualify Line
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
             if(parse.eval.txt==parse.lineMatch.txt)
             {
-                printer.currentByte.val=0
-                printer.totalBytes.val=0
-                printer.sdPrinting.val=1
-                printer.printTime.txt=""
-            }
-            parse.lineMatch.txt="File opened:" //Qualify Line
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
-                spstr vars.s.txt,printer.fileName.txt," Size:",0
-                printing.tMsg.txt=printer.fileName.txt
                 page printing
             }
         
@@ -1513,32 +1547,6 @@ Hotspot parseCommon
             {
                 parse.matched.val=0
             }
-        
-Hotspot luxRunOnce
-    Attributes
-        ID               : 41
-        Scope            : local
-        Dragging         : 0
-        Send Component ID: disabled
-        Opacity          : 127
-        x coordinate     : 173
-        y coordinate     : 65484
-        Width            : 106
-        Height           : 17
-        Effect           : load
-    
-    Events
-        Touch Press Event
-            ///////////////////////////////////////////////////////////////////////////////
-            /// @fn luxRunOnce
-            /// @breif Does not run when returning from dialog boxes
-            ///////////////////////////////////////////////////////////////////////////////
-            printer.currentByte.val=0
-            printer.totalBytes.val=0
-            printer.sdPrinting.val=1
-            printer.paused.val=0
-            printer.m117.txt=""
-            printer.printTime.txt=""
         
 Timer luxRun
     Attributes
