@@ -521,7 +521,7 @@ Button bPauseResume
                 pausePending.val=1
             }
         
-Button bPrintMenu
+Button bPrintSettings
     Attributes
         ID                                  : 24
         Scope                               : local
@@ -1407,17 +1407,17 @@ Hotspot swapState
             // Show printing state
             bStopHome.picc=bStopHome.picc2-1
             tsw bPauseResume,1
-            tsw bPrintMenu,1
+            tsw bPrintSettings,1
             bPauseResume.aph=127
-            bPrintMenu.aph=127
+            bPrintSettings.aph=127
         
         Touch Release Event
             // Show finished state
             bStopHome.picc=bStopHome.picc2+1
             tsw bPauseResume,0
-            tsw bPrintMenu,0
+            tsw bPrintSettings,0
             bPauseResume.aph=1
-            bPrintMenu.aph=1
+            bPrintSettings.aph=1
         
 Hotspot parseTemp
     Attributes
@@ -1496,6 +1496,8 @@ Hotspot luxRunOnce
             printer.paused.val=0
             printer.m117.txt=""
             printer.printTime.txt=""
+            commands.command.txt="M220\rM221\r"
+            click luxSend,1
         
 Hotspot parseCommon
     Attributes

@@ -78,6 +78,10 @@ pause
 	31   Component(s)
 	631  Line(s) of event code
 	307  Unique line(s) of event code
+printSettings
+	20   Component(s)
+	291  Line(s) of event code
+	162  Unique line(s) of event code
 sdPrint
 	32   Component(s)
 	532  Line(s) of event code
@@ -124,15 +128,11 @@ connect
 	320  Unique line(s) of event code
 printing
 	42   Component(s)
-	682  Line(s) of event code
-	358  Unique line(s) of event code
-printSettings
-	53   Component(s)
-	937  Line(s) of event code
-	484  Unique line(s) of event code
+	684  Line(s) of event code
+	359  Unique line(s) of event code
 
 Total
 	32   Page(s)
-	1009 Component(s)
-	14036 Line(s) of event code
-	1707 Unique line(s) of event code
+	976  Component(s)
+	13392 Line(s) of event code
+	1626 Unique line(s) of event code
