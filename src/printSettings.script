@@ -704,7 +704,7 @@ Hotspot parseCommon
                 page error
             }
             // Speed
-            parse.lineMatch.txt="// Speed Percentage: " //Qualify Line
+            parse.lineMatch.txt="// speed_factor: " //Qualify Line
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
             if(parse.eval.txt==parse.lineMatch.txt)
@@ -713,7 +713,7 @@ Hotspot parseCommon
                 covx vars.s.txt,printer.speed.val,0,0
             }
             // Flow
-            parse.lineMatch.txt="// Extrude Percentage: " //Qualify Line
+            parse.lineMatch.txt="// extrude_factor: " //Qualify Line
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
             if(parse.eval.txt==parse.lineMatch.txt)

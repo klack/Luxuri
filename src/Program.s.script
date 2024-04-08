@@ -25,5 +25,5 @@ Program.s
     recmod=1
     Baud=0
     console.console.effect=0 //Set default animation states
-    page connect
-    //page printSettings
+    //page connect
+    page printSettings
