@@ -443,6 +443,8 @@ Hotspot setDefaults
             printer.currentByte.val=0
             printer.totalBytes.val=0
             commands.command.txt="M105\rM115\rM114\r"
+            commands.command.txt+="M220\rM221\r"
+            commands.command.txt+="SET_VELOCITY_LIMIT\rGET_RETRACTION\r"
             //commands.command.txt+="M503\r" //Get settings
             //commands.command.txt+="M154 S5\r" //Position autoreport
             //commands.command.txt+="M155 S5\r" //Temp auto report
@@ -1020,201 +1022,9 @@ Hotspot luxRead
                 }
             }
         
-Hotspot parseCommon
-    Attributes
-        ID               : 34
-        Scope            : local
-        Dragging         : 0
-        Send Component ID: disabled
-        Opacity          : 127
-        x coordinate     : 493
-        y coordinate     : 198
-        Width            : 106
-        Height           : 17
-        Effect           : load
-    
-    Events
-        Touch Press Event
-            ///////////////////////////////////////////////////////////////////////////////
-            /// @fn     parseCommon 1
-            /// @brief  Essential items to be parsed
-            ///////////////////////////////////////////////////////////////////////////////
-            parse.lineMatch.txt="// action:paused filament_runout"
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                printer.filamentRunout.val=1
-                printer.paused.val=1
-                parse.buffer.txt=""
-                if(dp!=PAUSE_PAGE)
-                {
-                    page PAUSE_PAGE
-                }
-            }
-            parse.lineMatch.txt="// action:resumed"
-            if(parse.buffer.txt==parse.lineMatch.txt)
-            {
-                printer.filamentRunout.val=0
-                printer.paused.val=0
-            }
-            parse.lineMatch.txt="echo:busy: paused for user"
-            if(parse.buffer.txt==parse.lineMatch.txt)
-            {
-                printer.paused.val=1
-                parse.buffer.txt=""
-                if(dp!=PAUSE_PAGE)
-                {
-                    page PAUSE_PAGE
-                }
-            }
-            parse.lineMatch.txt=" External Reset" //Shutdown
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt) //This one only works when using substring for some reason
-            {
-                ExternalReset=1
-            }
-            parse.lineMatch.txt="start"
-            if(parse.buffer.txt==parse.lineMatch.txt)
-            {
-                ExternalReset=1
-            }
-            parse.lineMatch.txt="// lux:power_pin" //Shutdown
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt) //This one only works when using substring for some reason
-            {
-                ShutDown=1
-            }
-            parse.lineMatch.txt="echo://lux:power_pin" //Shutdown
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt) //This one only works when using substring for some reason
-            {
-                ShutDown=1
-            }
-            parse.lineMatch.txt="ok" //Ok
-            if(parse.buffer.txt==parse.lineMatch.txt)
-            {
-                ok=1
-                busy=0
-            }
-            parse.lineMatch.txt="ok T:" //M105 ok
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                ok=1
-                busy=0
-            }
-            parse.lineMatch.txt="ok " //Advanced ok
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                ok=1
-                busy=0
-            }
-            parse.lineMatch.txt="echo:busy: processing" //Busy
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                busy=1
-            }else
-            {
-                commands.linesNotBusy.val+=1
-                if(commands.linesNotBusy.val>=5)
-                {
-                    busy=0
-                    commands.linesNotBusy.val=0
-                }
-            }
-            parse.lineMatch.txt="Active Extruder: " //Active Extruder
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                spstr parse.buffer.txt,parse.match.txt,"Active Extruder: ",1
-                covx parse.match.txt,j,0,0
-                Tool=j
-            }
-            parse.lineMatch.txt="M106 P0 S" //Fan
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                spstr parse.buffer.txt,parse.match.txt,"M106 P0 S",1
-                covx parse.match.txt,printer.fanSpeed.val,0,0
-            }
-            parse.lineMatch.txt="// lux:callback " //Serial callback
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                spstr parse.buffer.txt,parse.callbackReturn.txt,parse.lineMatch.txt,1
-            }
-            parse.lineMatch.txt="// lux:M117 " //M117
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                spstr parse.buffer.txt,printer.m117.txt,parse.lineMatch.txt,1
-            }
-            parse.lineMatch.txt="Error:" //Error
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                printer.error.txt=parse.buffer.txt
-                printer.error.txt+="\r"
-                parse.buffer.txt=""
-                Error=1
-            }
-            if(ShutDown==1)
-            {
-                ShutDown=0
-                page shutdown
-            }
-            if(Error==1)
-            {
-                Error=0
-                page ERROR_PAGE
-            }
-            if(ExternalReset==1)
-            {
-                ExternalReset=0
-                parse.buffer.txt=""
-                BufferLen=0
-                code_c
-                page connect
-            }
-        
-        Touch Release Event
-            ///////////////////////////////////////////////////////////////////////////////
-            /// @fn         parseCommon 0
-            ///
-            /// @brief      Parse buffer using a starting and ending position
-            /// @param[in]  parse.search.txt      Text to search for
-            /// @param[in]  parse.startPos.val    Starting char postion to search from
-            /// @param[out] parse.matched.val     1 if match, 0 if no match
-            ///////////////////////////////////////////////////////////////////////////////
-            parse.matched.val=0
-            parse.eval.txt=parse.buffer.txt
-            strlen parse.search.txt,j
-            substr parse.eval.txt,parse.result.txt,parse.startPos.val,j
-            if(parse.result.txt==parse.search.txt)
-            {
-                parse.matched.val=1
-            }else
-            {
-                parse.matched.val=0
-            }
-        
 Hotspot parseTemp
     Attributes
-        ID               : 35
+        ID               : 34
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -1303,6 +1113,132 @@ Hotspot parseTemp
                 printer.hot.val=0
             }
         
+Hotspot parseCommon
+    Attributes
+        ID               : 35
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 492
+        y coordinate     : 201
+        Width            : 106
+        Height           : 14
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn     parseCommon 1
+            /// @brief  Essential items to be parsed
+            ///////////////////////////////////////////////////////////////////////////////
+            parse.lineMatch.txt="ok" //Ok
+            if(parse.buffer.txt==parse.lineMatch.txt)
+            {
+                ok=1
+                busy=0
+            }
+            parse.lineMatch.txt="ok B:" //Handle M105
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                ok=1
+                busy=0
+            }
+            parse.lineMatch.txt="!! " //Error
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,printer.error.txt,parse.lineMatch.txt,1
+                parse.buffer.txt=""
+                page error
+            }
+            parse.lineMatch.txt="// speed_factor: " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
+                covx vars.s.txt,printer.speed.val,0,0
+            }
+            parse.lineMatch.txt="// extrude_factor: " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
+                covx vars.s.txt,printer.flow.val,0,0
+            }
+            parse.lineMatch.txt="// max_velocity: " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
+                covx vars.s.txt,printer.maxVelocity.val,0,0
+            }
+            parse.lineMatch.txt="// max_accel: " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
+                covx vars.s.txt,printer.maxAccel.val,0,0
+            }
+            parse.lineMatch.txt="// max_accel_to_decel: " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
+                covx vars.s.txt,printer.maxAccelDecel.val,0,0
+            }
+            parse.lineMatch.txt="// square_corner_velocity: " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
+                covx vars.s.txt,printer.sqCornerVel.txt,0,0
+            }
+            parse.lineMatch.txt="// RETRACT_LENGTH=" //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
+                spstr vars.s.txt,vars.s2.txt," ",0
+                spstr vars.s2.txt,vars.s.txt,".",0
+                printer.retractLen.txt=vars.s.txt
+                printer.retractLen.txt+="."
+                spstr vars.s2.txt,vars.s.txt,".",1 //Decimal to 2 places
+                substr vars.s.txt,vars.s2.txt,0,2
+                printer.retractLen.txt+=vars.s2.txt
+            }
+        
+        Touch Release Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn         parseCommon 0
+            ///
+            /// @brief      Parse buffer using a starting and ending position
+            /// @param[in]  parse.search.txt      Text to search for
+            /// @param[in]  parse.startPos.val    Starting char postion to search from
+            /// @param[out] parse.matched.val     1 if match, 0 if no match
+            ///////////////////////////////////////////////////////////////////////////////
+            parse.matched.val=0
+            parse.eval.txt=parse.buffer.txt
+            strlen parse.search.txt,j
+            substr parse.eval.txt,parse.result.txt,parse.startPos.val,j
+            if(parse.result.txt==parse.search.txt)
+            {
+                parse.matched.val=1
+            }else
+            {
+                parse.matched.val=0
+            }
+        
 Timer luxRun
     Attributes
         ID         : 13
@@ -1368,7 +1304,6 @@ Timer tmFinished
             ///////////////////////////////////////////////////////////////////////////////
             if(ready.val==1)
             {
-                //  page MAIN
-                page dashboard
+                page MAIN
             }
         

@@ -311,3 +311,35 @@ Variable (int32) printFinished
         Scope: global
         Value: 0
     
+Variable (int32) maxVelocity
+    Attributes
+        ID   : 46
+        Scope: global
+        Value: 0
+    
+Variable (int32) maxAccel
+    Attributes
+        ID   : 47
+        Scope: global
+        Value: 0
+    
+Variable (int32) maxAccelDecel
+    Attributes
+        ID   : 48
+        Scope: global
+        Value: 0
+    
+Variable (string) sqCornerVel
+    Attributes
+        ID            : 49
+        Scope         : global
+        Text          : 
+        Max. Text Size: 5
+    
+Variable (string) retractLen
+    Attributes
+        ID            : 50
+        Scope         : global
+        Text          : 
+        Max. Text Size: 5
+    

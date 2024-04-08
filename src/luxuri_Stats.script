@@ -39,7 +39,7 @@ idexMode
 	493  Line(s) of event code
 	249  Unique line(s) of event code
 printer
-	46   Component(s)
+	51   Component(s)
 	0    Line(s) of event code
 	0    Unique line(s) of event code
 pidTune
@@ -75,9 +75,13 @@ pause
 	631  Line(s) of event code
 	307  Unique line(s) of event code
 printSettings
-	21   Component(s)
-	361  Line(s) of event code
-	193  Unique line(s) of event code
+	32   Component(s)
+	522  Line(s) of event code
+	258  Unique line(s) of event code
+connect
+	36   Component(s)
+	592  Line(s) of event code
+	296  Unique line(s) of event code
 sdPrint
 	32   Component(s)
 	532  Line(s) of event code
@@ -118,10 +122,6 @@ mesh
 	69   Component(s)
 	913  Line(s) of event code
 	453  Unique line(s) of event code
-connect
-	36   Component(s)
-	656  Line(s) of event code
-	320  Unique line(s) of event code
 numpad
 	29   Component(s)
 	398  Line(s) of event code
@@ -133,6 +133,6 @@ printing
 
 Total
 	32   Page(s)
-	978  Component(s)
-	13483 Line(s) of event code
-	1632 Unique line(s) of event code
+	994  Component(s)
+	13580 Line(s) of event code
+	1693 Unique line(s) of event code

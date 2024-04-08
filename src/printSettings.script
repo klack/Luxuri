@@ -20,14 +20,50 @@ Page printSettings
         Page Exit Event
             click luxInit,0
         
+Variable (int32) speedPending
+    Attributes
+        ID   : 24
+        Scope: global
+        Value: 0
+    
+Variable (int32) flowPending
+    Attributes
+        ID   : 25
+        Scope: global
+        Value: 0
+    
+Variable (int32) zPending
+    Attributes
+        ID   : 26
+        Scope: global
+        Value: 0
+    
+Variable (int32) retPending
+    Attributes
+        ID   : 27
+        Scope: global
+        Value: 0
+    
+Variable (int32) accelPending
+    Attributes
+        ID   : 28
+        Scope: global
+        Value: 0
+    
+Variable (int32) decelPending
+    Attributes
+        ID   : 29
+        Scope: global
+        Value: 0
+    
 Text tZOffset
     Attributes
-        ID                      : 10
+        ID                      : 12
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 44
+        x coordinate            : 33
         y coordinate            : 153
         Width                   : 64
         Height                  : 58
@@ -39,7 +75,7 @@ Text tZOffset
         Horizontal Alignment    : right
         Vertical Alignment      : bottom
         Input Type              : character
-        Text                    : 2
+        Text                    : 
         Max. Text Size          : 10
         Word wrap               : disabled
         Horizontal Spacing      : 0
@@ -47,64 +83,14 @@ Text tZOffset
     
 Text tRetraction
     Attributes
-        ID                      : 11
-        Scope                   : local
-        Dragging                : 0
-        Send Component ID       : disabled
-        Opacity                 : 127
-        x coordinate            : 125
-        y coordinate            : 153
-        Width                   : 81
-        Height                  : 58
-        Effect                  : load
-        Fill                    : crop image
-        Associated Keyboard     : none
-        Font ID                 : 12
-        Cropped Back. Picture ID: 120
-        Horizontal Alignment    : right
-        Vertical Alignment      : bottom
-        Input Type              : character
-        Text                    : 2
-        Max. Text Size          : 10
-        Word wrap               : disabled
-        Horizontal Spacing      : 0
-        Vertical Spacing        : 0
-    
-Text tAccel
-    Attributes
-        ID                      : 12
-        Scope                   : local
-        Dragging                : 0
-        Send Component ID       : disabled
-        Opacity                 : 127
-        x coordinate            : 225
-        y coordinate            : 153
-        Width                   : 99
-        Height                  : 58
-        Effect                  : load
-        Fill                    : crop image
-        Associated Keyboard     : none
-        Font ID                 : 12
-        Cropped Back. Picture ID: 120
-        Horizontal Alignment    : right
-        Vertical Alignment      : bottom
-        Input Type              : character
-        Text                    : 10000
-        Max. Text Size          : 10
-        Word wrap               : disabled
-        Horizontal Spacing      : 0
-        Vertical Spacing        : 0
-    
-Text tDecel
-    Attributes
         ID                      : 13
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 336
+        x coordinate            : 116
         y coordinate            : 153
-        Width                   : 99
+        Width                   : 87
         Height                  : 58
         Effect                  : load
         Fill                    : crop image
@@ -114,23 +100,38 @@ Text tDecel
         Horizontal Alignment    : right
         Vertical Alignment      : bottom
         Input Type              : character
-        Text                    : 10000
+        Text                    : 
         Max. Text Size          : 10
         Word wrap               : disabled
         Horizontal Spacing      : 0
         Vertical Spacing        : 0
     
-Text tSpeed
+    Events
+        Touch Press Event
+            numpad.tCaption.txt="Retraction"
+            vars.returnVal.txt=""
+            page numpad
+        
+        Touch Release Event
+            if(vars.returnVal.txt!="null")
+            {
+                commands.command.txt+="SET_RETRACTION RETRACT_LENGTH="
+                commands.command.txt+=vars.returnVal.txt
+                click luxSend,1
+                retPending.val=1
+            }
+        
+Text tAccel
     Attributes
         ID                      : 14
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 99
-        y coordinate            : 83
-        Width                   : 128
-        Height                  : 38
+        x coordinate            : 215
+        y coordinate            : 153
+        Width                   : 111
+        Height                  : 58
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
@@ -139,7 +140,7 @@ Text tSpeed
         Horizontal Alignment    : right
         Vertical Alignment      : bottom
         Input Type              : character
-        Text                    : 100%
+        Text                    : 
         Max. Text Size          : 10
         Word wrap               : disabled
         Horizontal Spacing      : 0
@@ -147,29 +148,30 @@ Text tSpeed
     
     Events
         Touch Press Event
-            numpad.tCaption.txt="Speed"
+            numpad.tCaption.txt="Acceleration"
             vars.returnVal.txt=""
             page numpad
         
         Touch Release Event
             if(vars.returnVal.txt!="null")
             {
-                commands.command.txt+="M220 S"
+                commands.command.txt+="SET_VELOCITY_LIMIT ACCEL="
                 commands.command.txt+=vars.returnVal.txt
                 click luxSend,1
+                accelPending.val=1
             }
         
-Text tFlow
+Text tAccelDecel
     Attributes
         ID                      : 15
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 252
-        y coordinate            : 83
-        Width                   : 135
-        Height                  : 38
+        x coordinate            : 345
+        y coordinate            : 153
+        Width                   : 99
+        Height                  : 58
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
@@ -178,7 +180,7 @@ Text tFlow
         Horizontal Alignment    : right
         Vertical Alignment      : bottom
         Input Type              : character
-        Text                    : 100%
+        Text                    : 
         Max. Text Size          : 10
         Word wrap               : disabled
         Horizontal Spacing      : 0
@@ -186,17 +188,82 @@ Text tFlow
     
     Events
         Touch Press Event
-            numpad.tCaption.txt="Flow"
+            numpad.tCaption.txt="Accel to Decel"
             vars.returnVal.txt=""
             page numpad
         
         Touch Release Event
             if(vars.returnVal.txt!="null")
             {
-                commands.command.txt+="M221 S"
+                commands.command.txt+="SET_VELOCITY_LIMIT ACCEL_TO_DECEL="
                 commands.command.txt+=vars.returnVal.txt
                 click luxSend,1
+                decelPending.val=1
             }
+        
+Text tSpeed
+    Attributes
+        ID                      : 16
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 75
+        y coordinate            : 81
+        Width                   : 87
+        Height                  : 33
+        Effect                  : load
+        Fill                    : crop image
+        Associated Keyboard     : none
+        Font ID                 : 7
+        Cropped Back. Picture ID: 120
+        Horizontal Alignment    : left
+        Vertical Alignment      : top
+        Input Type              : character
+        Text                    : 
+        Max. Text Size          : 10
+        Word wrap               : disabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+    Events
+        Touch Press Event
+            click bSpeed,1
+        
+        Touch Release Event
+            click bSpeed,0
+        
+Text tFlow
+    Attributes
+        ID                      : 17
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 228
+        y coordinate            : 81
+        Width                   : 87
+        Height                  : 33
+        Effect                  : load
+        Fill                    : crop image
+        Associated Keyboard     : none
+        Font ID                 : 7
+        Cropped Back. Picture ID: 120
+        Horizontal Alignment    : left
+        Vertical Alignment      : top
+        Input Type              : character
+        Text                    : 
+        Max. Text Size          : 10
+        Word wrap               : disabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+    Events
+        Touch Press Event
+            click bFlow,1
+        
+        Touch Release Event
+            click bFlow,0
         
 Crop Picture q0
     Attributes
@@ -212,9 +279,95 @@ Crop Picture q0
         Effect                  : load
         Cropped Back. Picture ID: 122
     
+Button bFlow
+    Attributes
+        ID                                  : 2
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 181
+        y coordinate                        : 65
+        Width                               : 127
+        Height                              : 65
+        Effect                              : top fly into
+        Effect Priority                     : 0
+        Effect Time                         : 300
+        Fill                                : crop image
+        Font ID                             : 0
+        Cropped Back. Picture ID (Unpressed): 120
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 121
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 
+        Max. Text Size                      : 0
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            numpad.tCaption.txt="Flow"
+            vars.returnVal.txt=""
+            page numpad
+        
+        Touch Release Event
+            if(vars.returnVal.txt!="null")
+            {
+                commands.command.txt+="M221 S"
+                commands.command.txt+=vars.returnVal.txt
+                click luxSend,1
+                flowPending.val=1
+            }
+        
+Button bSpeed
+    Attributes
+        ID                                  : 3
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 29
+        y coordinate                        : 65
+        Width                               : 127
+        Height                              : 65
+        Effect                              : top fly into
+        Effect Priority                     : 0
+        Effect Time                         : 300
+        Fill                                : crop image
+        Font ID                             : 0
+        Cropped Back. Picture ID (Unpressed): 120
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 121
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 
+        Max. Text Size                      : 0
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            numpad.tCaption.txt="Speed"
+            vars.returnVal.txt=""
+            page numpad
+        
+        Touch Release Event
+            if(vars.returnVal.txt!="null")
+            {
+                commands.command.txt+="M220 S"
+                commands.command.txt+=vars.returnVal.txt
+                click luxSend,1
+                speedPending.val=1
+            }
+        
 Button bClose
     Attributes
-        ID                                  : 16
+        ID                                  : 18
         Scope                               : local
         Dragging                            : 0
         Send Component ID                   : disabled
@@ -246,9 +399,37 @@ Button bClose
             HandleCallback=1
             page ReturnPage
         
+Button b0
+    Attributes
+        ID                                  : 23
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 342
+        y coordinate                        : 65
+        Width                               : 112
+        Height                              : 65
+        Effect                              : top fly into
+        Effect Priority                     : 0
+        Effect Time                         : 300
+        Fill                                : crop image
+        Font ID                             : 0
+        Cropped Back. Picture ID (Unpressed): 120
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 121
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 
+        Max. Text Size                      : 0
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
 Hotspot luxSend
     Attributes
-        ID               : 2
+        ID               : 4
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -311,7 +492,7 @@ Hotspot luxSend
         
 Hotspot luxInit
     Attributes
-        ID               : 3
+        ID               : 5
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -352,7 +533,7 @@ Hotspot luxInit
         
 Hotspot luxDoCallback
     Attributes
-        ID               : 4
+        ID               : 6
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -390,7 +571,7 @@ Hotspot luxDoCallback
         
 Hotspot luxRead
     Attributes
-        ID               : 5
+        ID               : 7
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -451,7 +632,7 @@ Hotspot luxRead
         
 Hotspot luxView
     Attributes
-        ID               : 6
+        ID               : 8
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -472,10 +653,13 @@ Hotspot luxView
             tSpeed.txt+="%"
             covx printer.flow.val,tFlow.txt,0,0
             tFlow.txt+="%"
+            covx printer.maxAccel.val,tAccel.txt,0,0
+            covx printer.maxAccelDecel.val,tAccelDecel.txt,0,0
+            tRetraction.txt=printer.retractLen.txt
         
 Hotspot luxNotify
     Attributes
-        ID               : 7
+        ID               : 9
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -496,7 +680,7 @@ Hotspot luxNotify
         
 Hotspot serialHistory
     Attributes
-        ID               : 8
+        ID               : 10
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -569,7 +753,7 @@ Hotspot serialHistory
         
 Hotspot historyFilters
     Attributes
-        ID               : 9
+        ID               : 11
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -663,7 +847,7 @@ Hotspot historyFilters
         
 Hotspot parseCommon
     Attributes
-        ID               : 19
+        ID               : 21
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -703,7 +887,6 @@ Hotspot parseCommon
                 parse.buffer.txt=""
                 page error
             }
-            // Speed
             parse.lineMatch.txt="// speed_factor: " //Qualify Line
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
@@ -711,8 +894,8 @@ Hotspot parseCommon
             {
                 spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
                 covx vars.s.txt,printer.speed.val,0,0
+                speedPending.val=0
             }
-            // Flow
             parse.lineMatch.txt="// extrude_factor: " //Qualify Line
             strlen parse.lineMatch.txt,j
             substr parse.buffer.txt,parse.eval.txt,0,j
@@ -720,6 +903,56 @@ Hotspot parseCommon
             {
                 spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
                 covx vars.s.txt,printer.flow.val,0,0
+                flowPending.val=0
+            }
+            parse.lineMatch.txt="// max_velocity: " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
+                covx vars.s.txt,printer.maxVelocity.val,0,0
+            }
+            parse.lineMatch.txt="// max_accel: " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
+                covx vars.s.txt,printer.maxAccel.val,0,0
+                accelPending.val=0
+            }
+            parse.lineMatch.txt="// max_accel_to_decel: " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
+                covx vars.s.txt,printer.maxAccelDecel.val,0,0
+                decelPending.val=0
+            }
+            parse.lineMatch.txt="// square_corner_velocity: " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
+                covx vars.s.txt,printer.sqCornerVel.txt,0,0
+            }
+            parse.lineMatch.txt="// RETRACT_LENGTH=" //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.lineMatch.txt,1
+                spstr vars.s.txt,vars.s2.txt," ",0
+                spstr vars.s2.txt,vars.s.txt,".",0
+                printer.retractLen.txt=vars.s.txt
+                printer.retractLen.txt+="."
+                spstr vars.s2.txt,vars.s.txt,".",1 //Decimal to 2 places
+                substr vars.s.txt,vars.s2.txt,0,2
+                printer.retractLen.txt+=vars.s2.txt
+                retPending.val=0
             }
         
         Touch Release Event
@@ -745,7 +978,7 @@ Hotspot parseCommon
         
 Hotspot parseSDPrint
     Attributes
-        ID               : 20
+        ID               : 22
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -830,9 +1063,94 @@ Hotspot parseSDPrint
                 printing.tMsg.txt=printer.fileName.txt
             }
         
+Hotspot luxPageAnimate
+    Attributes
+        ID               : 31
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 116
+        y coordinate     : 65509
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxPageAnimate
+            /// @brief Animations specific to this page
+            ///////////////////////////////////////////////////////////////////////////////
+            if(speedPending.val==1)
+            {
+                if(Frame==0)
+                {
+                    tSpeed.aph=0
+                }else
+                {
+                    tSpeed.aph=127
+                }
+            }else
+            {
+                tSpeed.aph=127
+            }
+            if(flowPending.val==1)
+            {
+                if(Frame==0)
+                {
+                    tFlow.aph=0
+                }else
+                {
+                    tFlow.aph=127
+                }
+            }else
+            {
+                tFlow.aph=127
+            }
+            if(retPending.val==1)
+            {
+                if(Frame==0)
+                {
+                    tRetraction.aph=0
+                }else
+                {
+                    tRetraction.aph=127
+                }
+            }else
+            {
+                tRetraction.aph=127
+            }
+            if(accelPending.val==1)
+            {
+                if(Frame==0)
+                {
+                    tAccel.aph=0
+                }else
+                {
+                    tAccel.aph=127
+                }
+            }else
+            {
+                tAccel.aph=127
+            }
+            if(decelPending.val==1)
+            {
+                if(Frame==0)
+                {
+                    tAccelDecel.aph=0
+                }else
+                {
+                    tAccelDecel.aph=127
+                }
+            }else
+            {
+                tAccelDecel.aph=127
+            }
+        
 Timer luxRun
     Attributes
-        ID         : 18
+        ID         : 20
         Scope      : local
         Period (ms): 100
         Enabled    : yes
@@ -847,9 +1165,28 @@ Timer luxRun
             click luxView,1
             click luxSend,0
         
+Timer luxAnimTimer
+    Attributes
+        ID         : 30
+        Scope      : local
+        Period (ms): 50
+        Enabled    : yes
+    
+    Events
+        Timer Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxAnimTimer
+            ///////////////////////////////////////////////////////////////////////////////
+            if(luxAnimTimer.tim==50)
+            {
+                luxAnimTimer.tim=1000
+            }
+            Frame=Frame^1 //Toggle Frame between 0 and 1
+            click luxPageAnimate,1
+        
 TouchCap tCap
     Attributes
-        ID   : 17
+        ID   : 19
         Scope: local
         Value: 0
     
