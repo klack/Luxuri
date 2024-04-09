@@ -80,12 +80,12 @@ printSettings
 	258  Unique line(s) of event code
 connect
 	36   Component(s)
-	592  Line(s) of event code
-	296  Unique line(s) of event code
+	595  Line(s) of event code
+	299  Unique line(s) of event code
 sdPrint
 	32   Component(s)
-	532  Line(s) of event code
-	280  Unique line(s) of event code
+	439  Line(s) of event code
+	247  Unique line(s) of event code
 console
 	48   Component(s)
 	674  Line(s) of event code
@@ -128,11 +128,11 @@ numpad
 	204  Unique line(s) of event code
 printing
 	42   Component(s)
-	703  Line(s) of event code
-	366  Unique line(s) of event code
+	702  Line(s) of event code
+	365  Unique line(s) of event code
 
 Total
 	32   Page(s)
 	994  Component(s)
-	13580 Line(s) of event code
-	1693 Unique line(s) of event code
+	13489 Line(s) of event code
+	1696 Unique line(s) of event code

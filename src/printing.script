@@ -264,18 +264,18 @@ Text tMsg
         Send Component ID       : disabled
         Opacity                 : 127
         x coordinate            : 202
-        y coordinate            : 146
+        y coordinate            : 140
         Width                   : 266
-        Height                  : 21
+        Height                  : 27
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 1
+        Font ID                 : 2
         Cropped Back. Picture ID: 110
         Horizontal Alignment    : center
         Vertical Alignment      : center
         Input Type              : character
-        Text                    : 
+        Text                    : ...
         Max. Text Size          : 64
         Word wrap               : disabled
         Horizontal Spacing      : 0
@@ -1323,7 +1323,7 @@ Hotspot luxView
             // M117
             if(printer.m117.txt!="")
             {
-                tMsg.txt=printer.m117.txt
+                //  tMsg.txt=printer.m117.txt
             }
             // Percent text
             tZ.txt=printer.z.txt

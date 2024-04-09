@@ -442,6 +442,9 @@ Hotspot setDefaults
             printer.sdPrinting.val=0
             printer.currentByte.val=0
             printer.totalBytes.val=0
+            printer.fileName.txt=""
+            printer.printFinished.val=0
+            printer.m117.txt=""
             commands.command.txt="M105\rM115\rM114\r"
             commands.command.txt+="M220\rM221\r"
             commands.command.txt+="SET_VELOCITY_LIMIT\rGET_RETRACTION\r"
