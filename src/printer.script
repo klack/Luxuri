@@ -343,3 +343,31 @@ Variable (string) retractLen
         Text          : 
         Max. Text Size: 5
     
+Variable (string) screw1
+    Attributes
+        ID            : 51
+        Scope         : global
+        Text          : 
+        Max. Text Size: 16
+    
+Variable (string) screw2
+    Attributes
+        ID            : 52
+        Scope         : global
+        Text          : 
+        Max. Text Size: 16
+    
+Variable (string) screw3
+    Attributes
+        ID            : 53
+        Scope         : global
+        Text          : 
+        Max. Text Size: 16
+    
+Variable (string) screw4
+    Attributes
+        ID            : 54
+        Scope         : global
+        Text          : 
+        Max. Text Size: 16
+    

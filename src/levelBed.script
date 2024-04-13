@@ -465,12 +465,11 @@ Hotspot luxRunOnce
             /// @fn luxRunOnce
             /// @breif Does not run when returning from dialog boxes
             ///////////////////////////////////////////////////////////////////////////////
-            commands.queue.txt+="M605 S1\r" //Set auto idex mode
-            commands.queue.txt+="M420 S0\r" //Disable bed level
-            commands.queue.txt+="G28\r" //Home
-            commands.queue.txt+="T0\r"
-            commands.queue.txt+="G0 F5000\r"
-            click luxSend,0
+            commands.command.txt="BED_MESH_CLEAR\r" //Disable bed level
+            commands.command.txt+="G28\r" //Home
+            commands.command.txt+="T0\r"
+            commands.command.txt+="G0 F5000\r"
+            click luxSend,1
         
 Hotspot luxSwapEx
     Attributes
@@ -526,9 +525,9 @@ Hotspot luxNotify
         Send Component ID: disabled
         Opacity          : 127
         x coordinate     : 488
-        y coordinate     : 0
+        y coordinate     : 65535
         Width            : 106
-        Height           : 17
+        Height           : 18
         Effect           : load
     
     Events
@@ -538,6 +537,7 @@ Hotspot luxNotify
             /// @breif Notify listeners
             ///////////////////////////////////////////////////////////////////////////////
             click parseCommon,1
+            click parseSettings,1
             click parsePosition,1
             click serialHistory,1
         
@@ -640,133 +640,9 @@ Hotspot luxDoCallback
             parse.callback.txt="null"
             parse.callbackReturn.txt="null"
         
-Hotspot luxRead
-    Attributes
-        ID               : 24
-        Scope            : local
-        Dragging         : 0
-        Send Component ID: disabled
-        Opacity          : 127
-        x coordinate     : 65535
-        y coordinate     : 65462
-        Width            : 106
-        Height           : 17
-        Effect           : load
-    
-    Events
-        Touch Press Event
-            ///////////////////////////////////////////////////////////////////////////////
-            /// @fn luxRead 1
-            /// @brief Read the buffer and notify when end of line is reached
-            ///////////////////////////////////////////////////////////////////////////////
-            if(usize>0)
-            {
-                while(SerialPos<usize)
-                {
-                    ucopy parse.startChar.txt,SerialPos,1,0 //Check next character
-                    if(u[SerialPos]==10||u[SerialPos]==13) //If linefeed or carriage return
-                    {
-                        //EOL reached
-                        strlen parse.buffer.txt,BufferLen //Record buffer length
-                        click luxNotify,1 //Notify listeners
-                        parse.buffer.txt="" //Clear buffer
-                    }
-                    if(u[SerialPos]==13) //Cariage return
-                    {
-                        SerialPos++       //Lookahead to next char
-                        if(SerialPos<usize) //If under buffersize
-                        {
-                            if(u[SerialPos]!=10) //But no linefeed
-                            {
-                                SerialPos-- //Rollback
-                            }
-                        }else
-                        {
-                            SerialPos-- //Rollback if over buffersize
-                        }
-                    }else
-                    {
-                        if(u[SerialPos]!=10) //Add character to line if not CR or LF
-                        {
-                            parse.buffer.txt+=parse.startChar.txt
-                        }
-                    }
-                    SerialPos++ //Next character
-                }
-                if(SerialPos==usize) //End of buffer reached
-                {
-                    code_c
-                    BufferLen=0
-                    SerialPos=0
-                }
-            }
-        
-Hotspot luxSend
-    Attributes
-        ID               : 25
-        Scope            : local
-        Dragging         : 0
-        Send Component ID: disabled
-        Opacity          : 127
-        x coordinate     : 65535
-        y coordinate     : 65437
-        Width            : 106
-        Height           : 17
-        Effect           : load
-    
-    Events
-        Touch Press Event
-            ///////////////////////////////////////////////////////////////////////////////
-            /// @fn luxSend 1
-            /// @brief Send a single command
-            /// @param[in] command.command.txt
-            ///////////////////////////////////////////////////////////////////////////////
-            prints commands.command.txt,0
-            printh 0A
-            ok=0
-            click serialHistory,0
-            commands.command.txt=""
-        
-        Touch Release Event
-            ///////////////////////////////////////////////////////////////////////////////
-            /// @fn luxSend 0
-            /// @brief Send command queue, waiting for ok between each command
-            /// @brief Waits a max of 10 times for each ok
-            ///////////////////////////////////////////////////////////////////////////////
-            strlen commands.queue.txt,QueueLen //get the length of the command queue
-            if(ok==1&&busy==0) //Send Queue
-            {
-                QueueBlocks=0
-                while(QueueLen>0&&QueueBlocks<=10)
-                {
-                    click luxRead,1
-                    if(ok==1&&busy==0)
-                    {
-                        spstr commands.queue.txt,vars.s.txt,"\r",0
-                        if(vars.s.txt!="")
-                        {
-                            strlen vars.s.txt,CommandLen //get the lenght of the command
-                            CharLen=QueueLen-CommandLen //calc the amount of chars to copy
-                            //remove the command from the queue by getting a substring of the commandqueue
-                            substr commands.queue.txt,commands.queue.txt,CommandLen+2,CharLen //+2 to count \r
-                            commands.command.txt=vars.s.txt
-                            click luxSend,1
-                        }else
-                        {
-                            commands.queue.txt=""
-                            QueueLen=0
-                        }
-                    }else
-                    {
-                        QueueBlocks+=1
-                    }
-                    strlen commands.queue.txt,QueueLen //Refresh the command queue lenght
-                }
-            }
-        
 Hotspot parseCommon
     Attributes
-        ID               : 26
+        ID               : 24
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -958,7 +834,7 @@ Hotspot parseCommon
         
 Hotspot serialHistory
     Attributes
-        ID               : 27
+        ID               : 25
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -1031,7 +907,7 @@ Hotspot serialHistory
         
 Hotspot historyFilters
     Attributes
-        ID               : 28
+        ID               : 26
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -1120,6 +996,222 @@ Hotspot historyFilters
             if(parse.matched.val==1)
             {
                 parse.buffer.txt=""
+                parse.matched.val=0
+            }
+        
+Hotspot parseSettings
+    Attributes
+        ID               : 27
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 487
+        y coordinate     : 139
+        Width            : 106
+        Height           : 18
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            parse.search.txt="// screw1: " //Qualify Line
+            click parser,0
+            if(parse.matched.val==1)
+            {
+                spstr parse.buffer.txt,printer.screw1.txt,parse.search.txt,1 //Split by qualifier
+            }
+            parse.search.txt="// screw2: " //Qualify Line
+            click parser,0
+            if(parse.matched.val==1)
+            {
+                spstr parse.buffer.txt,printer.screw2.txt,parse.search.txt,1 //Split by qualifier
+            }
+            parse.search.txt="// screw3: " //Qualify Line
+            click parser,0
+            if(parse.matched.val==1)
+            {
+                spstr parse.buffer.txt,printer.screw3.txt,parse.search.txt,1 //Split by qualifier
+            }
+            parse.search.txt="// screw4: " //Qualify Line
+            click parser,0
+            if(parse.matched.val==1)
+            {
+                spstr parse.buffer.txt,printer.screw4.txt,parse.search.txt,1 //Split by qualifier
+            }
+        
+Hotspot luxSend
+    Attributes
+        ID               : 28
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 65535
+        y coordinate     : 65474
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxSend 1
+            /// @brief Send a single command
+            /// @param[in] command.command.txt
+            ///////////////////////////////////////////////////////////////////////////////
+            prints commands.command.txt,0
+            printh 0A
+            ok=0
+            click serialHistory,0
+            commands.command.txt=""
+        
+        Touch Release Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxSend 0
+            /// @brief Send command queue, waiting for ok between each command
+            /// @brief Waits a max of 10 times for each ok
+            ///////////////////////////////////////////////////////////////////////////////
+            strlen commands.queue.txt,QueueLen //get the length of the command queue
+            if(ok==1&&busy==0) //Send Queue
+            {
+                QueueBlocks=0
+                while(QueueLen>0&&QueueBlocks<=10)
+                {
+                    click luxRead,1
+                    if(ok==1&&busy==0)
+                    {
+                        spstr commands.queue.txt,vars.s.txt,"\r",0
+                        if(vars.s.txt!="")
+                        {
+                            strlen vars.s.txt,CommandLen //get the lenght of the command
+                            CharLen=QueueLen-CommandLen //calc the amount of chars to copy
+                            //remove the command from the queue by getting a substring of the commandqueue
+                            substr commands.queue.txt,commands.queue.txt,CommandLen+2,CharLen //+2 to count \r
+                            commands.command.txt=vars.s.txt
+                            click luxSend,1
+                        }else
+                        {
+                            commands.queue.txt=""
+                            QueueLen=0
+                        }
+                    }else
+                    {
+                        QueueBlocks+=1
+                    }
+                    strlen commands.queue.txt,QueueLen //Refresh the command queue lenght
+                }
+            }
+        
+Hotspot luxRead
+    Attributes
+        ID               : 29
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 65535
+        y coordinate     : 65491
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxRead 1
+            /// @brief Read the buffer and notify when end of line is reached
+            ///////////////////////////////////////////////////////////////////////////////
+            if(usize>0)
+            {
+                while(SerialPos<usize)
+                {
+                    ucopy parse.startChar.txt,SerialPos,1,0 //Check next character
+                    if(u[SerialPos]==10||u[SerialPos]==13) //If linefeed or carriage return
+                    {
+                        //EOL reached
+                        strlen parse.buffer.txt,BufferLen //Record buffer length
+                        click luxNotify,1 //Notify listeners
+                        parse.buffer.txt="" //Clear buffer
+                    }
+                    if(u[SerialPos]==13) //Cariage return
+                    {
+                        SerialPos++       //Lookahead to next char
+                        if(SerialPos<usize) //If under buffersize
+                        {
+                            if(u[SerialPos]!=10) //But no linefeed
+                            {
+                                SerialPos-- //Rollback
+                            }
+                        }else
+                        {
+                            SerialPos-- //Rollback if over buffersize
+                        }
+                    }else
+                    {
+                        if(u[SerialPos]!=10) //Add character to line if not CR or LF
+                        {
+                            parse.buffer.txt+=parse.startChar.txt
+                        }
+                    }
+                    SerialPos++ //Next character
+                }
+                if(SerialPos==usize) //End of buffer reached
+                {
+                    code_c
+                    BufferLen=0
+                    SerialPos=0
+                }
+            }
+        
+Hotspot parser
+    Attributes
+        ID               : 30
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 488
+        y coordinate     : 65338
+        Width            : 106
+        Height           : 183
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn         parse_1
+            ///
+            /// @brief      Parse buffer for exact line match
+            /// @param[in]  parse.search.txt      Text to search for
+            /// @param[out] parse.matched.val     1 if match, 0 if no match
+            ///////////////////////////////////////////////////////////////////////////////
+            parse.matched.val=0
+            parse.eval.txt=parse.buffer.txt
+            if(parse.search.txt==parse.eval.txt)
+            {
+                parse.matched.val=1
+            }else
+            {
+                parse.matched.val=0
+            }
+        
+        Touch Release Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn         parse_0
+            ///
+            /// @brief      Parse buffer starting at index 0
+            /// @param[in]  parse.search.txt      Text to search for
+            /// @param[out] parse.matched.val     1 if match, 0 if no match
+            ///////////////////////////////////////////////////////////////////////////////
+            parse.matched.val=0
+            parse.eval.txt=parse.buffer.txt
+            strlen parse.search.txt,j
+            substr parse.eval.txt,parse.result.txt,0,j
+            if(parse.result.txt==parse.search.txt)
+            {
+                parse.matched.val=1
+            }else
+            {
                 parse.matched.val=0
             }
         

@@ -1323,7 +1323,7 @@ Hotspot luxView
             // M117
             if(printer.m117.txt!="")
             {
-                //  tMsg.txt=printer.m117.txt
+                tMsg.txt=printer.m117.txt
             }
             // Percent text
             tZ.txt=printer.z.txt

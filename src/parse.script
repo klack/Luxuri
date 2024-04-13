@@ -35,64 +35,64 @@ Variable (string) buffer
         Text          : 
         Max. Text Size: 1024
     
-Variable (string) startChar
-    Attributes
-        ID            : 4
-        Scope         : global
-        Text          : 
-        Max. Text Size: 1
-    
 Variable (string) match
     Attributes
-        ID            : 5
+        ID            : 4
         Scope         : global
         Text          : 
         Max. Text Size: 255
     
 Variable (string) search
     Attributes
-        ID            : 6
+        ID            : 5
         Scope         : global
         Text          : 
         Max. Text Size: 64
     
 Variable (int32) matched
     Attributes
-        ID   : 7
+        ID   : 6
         Scope: global
         Value: 0
     
 Variable (int32) startPos
     Attributes
-        ID   : 8
+        ID   : 7
         Scope: global
         Value: 0
     
 Variable (string) result
     Attributes
-        ID            : 9
+        ID            : 8
         Scope         : global
         Text          : 
         Max. Text Size: 255
     
 Variable (string) callback
     Attributes
-        ID            : 10
+        ID            : 9
         Scope         : global
         Text          : 
         Max. Text Size: 32
     
 Variable (string) callbackReturn
     Attributes
-        ID            : 11
+        ID            : 10
         Scope         : global
         Text          : 
         Max. Text Size: 32
     
 Variable (string) last
     Attributes
-        ID            : 12
+        ID            : 11
         Scope         : global
         Text          : 
         Max. Text Size: 2048
+    
+Variable (string) startChar
+    Attributes
+        ID            : 12
+        Scope         : global
+        Text          : 
+        Max. Text Size: 1
     

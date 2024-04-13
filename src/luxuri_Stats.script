@@ -10,14 +10,14 @@ commands
 	7    Component(s)
 	0    Line(s) of event code
 	0    Unique line(s) of event code
-parse
-	13   Component(s)
-	0    Line(s) of event code
-	0    Unique line(s) of event code
 shutdown
 	3    Component(s)
 	4    Line(s) of event code
 	4    Unique line(s) of event code
+parse
+	13   Component(s)
+	0    Line(s) of event code
+	0    Unique line(s) of event code
 historyFilters
 	13   Component(s)
 	2    Line(s) of event code
@@ -34,14 +34,14 @@ error
 	11   Component(s)
 	97   Line(s) of event code
 	70   Unique line(s) of event code
+printer
+	55   Component(s)
+	0    Line(s) of event code
+	0    Unique line(s) of event code
 idexMode
 	25   Component(s)
 	493  Line(s) of event code
 	249  Unique line(s) of event code
-printer
-	51   Component(s)
-	0    Line(s) of event code
-	0    Unique line(s) of event code
 pidTune
 	35   Component(s)
 	579  Line(s) of event code
@@ -62,10 +62,6 @@ wake
 	18   Component(s)
 	381  Line(s) of event code
 	193  Unique line(s) of event code
-levelBed
-	29   Component(s)
-	469  Line(s) of event code
-	250  Unique line(s) of event code
 sendHistory
 	30   Component(s)
 	499  Line(s) of event code
@@ -78,14 +74,18 @@ printSettings
 	32   Component(s)
 	522  Line(s) of event code
 	258  Unique line(s) of event code
-connect
-	36   Component(s)
-	595  Line(s) of event code
-	299  Unique line(s) of event code
+printing
+	42   Component(s)
+	703  Line(s) of event code
+	366  Unique line(s) of event code
 sdPrint
 	32   Component(s)
 	439  Line(s) of event code
 	247  Unique line(s) of event code
+levelBed
+	31   Component(s)
+	513  Line(s) of event code
+	263  Unique line(s) of event code
 console
 	48   Component(s)
 	674  Line(s) of event code
@@ -126,13 +126,13 @@ numpad
 	29   Component(s)
 	398  Line(s) of event code
 	204  Unique line(s) of event code
-printing
-	42   Component(s)
-	702  Line(s) of event code
-	365  Unique line(s) of event code
+connect
+	35   Component(s)
+	560  Line(s) of event code
+	290  Unique line(s) of event code
 
 Total
 	32   Page(s)
-	994  Component(s)
-	13489 Line(s) of event code
-	1696 Unique line(s) of event code
+	999  Component(s)
+	13499 Line(s) of event code
+	1707 Unique line(s) of event code
