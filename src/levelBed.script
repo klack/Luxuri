@@ -317,7 +317,7 @@ Button bPoint5
         Font ID                             : 5
         Cropped Back. Picture ID (Unpressed): 0
         Back. Picture ID (Pressed)          : 65535
-        Cropped Back. Picture ID (Pressed)  : 21
+        Cropped Back. Picture ID (Pressed)  : 125
         Horizontal Alignment                : center
         Vertical Alignment                  : center
         State                               : unpressed
@@ -528,8 +528,8 @@ Hotspot luxInit
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 116
-        y coordinate     : 65442
+        x coordinate     : 124
+        y coordinate     : 65475
         Width            : 106
         Height           : 18
         Effect           : load
@@ -575,8 +575,8 @@ Hotspot luxView
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 116
-        y coordinate     : 65509
+        x coordinate     : 248
+        y coordinate     : 65476
         Width            : 106
         Height           : 17
         Effect           : load
@@ -602,8 +602,8 @@ Hotspot luxRunOnce
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 116
-        y coordinate     : 65465
+        x coordinate     : 124
+        y coordinate     : 65493
         Width            : 106
         Height           : 17
         Effect           : load
@@ -627,8 +627,8 @@ Hotspot luxSwapEx
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 374
-        y coordinate     : 65487
+        x coordinate     : 372
+        y coordinate     : 65496
         Width            : 106
         Height           : 15
         Effect           : load
@@ -673,8 +673,8 @@ Hotspot luxNotify
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 65535
+        x coordinate     : 65418
+        y coordinate     : 17
         Width            : 106
         Height           : 18
         Effect           : load
@@ -697,10 +697,10 @@ Hotspot sendCommand
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 374
-        y coordinate     : 65510
+        x coordinate     : 372
+        y coordinate     : 65511
         Width            : 106
-        Height           : 16
+        Height           : 15
         Effect           : load
     
     Events
@@ -733,8 +733,8 @@ Hotspot luxDoCallback
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 65535
-        y coordinate     : 65509
+        x coordinate     : 124
+        y coordinate     : 65510
         Width            : 106
         Height           : 17
         Effect           : load
@@ -771,8 +771,8 @@ Hotspot serialHistory
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 84
+        x coordinate     : 65418
+        y coordinate     : 65
         Width            : 106
         Height           : 17
         Effect           : load
@@ -844,8 +844,8 @@ Hotspot historyFilters
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 112
+        x coordinate     : 65418
+        y coordinate     : 82
         Width            : 106
         Height           : 17
         Effect           : load
@@ -938,8 +938,8 @@ Hotspot parseSettings
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 487
-        y coordinate     : 139
+        x coordinate     : 65418
+        y coordinate     : 99
         Width            : 106
         Height           : 18
         Effect           : load
@@ -984,8 +984,8 @@ Hotspot luxSend
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 65535
-        y coordinate     : 65474
+        x coordinate     : 0
+        y coordinate     : 65493
         Width            : 106
         Height           : 17
         Effect           : load
@@ -1047,8 +1047,8 @@ Hotspot luxRead
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 65535
-        y coordinate     : 65491
+        x coordinate     : 0
+        y coordinate     : 65510
         Width            : 106
         Height           : 17
         Effect           : load
@@ -1108,8 +1108,8 @@ Hotspot parser
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 487
-        y coordinate     : 65511
+        x coordinate     : 65418
+        y coordinate     : 0
         Width            : 106
         Height           : 17
         Effect           : load
@@ -1160,8 +1160,8 @@ Hotspot parseCommon
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 21
+        x coordinate     : 65418
+        y coordinate     : 35
         Width            : 106
         Height           : 15
         Effect           : load
@@ -1265,8 +1265,8 @@ Hotspot parseTemp
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 39
+        x coordinate     : 65418
+        y coordinate     : 50
         Width            : 106
         Height           : 15
         Effect           : load
@@ -1356,8 +1356,8 @@ Hotspot luxAnimate
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 247
-        y coordinate     : 65491
+        x coordinate     : 248
+        y coordinate     : 65493
         Width            : 106
         Height           : 17
         Effect           : load
@@ -1378,8 +1378,8 @@ Hotspot luxControlBar
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 243
-        y coordinate     : 65512
+        x coordinate     : 248
+        y coordinate     : 65510
         Width            : 106
         Height           : 17
         Effect           : load

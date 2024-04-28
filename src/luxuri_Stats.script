@@ -114,10 +114,6 @@ mesh
 	69   Component(s)
 	913  Line(s) of event code
 	453  Unique line(s) of event code
-dashboard
-	30   Component(s)
-	599  Line(s) of event code
-	291  Unique line(s) of event code
 numpad
 	29   Component(s)
 	398  Line(s) of event code
@@ -126,6 +122,10 @@ connect
 	35   Component(s)
 	545  Line(s) of event code
 	281  Unique line(s) of event code
+dashboard
+	30   Component(s)
+	599  Line(s) of event code
+	291  Unique line(s) of event code
 levelBed
 	40   Component(s)
 	666  Line(s) of event code
