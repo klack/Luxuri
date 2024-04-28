@@ -16,7 +16,7 @@ Program.s
     // Linear Transformation
     int NewMin=0,NewMax=0,NewValue=0,Temp1=0,Temp2=0
     // Color Pallete
-    int pal_error70=64591, pal_error90=65242
+    int pal_error=64949, pal_error70=64591, pal_error90=65242, pal_on_secondary=57119
     wup=WAKE_PAGE
     SLEEP_TIME=0
     thsp=SLEEP_TIME

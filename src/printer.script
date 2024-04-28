@@ -371,3 +371,10 @@ Variable (string) screw4
         Text          : 
         Max. Text Size: 16
     
+Variable (string) bedCenter
+    Attributes
+        ID            : 55
+        Scope         : global
+        Text          : 
+        Max. Text Size: 16
+    

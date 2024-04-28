@@ -12,7 +12,7 @@ Page levelBed
         Swide left page ID : disabled
         Swide right page ID: disabled
         Fill               : picture
-        Back. Picture ID   : 3
+        Back. Picture ID   : 126
     
     Events
         Preinitialize Event
@@ -20,129 +20,189 @@ Page levelBed
         
 Variable (int32) destY
     Attributes
-        ID   : 22
+        ID   : 18
         Scope: local
         Value: 0
     
 Variable (int32) destX
     Attributes
-        ID   : 23
+        ID   : 19
         Scope: local
         Value: 0
     
+Variable (string) destCoords
+    Attributes
+        ID            : 26
+        Scope         : local
+        Text          : 
+        Max. Text Size: 16
+    
 Text tTitle
     Attributes
-        ID                      : 8
+        ID                      : 7
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 20
-        y coordinate            : 20
-        Width                   : 189
-        Height                  : 35
+        x coordinate            : 40
+        y coordinate            : 8
+        Width                   : 126
+        Height                  : 26
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 8
+        Font ID                 : 2
         Cropped Back. Picture ID: 0
         Horizontal Alignment    : left
         Vertical Alignment      : top
         Input Type              : character
-        Text                    : Level Bed
+        Text                    : Bed Tramming
         Max. Text Size          : 16
         Word wrap               : disabled
         Horizontal Spacing      : 0
         Vertical Spacing        : 0
     
-Text tSwap
+Text tT1Temp
     Attributes
-        ID                      : 11
+        ID                      : 31
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 273
-        y coordinate            : 178
-        Width                   : 151
-        Height                  : 35
+        x coordinate            : 364
+        y coordinate            : 8
+        Width                   : 35
+        Height                  : 21
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
-        Font ID                 : 5
+        Font ID                 : 3
         Cropped Back. Picture ID: 0
-        Horizontal Alignment    : center
-        Vertical Alignment      : top
-        Input Type              : character
-        Text                    : Swap Tool
-        Max. Text Size          : 16
-        Word wrap               : disabled
-        Horizontal Spacing      : 0
-        Vertical Spacing        : 0
-    
-Text tPosition
-    Attributes
-        ID                      : 18
-        Scope                   : local
-        Dragging                : 0
-        Send Component ID       : disabled
-        Opacity                 : 127
-        x coordinate            : 240
-        y coordinate            : 226
-        Width                   : 223
-        Height                  : 30
-        Effect                  : load
-        Fill                    : crop image
-        Associated Keyboard     : none
-        Font ID                 : 14
-        Cropped Back. Picture ID: 0
-        Horizontal Alignment    : center
+        Horizontal Alignment    : left
         Vertical Alignment      : center
         Input Type              : character
-        Text                    : X:999.999 Y:999.999 Z:999.999
-        Max. Text Size          : 32
+        Text                    : 
+        Max. Text Size          : 3
         Word wrap               : disabled
         Horizontal Spacing      : 0
         Vertical Spacing        : 0
     
-Crop Picture pState
+    Events
+        Touch Press Event
+            click bT1Temp,1
+        
+        Touch Release Event
+            click bT1Temp,0
+        
+Text tT0Temp
     Attributes
-        ID                      : 6
+        ID                      : 32
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 294
+        y coordinate            : 8
+        Width                   : 35
+        Height                  : 21
+        Effect                  : load
+        Fill                    : crop image
+        Associated Keyboard     : none
+        Border Color            : 0
+        Border Width            : 2
+        Font ID                 : 3
+        Cropped Back. Picture ID: 0
+        Horizontal Alignment    : left
+        Vertical Alignment      : top
+        Input Type              : character
+        Text                    : 
+        Max. Text Size          : 3
+        Word wrap               : disabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+    Events
+        Touch Press Event
+            click bT0Temp,1
+        
+        Touch Release Event
+            click bT0Temp,0
+        
+Text tBedTemp
+    Attributes
+        ID                      : 33
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 438
+        y coordinate            : 8
+        Width                   : 35
+        Height                  : 21
+        Effect                  : load
+        Fill                    : crop image
+        Associated Keyboard     : none
+        Font ID                 : 3
+        Cropped Back. Picture ID: 0
+        Horizontal Alignment    : left
+        Vertical Alignment      : center
+        Input Type              : character
+        Text                    : 
+        Max. Text Size          : 3
+        Word wrap               : disabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+    Events
+        Touch Press Event
+            click bBedTemp,1
+        
+        Touch Release Event
+            click bBedTemp,0
+        
+Crop Picture q0
+    Attributes
+        ID                      : 1
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
         x coordinate            : 0
         y coordinate            : 0
-        Width                   : 259
+        Width                   : 480
         Height                  : 272
         Effect                  : load
-        Cropped Back. Picture ID: 22
+        Cropped Back. Picture ID: 124
     
 Button bSwap
     Attributes
-        ID                               : 7
-        Scope                            : local
-        Dragging                         : 0
-        Send Component ID                : disabled
-        Opacity                          : 127
-        x coordinate                     : 307
-        y coordinate                     : 93
-        Width                            : 85
-        Height                           : 85
-        Effect                           : load
-        Fill                             : image
-        Font ID                          : 14
-        Background Picture ID (Unpressed): 24
-        Back. Picture ID (Pressed)       : 23
-        Horizontal Alignment             : center
-        Vertical Alignment               : center
-        State                            : unpressed
-        Text                             : 
-        Max. Text Size                   : 10
-        Word wrap                        : disabled
-        Horizontal Spacing               : 0
-        Vertical Spacing                 : 0
+        ID                                  : 6
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 263
+        y coordinate                        : 127
+        Width                               : 186
+        Height                              : 58
+        Effect                              : load
+        Fill                                : transparent
+        Font ID                             : 15
+        Background Picture ID (Unpressed)   : 24
+        Cropped Back. Picture ID (Unpressed): 124
+        Back. Color                         : 50712
+        Back. Picture ID (Pressed)          : 23
+        Cropped Back. Picture ID (Pressed)  : 23
+        Back. Color (Pressed)               : 1024
+        Font Color (Unpressed)              : 42879
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : E1
+        Max. Text Size                      : 10
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
     
     Events
         Touch Press Event
@@ -150,25 +210,25 @@ Button bSwap
         
 Button bPoint1
     Attributes
-        ID                                  : 12
+        ID                                  : 10
         Scope                               : local
         Dragging                            : 0
         Send Component ID                   : disabled
         Opacity                             : 127
-        x coordinate                        : 34
-        y coordinate                        : 199
-        Width                               : 35
-        Height                              : 44
+        x coordinate                        : 27
+        y coordinate                        : 190
+        Width                               : 52
+        Height                              : 52
         Effect                              : load
         Fill                                : crop image
         Font ID                             : 5
         Cropped Back. Picture ID (Unpressed): 0
         Back. Picture ID (Pressed)          : 65535
-        Cropped Back. Picture ID (Pressed)  : 21
+        Cropped Back. Picture ID (Pressed)  : 125
         Horizontal Alignment                : center
         Vertical Alignment                  : center
         State                               : unpressed
-        Text                                : 1
+        Text                                : 
         Max. Text Size                      : 1
         Word wrap                           : disabled
         Horizontal Spacing                  : 0
@@ -176,22 +236,82 @@ Button bPoint1
     
     Events
         Touch Press Event
-            //bPoint1
-            destX.val=50
-            destY.val=50
+            destCoords.txt=printer.screw1.txt
             click sendCommand,1
         
 Button bPoint2
+    Attributes
+        ID                                  : 11
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 149
+        y coordinate                        : 68
+        Width                               : 52
+        Height                              : 52
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 5
+        Cropped Back. Picture ID (Unpressed): 0
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 125
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            destCoords.txt=printer.screw3.txt
+            click sendCommand,1
+        
+Button bPoint4
+    Attributes
+        ID                                  : 12
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 27
+        y coordinate                        : 68
+        Width                               : 52
+        Height                              : 52
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 5
+        Cropped Back. Picture ID (Unpressed): 0
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 125
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 
+        Max. Text Size                      : 1
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            destCoords.txt=printer.screw2.txt
+            click sendCommand,1
+        
+Button bPoint5
     Attributes
         ID                                  : 13
         Scope                               : local
         Dragging                            : 0
         Send Component ID                   : disabled
         Opacity                             : 127
-        x coordinate                        : 167
-        y coordinate                        : 66
-        Width                               : 35
-        Height                              : 44
+        x coordinate                        : 88
+        y coordinate                        : 130
+        Width                               : 52
+        Height                              : 52
         Effect                              : load
         Fill                                : crop image
         Font ID                             : 5
@@ -201,7 +321,7 @@ Button bPoint2
         Horizontal Alignment                : center
         Vertical Alignment                  : center
         State                               : unpressed
-        Text                                : 2
+        Text                                : 
         Max. Text Size                      : 1
         Word wrap                           : disabled
         Horizontal Spacing                  : 0
@@ -209,32 +329,30 @@ Button bPoint2
     
     Events
         Touch Press Event
-            //bPoint2
-            destX.val=printer.x_max.val-50
-            destY.val=printer.x_max.val-50
+            destCoords.txt=printer.bedCenter.txt
             click sendCommand,1
         
-Button bPoint4
+Button bPoint3
     Attributes
         ID                                  : 14
         Scope                               : local
         Dragging                            : 0
         Send Component ID                   : disabled
         Opacity                             : 127
-        x coordinate                        : 34
-        y coordinate                        : 66
-        Width                               : 35
-        Height                              : 44
+        x coordinate                        : 149
+        y coordinate                        : 190
+        Width                               : 52
+        Height                              : 52
         Effect                              : load
         Fill                                : crop image
         Font ID                             : 5
         Cropped Back. Picture ID (Unpressed): 0
         Back. Picture ID (Pressed)          : 65535
-        Cropped Back. Picture ID (Pressed)  : 21
+        Cropped Back. Picture ID (Pressed)  : 125
         Horizontal Alignment                : center
         Vertical Alignment                  : center
         State                               : unpressed
-        Text                                : 4
+        Text                                : 
         Max. Text Size                      : 1
         Word wrap                           : disabled
         Horizontal Spacing                  : 0
@@ -242,94 +360,26 @@ Button bPoint4
     
     Events
         Touch Press Event
-            //bPoint4
-            destX.val=50
-            destY.val=printer.x_max.val-50
+            destCoords.txt=printer.screw4.txt
             click sendCommand,1
         
-Button bPoint5
+Button bClose
     Attributes
         ID                                  : 15
         Scope                               : local
         Dragging                            : 0
         Send Component ID                   : disabled
         Opacity                             : 127
-        x coordinate                        : 100
-        y coordinate                        : 133
-        Width                               : 35
-        Height                              : 44
-        Effect                              : load
-        Fill                                : crop image
-        Font ID                             : 5
-        Cropped Back. Picture ID (Unpressed): 0
-        Back. Picture ID (Pressed)          : 65535
-        Cropped Back. Picture ID (Pressed)  : 21
-        Horizontal Alignment                : center
-        Vertical Alignment                  : center
-        State                               : unpressed
-        Text                                : 5
-        Max. Text Size                      : 1
-        Word wrap                           : disabled
-        Horizontal Spacing                  : 0
-        Vertical Spacing                    : 0
-    
-    Events
-        Touch Press Event
-            //5
-            destX.val=printer.x_max.val/2
-            destY.val=printer.x_max.val/2
-            click sendCommand,1
-        
-Button bPoint3
-    Attributes
-        ID                                  : 16
-        Scope                               : local
-        Dragging                            : 0
-        Send Component ID                   : disabled
-        Opacity                             : 127
-        x coordinate                        : 167
-        y coordinate                        : 199
-        Width                               : 35
-        Height                              : 44
-        Effect                              : load
-        Fill                                : crop image
-        Font ID                             : 5
-        Cropped Back. Picture ID (Unpressed): 0
-        Back. Picture ID (Pressed)          : 65535
-        Cropped Back. Picture ID (Pressed)  : 21
-        Horizontal Alignment                : center
-        Vertical Alignment                  : center
-        State                               : unpressed
-        Text                                : 3
-        Max. Text Size                      : 1
-        Word wrap                           : disabled
-        Horizontal Spacing                  : 0
-        Vertical Spacing                    : 0
-    
-    Events
-        Touch Press Event
-            //bPoint3
-            destX.val=printer.x_max.val-50
-            destY.val=50
-            click sendCommand,1
-        
-Button bClose
-    Attributes
-        ID                                  : 19
-        Scope                               : local
-        Dragging                            : 0
-        Send Component ID                   : disabled
-        Opacity                             : 127
-        x coordinate                        : 435
+        x coordinate                        : 0
         y coordinate                        : 0
-        Width                               : 45
-        Height                              : 41
+        Width                               : 38
+        Height                              : 38
         Effect                              : load
         Fill                                : crop image
         Font ID                             : 14
-        Cropped Back. Picture ID (Unpressed): 6
+        Cropped Back. Picture ID (Unpressed): 80
         Back. Picture ID (Pressed)          : 40
-        Cropped Back. Picture ID (Pressed)  : 5
+        Cropped Back. Picture ID (Pressed)  : 81
         Horizontal Alignment                : center
         Vertical Alignment                  : center
         State                               : unpressed
@@ -343,17 +393,145 @@ Button bClose
         Touch Press Event
             click luxInit,0
         
+Button bT1Temp
+    Attributes
+        ID                                  : 28
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 345
+        y coordinate                        : 4
+        Width                               : 52
+        Height                              : 30
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 14
+        Cropped Back. Picture ID (Unpressed): 80
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 81
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 
+        Max. Text Size                      : 0
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            //bT1 click
+            numpad.tCaption.txt="T1 Temperature"
+            vars.returnVal.txt=""
+            page numpad
+        
+        Touch Release Event
+            if(vars.returnVal.txt!="null")
+            {
+                commands.queue.txt+="M104 T1 S"
+                commands.queue.txt+=vars.returnVal.txt
+                commands.queue.txt+="\rM105\r"
+                click luxSend,0
+            }
+        
+Button bBedTemp
+    Attributes
+        ID                                  : 29
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 414
+        y coordinate                        : 4
+        Width                               : 58
+        Height                              : 30
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 14
+        Cropped Back. Picture ID (Unpressed): 80
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 81
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 
+        Max. Text Size                      : 0
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            //bBed click
+            numpad.tCaption.txt="Bed Temperature"
+            vars.returnVal.txt=""
+            page numpad
+        
+        Touch Release Event
+            //bBed callback
+            if(vars.returnVal.txt!="null")
+            {
+                commands.queue.txt+="M140 S"
+                commands.queue.txt+=vars.returnVal.txt
+                commands.queue.txt+="\rM105\r"
+                click luxSend,0
+            }
+        
+Button bT0Temp
+    Attributes
+        ID                                  : 30
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 275
+        y coordinate                        : 4
+        Width                               : 52
+        Height                              : 30
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 14
+        Cropped Back. Picture ID (Unpressed): 80
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 81
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 
+        Max. Text Size                      : 0
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            //bT0 click
+            numpad.tCaption.txt="T0 Temperature"
+            vars.returnVal.txt=""
+            page numpad
+        
+        Touch Release Event
+            //bT0 callback
+            if(vars.returnVal.txt!="null")
+            {
+                commands.queue.txt+="M104 T0 S"
+                commands.queue.txt+=vars.returnVal.txt
+                commands.queue.txt+="\rM105\r"
+                click luxSend,0
+            }
+        
 Hotspot luxInit
     Attributes
-        ID               : 1
+        ID               : 2
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
         x coordinate     : 116
-        y coordinate     : 65443
+        y coordinate     : 65442
         Width            : 106
-        Height           : 17
+        Height           : 18
         Effect           : load
     
     Events
@@ -363,8 +541,8 @@ Hotspot luxInit
             /// @brief Sets up the lux framework
             ///////////////////////////////////////////////////////////////////////////////
             click luxView,1
-            //click luxAnimate,1
-            click luxController,1
+            click luxAnimate,1
+            //click luxController,1
             if(HandleCallback==0)
             {
                 click luxDoCallback,0 //Clears callback vars
@@ -390,32 +568,6 @@ Hotspot luxInit
             click luxSend,0
             page ReturnPage
         
-Hotspot luxController
-    Attributes
-        ID               : 2
-        Scope            : local
-        Dragging         : 0
-        Send Component ID: disabled
-        Opacity          : 127
-        x coordinate     : 116
-        y coordinate     : 65487
-        Width            : 106
-        Height           : 17
-        Effect           : load
-    
-    Events
-        Touch Press Event
-            ///////////////////////////////////////////////////////////////////////////////
-            /// @fn luxController,1
-            /// @brief Program loop
-            ///////////////////////////////////////////////////////////////////////////////
-        
-        Touch Release Event
-            ///////////////////////////////////////////////////////////////////////////////
-            /// @fn luxController,0
-            /// @brief Custom on page callback handling
-            ///////////////////////////////////////////////////////////////////////////////
-        
 Hotspot luxView
     Attributes
         ID               : 3
@@ -435,16 +587,13 @@ Hotspot luxView
             /// @fn luxView,1
             /// @brief Updates states for controls
             ///////////////////////////////////////////////////////////////////////////////
-            bSwap.pic=bSwap.pic2+1
-            bSwap.pic+=Tool
-            tPosition.txt="X:"
-            tPosition.txt+=printer.x.txt
-            tPosition.txt+=" "
-            tPosition.txt+="Y:"
-            tPosition.txt+=printer.y.txt
-            tPosition.txt+=" "
-            tPosition.txt+="Z:"
-            tPosition.txt+=printer.z.txt
+            if(Tool==0)
+            {
+                bSwap.txt="E1"
+            }else if(Tool==1)
+            {
+                bSwap.txt="E2"
+            }
         
 Hotspot luxRunOnce
     Attributes
@@ -519,7 +668,7 @@ Hotspot luxSwapEx
         
 Hotspot luxNotify
     Attributes
-        ID               : 9
+        ID               : 8
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -538,12 +687,12 @@ Hotspot luxNotify
             ///////////////////////////////////////////////////////////////////////////////
             click parseCommon,1
             click parseSettings,1
-            click parsePosition,1
+            click parseTemp,1
             click serialHistory,1
         
 Hotspot sendCommand
     Attributes
-        ID               : 10
+        ID               : 9
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -560,6 +709,10 @@ Hotspot sendCommand
             /// @fn sendCommand
             /// @brief Prepare and send commands
             ///////////////////////////////////////////////////////////////////////////////
+            spstr destCoords.txt,vars.s.txt,",",0
+            covx vars.s.txt,destX.val,0,0
+            spstr destCoords.txt,vars.s.txt,",",1
+            covx vars.s.txt,destY.val,0,0
             commands.queue.txt+="G90\r"
             commands.queue.txt+="G0 Z5 F500\r"
             commands.queue.txt+="G0 X"
@@ -573,38 +726,9 @@ Hotspot sendCommand
             commands.queue.txt+="M114\r"
             click luxSend,0
         
-Hotspot parsePosition
-    Attributes
-        ID               : 17
-        Scope            : local
-        Dragging         : 0
-        Send Component ID: disabled
-        Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 56
-        Width            : 106
-        Height           : 17
-        Effect           : load
-    
-    Events
-        Touch Press Event
-            //Qualify Line
-            parse.lineMatch.txt="X:"
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                spstr parse.buffer.txt,vars.s.txt,"X:",1 //Split by X:
-                spstr vars.s.txt,printer.x.txt," ",0 //
-                spstr parse.buffer.txt,vars.s.txt,"Y:",1 //Split by Y:
-                spstr vars.s.txt,printer.y.txt," ",0 //
-                spstr parse.buffer.txt,vars.s.txt,"Z:",1 //Split by Z:
-                spstr vars.s.txt,printer.z.txt," ",0 //
-            }
-        
 Hotspot luxDoCallback
     Attributes
-        ID               : 20
+        ID               : 16
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -623,7 +747,7 @@ Hotspot luxDoCallback
             ///////////////////////////////////////////////////////////////////////////////
             if(ReturnObj==0) //Direct to custom controller callback
             {
-                click luxController,0
+                //  click luxController,0
             }else
             {
                 click b[ReturnObj],0
@@ -640,201 +764,9 @@ Hotspot luxDoCallback
             parse.callback.txt="null"
             parse.callbackReturn.txt="null"
         
-Hotspot parseCommon
-    Attributes
-        ID               : 24
-        Scope            : local
-        Dragging         : 0
-        Send Component ID: disabled
-        Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 28
-        Width            : 106
-        Height           : 17
-        Effect           : load
-    
-    Events
-        Touch Press Event
-            ///////////////////////////////////////////////////////////////////////////////
-            /// @fn     parseCommon 1
-            /// @brief  Essential items to be parsed
-            ///////////////////////////////////////////////////////////////////////////////
-            parse.lineMatch.txt="//action:paused filament_runout"
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                printer.filamentRunout.val=1
-                printer.paused.val=1
-                parse.buffer.txt=""
-                if(dp!=PAUSE_PAGE)
-                {
-                    page PAUSE_PAGE
-                }
-            }
-            parse.lineMatch.txt="//action:resumed"
-            if(parse.buffer.txt==parse.lineMatch.txt)
-            {
-                printer.filamentRunout.val=0
-                printer.paused.val=0
-            }
-            parse.lineMatch.txt="echo:busy: paused for user"
-            if(parse.buffer.txt==parse.lineMatch.txt)
-            {
-                printer.paused.val=1
-                parse.buffer.txt=""
-                if(dp!=PAUSE_PAGE)
-                {
-                    page PAUSE_PAGE
-                }
-            }
-            parse.lineMatch.txt=" External Reset" //Shutdown
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt) //This one only works when using substring for some reason
-            {
-                ExternalReset=1
-            }
-            parse.lineMatch.txt="start"
-            if(parse.buffer.txt==parse.lineMatch.txt)
-            {
-                ExternalReset=1
-            }
-            parse.lineMatch.txt="//lux:power_pin" //Shutdown
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt) //This one only works when using substring for some reason
-            {
-                ShutDown=1
-            }
-            parse.lineMatch.txt="echo://lux:power_pin" //Shutdown
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt) //This one only works when using substring for some reason
-            {
-                ShutDown=1
-            }
-            parse.lineMatch.txt="ok" //Ok
-            if(parse.buffer.txt==parse.lineMatch.txt)
-            {
-                ok=1
-                busy=0
-            }
-            parse.lineMatch.txt="ok T:" //M105 ok
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                ok=1
-                busy=0
-            }
-            parse.lineMatch.txt="ok " //Advanced ok
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                ok=1
-                busy=0
-            }
-            parse.lineMatch.txt="echo:busy: processing" //Busy
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                busy=1
-            }else
-            {
-                commands.linesNotBusy.val+=1
-                if(commands.linesNotBusy.val>=5)
-                {
-                    busy=0
-                    commands.linesNotBusy.val=0
-                }
-            }
-            parse.lineMatch.txt="Active Extruder: " //Active Extruder
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                spstr parse.buffer.txt,parse.match.txt,"Active Extruder: ",1
-                covx parse.match.txt,j,0,0
-                Tool=j
-            }
-            parse.lineMatch.txt="M106 P0 S" //Fan
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                spstr parse.buffer.txt,parse.match.txt,"M106 P0 S",1
-                covx parse.match.txt,printer.fanSpeed.val,0,0
-            }
-            parse.lineMatch.txt="//lux:callback " //Serial callback
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                spstr parse.buffer.txt,parse.callbackReturn.txt,parse.lineMatch.txt,1
-            }
-            parse.lineMatch.txt="//lux:M117 " //M117
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                spstr parse.buffer.txt,printer.m117.txt,parse.lineMatch.txt,1
-            }
-            parse.lineMatch.txt="Error:" //Error
-            strlen parse.lineMatch.txt,j
-            substr parse.buffer.txt,parse.eval.txt,0,j
-            if(parse.eval.txt==parse.lineMatch.txt)
-            {
-                printer.error.txt=parse.buffer.txt
-                printer.error.txt+="\r"
-                parse.buffer.txt=""
-                Error=1
-            }
-            if(ShutDown==1)
-            {
-                ShutDown=0
-                page shutdown
-            }
-            if(Error==1)
-            {
-                Error=0
-                page ERROR_PAGE
-            }
-            if(ExternalReset==1)
-            {
-                ExternalReset=0
-                parse.buffer.txt=""
-                BufferLen=0
-                code_c
-                page connect
-            }
-        
-        Touch Release Event
-            ///////////////////////////////////////////////////////////////////////////////
-            /// @fn         parseCommon 0
-            ///
-            /// @brief      Parse buffer using a starting and ending position
-            /// @param[in]  parse.search.txt      Text to search for
-            /// @param[in]  parse.startPos.val    Starting char postion to search from
-            /// @param[out] parse.matched.val     1 if match, 0 if no match
-            ///////////////////////////////////////////////////////////////////////////////
-            parse.matched.val=0
-            parse.eval.txt=parse.buffer.txt
-            strlen parse.search.txt,j
-            substr parse.eval.txt,parse.result.txt,parse.startPos.val,j
-            if(parse.result.txt==parse.search.txt)
-            {
-                parse.matched.val=1
-            }else
-            {
-                parse.matched.val=0
-            }
-        
 Hotspot serialHistory
     Attributes
-        ID               : 25
+        ID               : 20
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -907,7 +839,7 @@ Hotspot serialHistory
         
 Hotspot historyFilters
     Attributes
-        ID               : 26
+        ID               : 21
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -1001,7 +933,7 @@ Hotspot historyFilters
         
 Hotspot parseSettings
     Attributes
-        ID               : 27
+        ID               : 22
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -1038,10 +970,16 @@ Hotspot parseSettings
             {
                 spstr parse.buffer.txt,printer.screw4.txt,parse.search.txt,1 //Split by qualifier
             }
+            parse.search.txt="// bed_center: " //Qualify Line
+            click parser,0
+            if(parse.matched.val==1)
+            {
+                spstr parse.buffer.txt,printer.bedCenter.txt,parse.search.txt,1 //Split by qualifier
+            }
         
 Hotspot luxSend
     Attributes
-        ID               : 28
+        ID               : 23
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -1104,7 +1042,7 @@ Hotspot luxSend
         
 Hotspot luxRead
     Attributes
-        ID               : 29
+        ID               : 24
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -1165,15 +1103,15 @@ Hotspot luxRead
         
 Hotspot parser
     Attributes
-        ID               : 30
+        ID               : 25
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 488
-        y coordinate     : 65338
+        x coordinate     : 487
+        y coordinate     : 65511
         Width            : 106
-        Height           : 183
+        Height           : 17
         Effect           : load
     
     Events
@@ -1215,9 +1153,385 @@ Hotspot parser
                 parse.matched.val=0
             }
         
+Hotspot parseCommon
+    Attributes
+        ID               : 27
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 488
+        y coordinate     : 21
+        Width            : 106
+        Height           : 15
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn     parseCommon 1
+            /// @brief  Essential items to be parsed
+            ///////////////////////////////////////////////////////////////////////////////
+            parse.lineMatch.txt="ok" //Ok
+            if(parse.buffer.txt==parse.lineMatch.txt)
+            {
+                ok=1
+                busy=0
+            }
+            parse.lineMatch.txt="ok B:" //Handle M105
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                ok=1
+                busy=0
+            }
+            parse.lineMatch.txt="// Print Paused" //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                page printing
+            }
+            parse.lineMatch.txt="SD printing byte " //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                page printing
+            }
+            parse.lineMatch.txt="File selected" //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                page printing
+            }
+            parse.lineMatch.txt="File opened:" //Qualify Line
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                page printing
+            }
+            parse.lineMatch.txt="!! " //Error
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                spstr parse.buffer.txt,printer.error.txt,parse.lineMatch.txt,1
+                parse.buffer.txt=""
+                page error
+            }
+            parse.search.txt="// Activating extruder " //Qualify Line
+            click parser,0
+            if(parse.matched.val==1)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.search.txt,1
+                if(vars.s.txt=="extruder")
+                {
+                    Tool=0
+                }else if(vars.s.txt=="extruder1")
+                {
+                    Tool=1
+                }
+            }
+        
+        Touch Release Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn         parseCommon 0
+            ///
+            /// @brief      Parse buffer using a starting and ending position
+            /// @param[in]  parse.search.txt      Text to search for
+            /// @param[in]  parse.startPos.val    Starting char postion to search from
+            /// @param[out] parse.matched.val     1 if match, 0 if no match
+            ///////////////////////////////////////////////////////////////////////////////
+            parse.matched.val=0
+            parse.eval.txt=parse.buffer.txt
+            strlen parse.search.txt,j
+            substr parse.eval.txt,parse.result.txt,parse.startPos.val,j
+            if(parse.result.txt==parse.search.txt)
+            {
+                parse.matched.val=1
+            }else
+            {
+                parse.matched.val=0
+            }
+        
+Hotspot parseTemp
+    Attributes
+        ID               : 37
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 488
+        y coordinate     : 39
+        Width            : 106
+        Height           : 15
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            // ok T:204.97 /205.00 B:75.02 /75.00 T0:204.97 /205.00 T1:205.04 /205.00 @:59 B@:12 @0:59 @1:70
+            // ok B:46.0 /0.0 T0:28.9 /0.0 T1:28.9 /0.0\x0A
+            //Qualify Line
+            parse.lineMatch.txt="ok B:" //Handle M105
+            strlen parse.lineMatch.txt,j
+            substr parse.buffer.txt,parse.eval.txt,0,j
+            if(parse.eval.txt==parse.lineMatch.txt)
+            {
+                parse.matched.val=1
+            }
+            if(parse.matched.val==1)
+            {
+                //Bed Temp
+                spstr parse.buffer.txt,parse.match.txt,"B:",1 //Split by B:
+                spstr parse.match.txt,vars.s.txt," ",0 //Split substring by space
+                covx vars.s.txt,printer.bedTemp.val,0,0 //Give bed temp at index 0
+                //Bed SetTemp
+                spstr parse.buffer.txt,parse.match.txt," /",1
+                spstr parse.match.txt,vars.s.txt," ",0 //Split substring by space
+                covx vars.s.txt,printer.setBedTemp.val,0,0
+                //T0 Temp
+                spstr parse.buffer.txt,parse.match.txt,"T0:",1
+                spstr parse.match.txt,vars.s.txt," ",0 //Split substring by space
+                covx vars.s.txt,printer.T0Temp.val,0,0
+                //T0 SetTemp
+                spstr parse.buffer.txt,parse.match.txt," /",2
+                spstr parse.match.txt,vars.s.txt," ",0 //Split substring by space
+                covx vars.s.txt,printer.T0SetTemp.val,0,0
+                //T1 Temp
+                spstr parse.buffer.txt,parse.match.txt,"T1:",1
+                spstr parse.match.txt,vars.s.txt," ",0 //Split substring by space
+                covx vars.s.txt,printer.T1Temp.val,0,0
+                //T1 SetTemp
+                spstr parse.buffer.txt,parse.match.txt," /",3
+                spstr parse.match.txt,vars.s.txt," ",0 //Split substring by space
+                covx vars.s.txt,printer.T1SetTemp.val,0,0
+            }
+            printer.heating.val=0
+            if(printer.bedTemp.val<printer.setBedTemp.val)
+            {
+                printer.heating.val=1
+            }
+            if(printer.T0Temp.val<printer.T0SetTemp.val)
+            {
+                printer.heating.val=1
+            }
+            if(printer.T1Temp.val<printer.T1SetTemp.val)
+            {
+                printer.heating.val=1
+            }
+            printer.hot.val=0
+            if(printer.setBedTemp.val!=0&&printer.bedTemp.val>=printer.setBedTemp.val)
+            {
+                printer.hot.val=1
+            }
+            if(printer.T0SetTemp.val!=0&&printer.T0Temp.val>=printer.T0SetTemp.val)
+            {
+                printer.hot.val=1
+            }
+            if(printer.T1SetTemp.val!=0&&printer.T1Temp.val>=printer.T1SetTemp.val)
+            {
+                printer.hot.val=1
+            }
+            if(printer.setBedTemp.val!=0&&printer.bedTemp.val<printer.setBedTemp.val)
+            {
+                printer.hot.val=0
+            }
+            if(printer.T0SetTemp.val!=0&&printer.T0Temp.val<printer.T0SetTemp.val)
+            {
+                printer.hot.val=0
+            }
+            if(printer.T1SetTemp.val!=0&&printer.T1Temp.val<printer.T1SetTemp.val)
+            {
+                printer.hot.val=0
+            }
+        
+Hotspot luxAnimate
+    Attributes
+        ID               : 38
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 247
+        y coordinate     : 65491
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxAnimate,1
+            /// @brief Updates states for controls
+            ///////////////////////////////////////////////////////////////////////////////
+            Frame=Frame^1 //Toggle Frame between 0 and 1
+            click luxControlBar,1
+        
+Hotspot luxControlBar
+    Attributes
+        ID               : 39
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 243
+        y coordinate     : 65512
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            // @fn luxControlBar 1
+            // @brief Animate control bar.  picc2 is used to reference the "pressed" frame.
+            ///////////////////////////////////////////////////////////////////////////////
+            if(printer.T0SetTemp.val!=0) //T0 Temp is set
+            {
+                if(printer.T0Temp.val<printer.T0SetTemp.val) //Heating
+                {
+                    bT0Temp.picc=bT0Temp.picc2+1
+                    if(Frame==0)
+                    {
+                        covx printer.T0Temp.val,vars.s.txt,0,0 //Update T0
+                        tT0Temp.txt=vars.s.txt
+                        tT0Temp.pco=pal_error
+                    }else
+                    {
+                        covx printer.T0SetTemp.val,vars.s.txt,0,0 //Update T0 Set Temp
+                        tT0Temp.txt=vars.s.txt
+                        tT0Temp.pco=pal_error70
+                    }
+                }else //At or above Temp
+                {
+                    bT0Temp.picc=bT0Temp.picc2
+                    if(printer.T0Temp.val==printer.T0SetTemp.val)
+                    {
+                        covx printer.T0Temp.val,vars.s.txt,0,0 //Update T0
+                        tT0Temp.txt=vars.s.txt
+                        tT0Temp.pco=pal_error70
+                    }else
+                    {
+                        if(Frame==0)
+                        {
+                            covx printer.T0Temp.val,vars.s.txt,0,0 //Update T0
+                            tT0Temp.txt=vars.s.txt
+                            tT0Temp.pco=pal_error
+                        }else
+                        {
+                            covx printer.T0SetTemp.val,vars.s.txt,0,0 //Update T0 Set Temp
+                            tT0Temp.txt=vars.s.txt
+                            tT0Temp.pco=pal_error70
+                        }
+                    }
+                }
+            }else //Cooling
+            {
+                bT0Temp.picc=bT0Temp.picc2-1
+                covx printer.T0Temp.val,vars.s.txt,0,0 //Update T0
+                tT0Temp.txt=vars.s.txt
+                tT0Temp.pco=pal_on_secondary
+            }
+            if(printer.T1SetTemp.val!=0) //T1 Temp is set
+            {
+                if(printer.T1Temp.val<printer.T1SetTemp.val) //Heating
+                {
+                    bT1Temp.picc=bT1Temp.picc2+1
+                    if(Frame==0)
+                    {
+                        covx printer.T1Temp.val,vars.s.txt,0,0 //Update T1
+                        tT1Temp.txt=vars.s.txt
+                        tT1Temp.pco=pal_error
+                    }else
+                    {
+                        covx printer.T1SetTemp.val,vars.s.txt,0,0 //Update T1 Set Temp
+                        tT1Temp.txt=vars.s.txt
+                        tT1Temp.pco=pal_error70
+                    }
+                }else //At or above Temp
+                {
+                    bT1Temp.picc=bT1Temp.picc2
+                    if(printer.T1Temp.val==printer.T1SetTemp.val)
+                    {
+                        covx printer.T1Temp.val,vars.s.txt,0,0 //Update T1
+                        tT1Temp.txt=vars.s.txt
+                        tT1Temp.pco=pal_error70
+                    }else
+                    {
+                        if(Frame==0)
+                        {
+                            covx printer.T1Temp.val,vars.s.txt,0,0 //Update T1
+                            tT1Temp.txt=vars.s.txt
+                            tT1Temp.pco=pal_error
+                        }else
+                        {
+                            covx printer.T1SetTemp.val,vars.s.txt,0,0 //Update T1 Set Temp
+                            tT1Temp.txt=vars.s.txt
+                            tT1Temp.pco=pal_error70
+                        }
+                    }
+                }
+            }else //Cooling
+            {
+                bT1Temp.picc=bT1Temp.picc2-1
+                covx printer.T1Temp.val,vars.s.txt,0,0 //Update T1
+                tT1Temp.txt=vars.s.txt
+                tT1Temp.pco=pal_on_secondary
+            }
+            if(printer.setBedTemp.val!=0) //Bed Temp is set
+            {
+                if(printer.bedTemp.val<printer.setBedTemp.val) //Heating
+                {
+                    bBedTemp.picc=bBedTemp.picc2+1
+                    if(Frame==0)
+                    {
+                        covx printer.bedTemp.val,vars.s.txt,0,0 //Update Bed
+                        tBedTemp.txt=vars.s.txt
+                        tBedTemp.pco=pal_error
+                    }else
+                    {
+                        covx printer.setBedTemp.val,vars.s.txt,0,0 //Update Bed Set Temp
+                        tBedTemp.txt=vars.s.txt
+                        tBedTemp.pco=pal_error70
+                    }
+                }else //At or above Temp
+                {
+                    bBedTemp.picc=bBedTemp.picc2
+                    if(printer.bedTemp.val==printer.setBedTemp.val)
+                    {
+                        covx printer.bedTemp.val,vars.s.txt,0,0 //Update Bed
+                        tBedTemp.txt=vars.s.txt
+                        tBedTemp.pco=pal_error70
+                    }else
+                    {
+                        if(Frame==0)
+                        {
+                            covx printer.bedTemp.val,vars.s.txt,0,0 //Update Bed
+                            tBedTemp.txt=vars.s.txt
+                            tBedTemp.pco=pal_error
+                        }else
+                        {
+                            covx printer.setBedTemp.val,vars.s.txt,0,0 //Update Bed Set Temp
+                            tBedTemp.txt=vars.s.txt
+                            tBedTemp.pco=pal_error70
+                        }
+                    }
+                }
+            }else //Cooling
+            {
+                bBedTemp.picc=bBedTemp.picc2-1
+                covx printer.bedTemp.val,vars.s.txt,0,0 //Update Bed
+                tBedTemp.txt=vars.s.txt
+                tBedTemp.pco=pal_on_secondary
+            }
+        
 Timer luxRun
     Attributes
-        ID         : 21
+        ID         : 17
         Scope      : local
         Period (ms): 100
         Enabled    : yes
@@ -1230,7 +1544,50 @@ Timer luxRun
             ///////////////////////////////////////////////////////////////////////////////
             click luxRead,1
             click luxView,1
-            click luxController,1
+            //click luxController,1
             click luxSend,0
-            doevents
+        
+Timer luxAnimTimer
+    Attributes
+        ID         : 34
+        Scope      : local
+        Period (ms): 2000
+        Enabled    : yes
+    
+    Events
+        Timer Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxAnimate
+            /// @brief Flow, and speed indicators
+            ///////////////////////////////////////////////////////////////////////////////
+            click luxAnimate,1
+        
+Timer tmGetStatus
+    Attributes
+        ID         : 36
+        Scope      : local
+        Period (ms): 100
+        Enabled    : yes
+    
+    Events
+        Timer Event
+            if(tmGetStatus.tim==100)
+            {
+                tmGetStatus.tim=2000
+            }
+            if(ok==1)
+            {
+                commands.command.txt="M105\rM114\rM27"
+                click luxSend,1
+            }
+        
+TouchCap tCap
+    Attributes
+        ID   : 35
+        Scope: local
+        Value: 0
+    
+    Events
+        Touch Press Event
+            ReturnObj=tCap.val
         
