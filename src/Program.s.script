@@ -1,6 +1,6 @@
 Program.s
     // Serial Parser
-    int MAIN=11,ReturnPage=11,WAKE_PAGE=9,DIAG_CONFIRM=5,ERROR_PAGE=8,WakeReturnPage=-1,FILAMENT_RUNOUT=10, PAUSE_PAGE=10
+    int MAIN=6,ReturnPage=11,WAKE_PAGE=9,DIAG_CONFIRM=5,ERROR_PAGE=8,WakeReturnPage=-1,FILAMENT_RUNOUT=10, PAUSE_PAGE=10
     int DiagReturnPage,ReturnObj=-1,ReturnVal=-1,HandleCallback=0,FakeSleep=0,InactiveSecs=-1,CloseCycles=0,ShutDown=0,Error=0,ExternalReset=0
     int send_historyLen=0,send_newBufLen=0,send_newCmdLen=0,send_trimLen=0
     int Baud=0,SerialPos=0,BufferLen=0,SearchPos=0,ok=1,busy=0,QueueBlocks=0,MaxQueueBlocks=10,BackOff=1,OkBlocks=0,OkFailsafe=100,MaxOKBlocks=50,StopWait=0,BusyCycles=0,Breaks=0,QueueLen=0,CommandLen=0,CharLen=0

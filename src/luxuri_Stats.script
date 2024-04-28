@@ -26,10 +26,6 @@ diagPrompt
 	14   Component(s)
 	380  Line(s) of event code
 	186  Unique line(s) of event code
-editMesh
-	26   Component(s)
-	239  Line(s) of event code
-	142  Unique line(s) of event code
 error
 	11   Component(s)
 	97   Line(s) of event code
@@ -94,10 +90,10 @@ move
 	53   Component(s)
 	605  Line(s) of event code
 	305  Unique line(s) of event code
-luxSkel
-	39   Component(s)
-	564  Line(s) of event code
-	294  Unique line(s) of event code
+luxComponents
+	27   Component(s)
+	625  Line(s) of event code
+	302  Unique line(s) of event code
 preheat
 	44   Component(s)
 	608  Line(s) of event code
@@ -132,7 +128,7 @@ levelBed
 	332  Unique line(s) of event code
 
 Total
-	32   Page(s)
-	1011 Component(s)
-	13676 Line(s) of event code
-	1724 Unique line(s) of event code
+	31   Page(s)
+	973  Component(s)
+	13498 Line(s) of event code
+	1664 Unique line(s) of event code
