@@ -534,6 +534,39 @@ Button bMesh
         Touch Press Event
             page mesh
         
+Button bAdjustZ
+    Attributes
+        ID                        : 29
+        Scope                     : local
+        Dragging                  : 0
+        Send Component ID         : disabled
+        Opacity                   : 127
+        x coordinate              : 130
+        y coordinate              : 191
+        Width                     : 75
+        Height                    : 57
+        Effect                    : load
+        Fill                      : solid color
+        Style                     : 3D auto
+        Font ID                   : 0
+        Back. Color               : 50712
+        Back. Picture ID (Pressed): 65535
+        Back. Color (Pressed)     : 1024
+        Font Color (Unpressed)    : 0
+        Font Color (Pressed)      : 65535
+        Horizontal Alignment      : center
+        Vertical Alignment        : center
+        State                     : unpressed
+        Text                      : Adjust Z
+        Max. Text Size            : 10
+        Word wrap                 : disabled
+        Horizontal Spacing        : 0
+        Vertical Spacing          : 0
+    
+    Events
+        Touch Press Event
+            page adjustZ
+        
 Hotspot luxStopPrint
     Attributes
         ID               : 12
@@ -751,7 +784,7 @@ Hotspot luxInit
             /// @fn luxInitialize 1
             /// @brief Sets up the lux framework
             ///////////////////////////////////////////////////////////////////////////////
-            ReturnPage=dp
+            //ReturnPage=dp
             //DiagReturnPage=dp
             if(HandleCallback==0)
             {

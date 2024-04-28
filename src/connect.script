@@ -51,6 +51,33 @@ Variable (string) history
         Text          : 
         Max. Text Size: 4096
     
+Number n0
+    Attributes
+        ID                      : 35
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 137
+        y coordinate            : 100
+        Width                   : 100
+        Height                  : 30
+        Effect                  : load
+        Fill                    : solid color
+        Style                   : flat
+        Associated Keyboard     : none
+        Font ID                 : 0
+        Back. Color             : 65535
+        Font Color              : 0
+        Horizontal Alignment    : center
+        Vertical Alignment      : center
+        Value                   : 7
+        Significant digits shown: all
+        Format                  : decimal
+        Word wrap               : enabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
 Text tMachine
     Attributes
         ID                      : 13
@@ -199,8 +226,7 @@ Crop Picture pState
     
     Events
         Touch Press Event
-            ok=1
-            page console
+            ready.val=1
         
 Crop Picture pBanner
     Attributes
@@ -322,7 +348,7 @@ Hotspot setDefaults
             printing.pausePending.val=0
             printing.resumePending.val=0
             printing.stopPending.val=0
-            commands.command.txt="M105\rM115\rM114\r"
+            commands.command.txt="M115\rM114\rM105\r"
             commands.command.txt+="M220\rM221\r"
             commands.command.txt+="SET_VELOCITY_LIMIT\rGET_RETRACTION\r"
             commands.command.txt+="M503\r"
@@ -402,7 +428,7 @@ Hotspot luxController
                         vars.status.txt="Ready"
                         click luxView,1
                         delay=1
-                        ready.val=1
+                        ready.val=0
                     }
                 }
             }
@@ -456,6 +482,7 @@ Hotspot luxView
             //  tFirmwareName.txt=printer.firmwareName.txt
             //  tMachine.txt=printer.machineType.txt
             //}
+            n0.val=printer.T0Temp.val
         
 Hotspot luxNotify
     Attributes
@@ -514,7 +541,7 @@ Hotspot debug
         x coordinate     : 492
         y coordinate     : 283
         Width            : 106
-        Height           : 18
+        Height           : 17
         Effect           : load
     
 Hotspot parseCap
@@ -873,9 +900,9 @@ Hotspot parseTemp
         Send Component ID: disabled
         Opacity          : 127
         x coordinate     : 492
-        y coordinate     : 140
+        y coordinate     : 141
         Width            : 106
-        Height           : 17
+        Height           : 16
         Effect           : load
     
     Events
@@ -1225,5 +1252,24 @@ Timer tmFinished
             if(ready.val==1)
             {
                 page MAIN
+            }
+        
+Timer tmGetStatus
+    Attributes
+        ID         : 36
+        Scope      : local
+        Period (ms): 100
+        Enabled    : yes
+    
+    Events
+        Timer Event
+            if(tmGetStatus.tim==100)
+            {
+                tmGetStatus.tim=2000
+            }
+            if(ok==1)
+            {
+                commands.command.txt="M105\rM114\rM27"
+                click luxSend,1
             }
         

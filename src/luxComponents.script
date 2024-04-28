@@ -112,6 +112,72 @@ Text tBedTemp
         Touch Release Event
             click bBedTemp,0
         
+Text tTitle
+    Attributes
+        ID                      : 27
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 40
+        y coordinate            : 8
+        Width                   : 126
+        Height                  : 26
+        Effect                  : load
+        Fill                    : crop image
+        Associated Keyboard     : none
+        Font ID                 : 2
+        Cropped Back. Picture ID: 0
+        Horizontal Alignment    : left
+        Vertical Alignment      : top
+        Input Type              : character
+        Text                    : Title
+        Max. Text Size          : 16
+        Word wrap               : disabled
+        Horizontal Spacing      : 0
+        Vertical Spacing        : 0
+    
+Text tStatus
+    Attributes
+        ID                  : 30
+        Scope               : local
+        Dragging            : 0
+        Send Component ID   : disabled
+        Opacity             : 127
+        x coordinate        : 262
+        y coordinate        : 118
+        Width               : 146
+        Height              : 36
+        Effect              : load
+        Fill                : solid color
+        Style               : flat
+        Associated Keyboard : none
+        Font ID             : 9
+        Back. Color         : 0
+        Font Color          : 65535
+        Horizontal Alignment: center
+        Vertical Alignment  : center
+        Input Type          : character
+        Text                : READY
+        Max. Text Size      : 10
+        Word wrap           : disabled
+        Horizontal Spacing  : 0
+        Vertical Spacing    : 0
+    
+Crop Picture qLine
+    Attributes
+        ID                      : 29
+        Scope                   : local
+        Dragging                : 0
+        Send Component ID       : disabled
+        Opacity                 : 127
+        x coordinate            : 196
+        y coordinate            : 126
+        Width                   : 278
+        Height                  : 23
+        Effect                  : load
+        Cropped Back. Picture ID: 105
+    
 Button bT1Temp
     Attributes
         ID                                  : 17
@@ -239,6 +305,36 @@ Button bT0Temp
                 commands.queue.txt+="\rM105\r"
                 click luxSend,0
             }
+        
+Button bClose
+    Attributes
+        ID                                  : 28
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 0
+        y coordinate                        : 0
+        Width                               : 38
+        Height                              : 38
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 14
+        Cropped Back. Picture ID (Unpressed): 80
+        Back. Picture ID (Pressed)          : 40
+        Cropped Back. Picture ID (Pressed)  : 81
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 
+        Max. Text Size                      : 0
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+    Events
+        Touch Press Event
+            click luxInit,0
         
 Hotspot luxNotify
     Attributes
@@ -764,13 +860,6 @@ Hotspot luxInit
             /// @fn luxInitialize 0
             /// @brief Should run on any close button
             ///////////////////////////////////////////////////////////////////////////////
-            commands.queue.txt+="T0\r" //Set to T0
-            commands.queue.txt+="G28 X\r" //Home
-            commands.queue.txt+="G0 Z0 F500\r"
-            commands.queue.txt+="M84\r"
-            commands.queue.txt+="G0 F5000\r"
-            click luxSend,0
-            page ReturnPage
         
 Hotspot luxView
     Attributes
