@@ -34,14 +34,14 @@ error
 	11   Component(s)
 	97   Line(s) of event code
 	70   Unique line(s) of event code
-printer
-	55   Component(s)
-	0    Line(s) of event code
-	0    Unique line(s) of event code
 idexMode
 	25   Component(s)
 	493  Line(s) of event code
 	249  Unique line(s) of event code
+printer
+	56   Component(s)
+	0    Line(s) of event code
+	0    Unique line(s) of event code
 pidTune
 	35   Component(s)
 	579  Line(s) of event code
@@ -54,10 +54,6 @@ diagConfirm
 	21   Component(s)
 	368  Line(s) of event code
 	186  Unique line(s) of event code
-dashboard
-	29   Component(s)
-	566  Line(s) of event code
-	282  Unique line(s) of event code
 wake
 	18   Component(s)
 	381  Line(s) of event code
@@ -71,9 +67,9 @@ pause
 	631  Line(s) of event code
 	307  Unique line(s) of event code
 printSettings
-	32   Component(s)
-	522  Line(s) of event code
-	258  Unique line(s) of event code
+	33   Component(s)
+	528  Line(s) of event code
+	264  Unique line(s) of event code
 printing
 	42   Component(s)
 	703  Line(s) of event code
@@ -82,10 +78,6 @@ sdPrint
 	32   Component(s)
 	439  Line(s) of event code
 	247  Unique line(s) of event code
-levelBed
-	31   Component(s)
-	513  Line(s) of event code
-	263  Unique line(s) of event code
 console
 	48   Component(s)
 	674  Line(s) of event code
@@ -122,17 +114,25 @@ mesh
 	69   Component(s)
 	913  Line(s) of event code
 	453  Unique line(s) of event code
+dashboard
+	30   Component(s)
+	599  Line(s) of event code
+	291  Unique line(s) of event code
 numpad
 	29   Component(s)
 	398  Line(s) of event code
 	204  Unique line(s) of event code
 connect
 	35   Component(s)
-	560  Line(s) of event code
-	290  Unique line(s) of event code
+	545  Line(s) of event code
+	281  Unique line(s) of event code
+levelBed
+	40   Component(s)
+	666  Line(s) of event code
+	332  Unique line(s) of event code
 
 Total
 	32   Page(s)
-	999  Component(s)
-	13499 Line(s) of event code
-	1707 Unique line(s) of event code
+	1011 Component(s)
+	13676 Line(s) of event code
+	1724 Unique line(s) of event code

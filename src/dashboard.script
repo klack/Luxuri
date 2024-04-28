@@ -155,7 +155,7 @@ Text tT0Temp
         
 Picture p0
     Attributes
-        ID               : 26
+        ID               : 25
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -342,7 +342,7 @@ Button bPrint
         
 Button bMenu
     Attributes
-        ID                                  : 25
+        ID                                  : 24
         Scope                               : local
         Dragging                            : 0
         Send Component ID                   : disabled
@@ -772,9 +772,9 @@ Hotspot luxAnimate
             /// @brief Updates states for controls
             ///////////////////////////////////////////////////////////////////////////////
             Frame=Frame^1 //Toggle Frame between 0 and 1
-            click luxControlBar,1
+            click luxGauges,1
         
-Hotspot luxControlBar
+Hotspot luxGauges
     Attributes
         ID               : 18
         Scope            : local
@@ -1060,9 +1060,45 @@ Hotspot luxRead
                 }
             }
         
+Hotspot luxView
+    Attributes
+        ID               : 27
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 371
+        y coordinate     : 65475
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxView,1
+            /// @brief Updates states for controls
+            ///////////////////////////////////////////////////////////////////////////////
+            if(printer.paused.val==1)
+            {
+                tStatus.txt="PAUSED"
+            }else if(printer.sdPrinting.val==1)
+            {
+                tStatus.txt="PRINTING"
+            }else if(printer.hot.val==1)
+            {
+                tStatus.txt="HOT"
+            }else if(printer.heating.val==1)
+            {
+                tStatus.txt="HEATING"
+            }else
+            {
+                tStatus.txt="READY"
+            }
+        
 Hotspot parseCommon
     Attributes
-        ID               : 24
+        ID               : 28
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -1130,6 +1166,19 @@ Hotspot parseCommon
                 parse.buffer.txt=""
                 page error
             }
+            parse.search.txt="// Activating extruder " //Qualify Line
+            click parser,0
+            if(parse.matched.val==1)
+            {
+                spstr parse.buffer.txt,vars.s.txt,parse.search.txt,1
+                if(vars.s.txt=="extruder")
+                {
+                    Tool=0
+                }else if(vars.s.txt=="extruder1")
+                {
+                    Tool=1
+                }
+            }
         
         Touch Release Event
             ///////////////////////////////////////////////////////////////////////////////
@@ -1152,40 +1201,56 @@ Hotspot parseCommon
                 parse.matched.val=0
             }
         
-Hotspot luxView
+Hotspot parser
     Attributes
-        ID               : 28
+        ID               : 29
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
         Opacity          : 127
-        x coordinate     : 371
-        y coordinate     : 65475
+        x coordinate     : 486
+        y coordinate     : 65514
         Width            : 106
-        Height           : 17
+        Height           : 20
         Effect           : load
     
     Events
         Touch Press Event
             ///////////////////////////////////////////////////////////////////////////////
-            /// @fn luxView,1
-            /// @brief Updates states for controls
+            /// @fn         parse_1
+            ///
+            /// @brief      Parse buffer for exact line match
+            /// @param[in]  parse.search.txt      Text to search for
+            /// @param[out] parse.matched.val     1 if match, 0 if no match
             ///////////////////////////////////////////////////////////////////////////////
-            if(printer.paused.val==1)
+            parse.matched.val=0
+            parse.eval.txt=parse.buffer.txt
+            if(parse.search.txt==parse.eval.txt)
             {
-                tStatus.txt="PAUSED"
-            }else if(printer.sdPrinting.val==1)
-            {
-                tStatus.txt="PRINTING"
-            }else if(printer.hot.val==1)
-            {
-                tStatus.txt="HOT"
-            }else if(printer.heating.val==1)
-            {
-                tStatus.txt="HEATING"
+                parse.matched.val=1
             }else
             {
-                tStatus.txt="READY"
+                parse.matched.val=0
+            }
+        
+        Touch Release Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn         parse_0
+            ///
+            /// @brief      Parse buffer starting at index 0
+            /// @param[in]  parse.search.txt      Text to search for
+            /// @param[out] parse.matched.val     1 if match, 0 if no match
+            ///////////////////////////////////////////////////////////////////////////////
+            parse.matched.val=0
+            parse.eval.txt=parse.buffer.txt
+            strlen parse.search.txt,j
+            substr parse.eval.txt,parse.result.txt,0,j
+            if(parse.result.txt==parse.search.txt)
+            {
+                parse.matched.val=1
+            }else
+            {
+                parse.matched.val=0
             }
         
 Timer luxRun
@@ -1241,7 +1306,7 @@ Timer tmGetStatus
         
 TouchCap tCap
     Attributes
-        ID   : 27
+        ID   : 26
         Scope: local
         Value: 0
     

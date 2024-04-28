@@ -513,7 +513,7 @@ Hotspot luxInit
             DiagReturnPage=dp
             if(HandleCallback==0)
             {
-                //  click luxRunOnce,1
+                click luxRunOnce,1
             }else
             {
                 click luxDoCallback,1
@@ -1147,6 +1147,27 @@ Hotspot luxPageAnimate
             {
                 tAccelDecel.aph=127
             }
+        
+Hotspot luxRunOnce
+    Attributes
+        ID               : 32
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 116
+        y coordinate     : 65490
+        Width            : 106
+        Height           : 17
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            commands.command.txt="M105\rM115\rM114\r"
+            commands.command.txt+="M220\rM221\r"
+            commands.command.txt+="SET_VELOCITY_LIMIT\rGET_RETRACTION\r"
+            commands.command.txt+="M503\r"
+            click luxSend,1
         
 Timer luxRun
     Attributes
