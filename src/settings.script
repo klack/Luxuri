@@ -670,7 +670,7 @@ Hotspot luxView
             y2Val.txt=printer.y2Offset.txt
             z2Val.txt=printer.z2Offset.txt
             tVersion.txt="LuxURI Version "
-            tVersion.txt+=connect.luxVersion.txt
+            //tVersion.txt+=connect.luxVersion.txt
         
 Hotspot luxDoCallback
     Attributes

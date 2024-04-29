@@ -1,4 +1,4 @@
-Page levelBed
+Page tramBed
     Attributes
         ID                 : 0
         Scope              : local
@@ -537,23 +537,23 @@ Hotspot luxInit
     Events
         Touch Press Event
             ///////////////////////////////////////////////////////////////////////////////
-            /// @fn luxInit 1
+            /// @fn luxInitialize 1
             /// @brief Sets up the lux framework
             ///////////////////////////////////////////////////////////////////////////////
-            click luxView,1
-            click luxAnimate,1
-            //click luxController,1
+            //ReturnPage=dp
+            DiagReturnPage=dp
             if(HandleCallback==0)
             {
-                click luxDoCallback,0 //Clears callback vars
-                click luxRunOnce,1
+                //  click luxRunOnce,1
             }else
             {
                 click luxDoCallback,1
-                click luxDoCallback,0
             }
-            // ReturnPage=dp
-            DiagReturnPage=dp
+            click luxView,1
+            click luxAnimate,1
+            //click luxSleep,1
+            //click luxController,1
+            click luxDoCallback,0 //Clears callback vars
         
         Touch Release Event
             ///////////////////////////////////////////////////////////////////////////////

@@ -42,10 +42,6 @@ pidTune
 	35   Component(s)
 	579  Line(s) of event code
 	301  Unique line(s) of event code
-adjustZ
-	25   Component(s)
-	409  Line(s) of event code
-	195  Unique line(s) of event code
 diagConfirm
 	21   Component(s)
 	368  Line(s) of event code
@@ -82,18 +78,22 @@ octoprint
 	38   Component(s)
 	589  Line(s) of event code
 	300  Unique line(s) of event code
-settings
-	34   Component(s)
-	551  Line(s) of event code
-	266  Unique line(s) of event code
+connect
+	20   Component(s)
+	319  Line(s) of event code
+	165  Unique line(s) of event code
+adjustZ
+	25   Component(s)
+	408  Line(s) of event code
+	194  Unique line(s) of event code
 move
 	53   Component(s)
 	605  Line(s) of event code
 	305  Unique line(s) of event code
-luxComponents
-	31   Component(s)
-	619  Line(s) of event code
-	297  Unique line(s) of event code
+settings
+	34   Component(s)
+	550  Line(s) of event code
+	265  Unique line(s) of event code
 preheat
 	44   Component(s)
 	608  Line(s) of event code
@@ -118,21 +118,21 @@ dashboard
 	30   Component(s)
 	599  Line(s) of event code
 	291  Unique line(s) of event code
-levelBed
-	40   Component(s)
-	666  Line(s) of event code
-	332  Unique line(s) of event code
 menu
 	30   Component(s)
 	495  Line(s) of event code
 	255  Unique line(s) of event code
-connect
-	37   Component(s)
-	554  Line(s) of event code
-	287  Unique line(s) of event code
+luxComponents
+	31   Component(s)
+	618  Line(s) of event code
+	296  Unique line(s) of event code
+tramBed
+	40   Component(s)
+	664  Line(s) of event code
+	330  Unique line(s) of event code
 
 Total
 	32   Page(s)
-	1005 Component(s)
-	13910 Line(s) of event code
-	1668 Unique line(s) of event code
+	988  Component(s)
+	13670 Line(s) of event code
+	1620 Unique line(s) of event code
