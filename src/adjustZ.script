@@ -14,44 +14,24 @@ Page adjustZ
         Fill               : picture
         Back. Picture ID   : 126
     
-Text tLabel
+Variable (string) increment
     Attributes
-        ID                  : 2
-        Scope               : local
-        Dragging            : 0
-        Send Component ID   : disabled
-        Opacity             : 127
-        x coordinate        : 225
-        y coordinate        : 64
-        Width               : 154
-        Height              : 36
-        Effect              : load
-        Fill                : solid color
-        Style               : flat
-        Associated Keyboard : none
-        Font ID             : 9
-        Back. Color         : 2210
-        Font Color          : 65535
-        Horizontal Alignment: center
-        Vertical Alignment  : center
-        Input Type          : character
-        Text                : Z Endstop
-        Max. Text Size      : 10
-        Word wrap           : disabled
-        Horizontal Spacing  : 0
-        Vertical Spacing    : 0
+        ID            : 31
+        Scope         : local
+        Text          : 
+        Max. Text Size: 6
     
 Text tZ
     Attributes
-        ID                      : 3
+        ID                      : 6
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 161
-        y coordinate            : 108
+        x coordinate            : 167
+        y coordinate            : 132
         Width                   : 61
-        Height                  : 60
+        Height                  : 52
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
@@ -60,7 +40,7 @@ Text tZ
         Horizontal Alignment    : right
         Vertical Alignment      : bottom
         Input Type              : character
-        Text                    : 1.7
+        Text                    : -0.2
         Max. Text Size          : 10
         Word wrap               : disabled
         Horizontal Spacing      : 0
@@ -68,15 +48,15 @@ Text tZ
     
 Text tChange
     Attributes
-        ID                      : 4
+        ID                      : 7
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 262
-        y coordinate            : 108
-        Width                   : 66
-        Height                  : 60
+        x coordinate            : 265
+        y coordinate            : 132
+        Width                   : 68
+        Height                  : 52
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
@@ -85,7 +65,7 @@ Text tChange
         Horizontal Alignment    : right
         Vertical Alignment      : bottom
         Input Type              : character
-        Text                    : 0.2
+        Text                    : -0.2
         Max. Text Size          : 10
         Word wrap               : disabled
         Horizontal Spacing      : 0
@@ -93,15 +73,15 @@ Text tChange
     
 Text tOffset
     Attributes
-        ID                      : 5
+        ID                      : 8
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 366
-        y coordinate            : 108
-        Width                   : 76
-        Height                  : 60
+        x coordinate            : 371
+        y coordinate            : 132
+        Width                   : 61
+        Height                  : 52
         Effect                  : load
         Fill                    : crop image
         Associated Keyboard     : none
@@ -110,7 +90,7 @@ Text tOffset
         Horizontal Alignment    : right
         Vertical Alignment      : bottom
         Input Type              : character
-        Text                    : 0.5
+        Text                    : -2.5
         Max. Text Size          : 10
         Word wrap               : disabled
         Horizontal Spacing      : 0
@@ -118,27 +98,24 @@ Text tOffset
     
 Text tNew
     Attributes
-        ID                      : 8
+        ID                      : 10
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 359
-        y coordinate            : 172
-        Width                   : 83
-        Height                  : 82
+        x coordinate            : 371
+        y coordinate            : 196
+        Width                   : 61
+        Height                  : 52
         Effect                  : load
-        Fill                    : transparent
+        Fill                    : crop image
         Associated Keyboard     : none
         Font ID                 : 9
-        Back. Color             : 0
         Cropped Back. Picture ID: 128
-        Back. Picture ID        : 128
-        Font Color              : 57116
         Horizontal Alignment    : right
-        Vertical Alignment      : center
+        Vertical Alignment      : bottom
         Input Type              : character
-        Text                    : 0.5
+        Text                    : -2.7
         Max. Text Size          : 10
         Word wrap               : disabled
         Horizontal Spacing      : 0
@@ -146,7 +123,7 @@ Text tNew
     
 Text tTitle
     Attributes
-        ID                      : 10
+        ID                      : 12
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
@@ -169,43 +146,186 @@ Text tTitle
         Horizontal Spacing      : 0
         Vertical Spacing        : 0
     
-Crop Picture qLine
+Text t0
     Attributes
-        ID                      : 1
-        Scope                   : local
-        Dragging                : 0
-        Send Component ID       : disabled
-        Opacity                 : 127
-        x coordinate            : 159
-        y coordinate            : 77
-        Width                   : 293
-        Height                  : 12
-        Effect                  : load
-        Cropped Back. Picture ID: 128
+        ID                  : 28
+        Scope               : local
+        Dragging            : 0
+        Send Component ID   : disabled
+        Opacity             : 127
+        x coordinate        : 183
+        y coordinate        : 26
+        Width               : 100
+        Height              : 30
+        Effect              : load
+        Fill                : solid color
+        Style               : flat
+        Associated Keyboard : none
+        Font ID             : 0
+        Back. Color         : 65535
+        Font Color          : 0
+        Horizontal Alignment: center
+        Vertical Alignment  : center
+        Input Type          : character
+        Text                : 
+        Max. Text Size      : 16
+        Word wrap           : disabled
+        Horizontal Spacing  : 0
+        Vertical Spacing    : 0
     
 Crop Picture q0
     Attributes
-        ID                      : 7
+        ID                      : 27
         Scope                   : local
         Dragging                : 0
         Send Component ID       : disabled
         Opacity                 : 127
-        x coordinate            : 347
-        y coordinate            : 175
-        Width                   : 108
-        Height                  : 73
+        x coordinate            : 325
+        y coordinate            : 57
+        Width                   : 107
+        Height                  : 23
         Effect                  : load
         Cropped Back. Picture ID: 128
     
-Button b0
+Button b2
     Attributes
-        ID                                  : 6
+        ID                                  : 1
         Scope                               : local
         Dragging                            : 0
         Send Component ID                   : disabled
         Opacity                             : 127
-        x coordinate                        : 31
-        y coordinate                        : 59
+        x coordinate                        : 151
+        y coordinate                        : 84
+        Width                               : 66
+        Height                              : 33
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 2
+        Cropped Back. Picture ID (Unpressed): 128
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 129
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 0.01
+        Max. Text Size                      : 10
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+Button b3
+    Attributes
+        ID                                  : 2
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 213
+        y coordinate                        : 84
+        Width                               : 62
+        Height                              : 33
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 2
+        Cropped Back. Picture ID (Unpressed): 128
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 129
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 0.05
+        Max. Text Size                      : 10
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+Button b4
+    Attributes
+        ID                                  : 3
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 274
+        y coordinate                        : 84
+        Width                               : 62
+        Height                              : 33
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 2
+        Cropped Back. Picture ID (Unpressed): 128
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 129
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 0.1
+        Max. Text Size                      : 10
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+Button b5
+    Attributes
+        ID                                  : 4
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 335
+        y coordinate                        : 84
+        Width                               : 62
+        Height                              : 33
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 2
+        Cropped Back. Picture ID (Unpressed): 128
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 129
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 0.5
+        Max. Text Size                      : 10
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+Button b6
+    Attributes
+        ID                                  : 5
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 396
+        y coordinate                        : 84
+        Width                               : 63
+        Height                              : 33
+        Effect                              : load
+        Fill                                : crop image
+        Font ID                             : 2
+        Cropped Back. Picture ID (Unpressed): 128
+        Back. Picture ID (Pressed)          : 65535
+        Cropped Back. Picture ID (Pressed)  : 129
+        Horizontal Alignment                : center
+        Vertical Alignment                  : center
+        State                               : unpressed
+        Text                                : 1
+        Max. Text Size                      : 10
+        Word wrap                           : disabled
+        Horizontal Spacing                  : 0
+        Vertical Spacing                    : 0
+    
+Button b0
+    Attributes
+        ID                                  : 9
+        Scope                               : local
+        Dragging                            : 0
+        Send Component ID                   : disabled
+        Opacity                             : 127
+        x coordinate                        : 36
+        y coordinate                        : 60
         Width                               : 96
         Height                              : 96
         Effect                              : load
@@ -225,13 +345,13 @@ Button b0
     
 Button b1
     Attributes
-        ID                                  : 9
+        ID                                  : 11
         Scope                               : local
         Dragging                            : 0
         Send Component ID                   : disabled
         Opacity                             : 127
-        x coordinate                        : 32
-        y coordinate                        : 153
+        x coordinate                        : 37
+        y coordinate                        : 155
         Width                               : 96
         Height                              : 96
         Effect                              : load
@@ -251,7 +371,7 @@ Button b1
     
 Button bClose
     Attributes
-        ID                                  : 11
+        ID                                  : 13
         Scope                               : local
         Dragging                            : 0
         Send Component ID                   : disabled
@@ -282,7 +402,7 @@ Button bClose
         
 Hotspot luxRead
     Attributes
-        ID               : 12
+        ID               : 14
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -343,7 +463,7 @@ Hotspot luxRead
         
 Hotspot luxSend
     Attributes
-        ID               : 13
+        ID               : 15
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -406,7 +526,7 @@ Hotspot luxSend
         
 Hotspot luxDoCallback
     Attributes
-        ID               : 14
+        ID               : 16
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -444,7 +564,7 @@ Hotspot luxDoCallback
         
 Hotspot luxRunOnce
     Attributes
-        ID               : 15
+        ID               : 17
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -464,7 +584,7 @@ Hotspot luxRunOnce
         
 Hotspot luxView
     Attributes
-        ID               : 16
+        ID               : 18
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -481,10 +601,11 @@ Hotspot luxView
             /// @fn luxView,1
             /// @brief Updates states for controls
             ///////////////////////////////////////////////////////////////////////////////
+            t0.txt=increment.txt
         
 Hotspot luxInit
     Attributes
-        ID               : 17
+        ID               : 19
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -524,7 +645,7 @@ Hotspot luxInit
         
 Hotspot luxNotify
     Attributes
-        ID               : 18
+        ID               : 20
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -548,7 +669,7 @@ Hotspot luxNotify
         
 Hotspot serialHistory
     Attributes
-        ID               : 19
+        ID               : 21
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -621,7 +742,7 @@ Hotspot serialHistory
         
 Hotspot historyFilters
     Attributes
-        ID               : 20
+        ID               : 22
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -715,7 +836,7 @@ Hotspot historyFilters
         
 Hotspot parseSettings
     Attributes
-        ID               : 21
+        ID               : 23
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -761,7 +882,7 @@ Hotspot parseSettings
         
 Hotspot parser
     Attributes
-        ID               : 22
+        ID               : 24
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -813,7 +934,7 @@ Hotspot parser
         
 Hotspot parseCommon
     Attributes
-        ID               : 23
+        ID               : 25
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -918,7 +1039,7 @@ Hotspot parseCommon
         
 Hotspot parseTemp
     Attributes
-        ID               : 24
+        ID               : 26
         Scope            : local
         Dragging         : 0
         Send Component ID: disabled
@@ -1006,4 +1127,66 @@ Hotspot parseTemp
             {
                 printer.hot.val=0
             }
+        
+Hotspot buttonGroup
+    Attributes
+        ID               : 32
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Opacity          : 127
+        x coordinate     : 406
+        y coordinate     : 65474
+        Width            : 60
+        Height           : 60
+        Effect           : load
+    
+    Events
+        Touch Press Event
+            for(j=1;j<=6;j++) //Button Groups
+            {
+                if(T0Mat.txt==b[j].txt)
+                {
+                    b[j].picc=b[j].picc2
+                    b[j].pco=0
+                }else
+                {
+                    b[j].picc=PIC_CLEAR
+                    b[j].pco=WHITE
+                }
+            }
+            if(tCap.val<=5)
+            {
+                increment.txt=b[tCap.val].txt
+                b[tCap.val].picc=b[tCap.val].picc2
+                b[tCap.val].pco=b[tCap.val].pco2
+            }
+        
+Timer luxRun
+    Attributes
+        ID         : 29
+        Scope      : local
+        Period (ms): 100
+        Enabled    : yes
+    
+    Events
+        Timer Event
+            ///////////////////////////////////////////////////////////////////////////////
+            /// @fn luxRun
+            /// @breif Main Program Loop
+            ///////////////////////////////////////////////////////////////////////////////
+            click luxRead,1
+            click luxView,1
+            click luxSend,0
+        
+TouchCap tCap
+    Attributes
+        ID   : 30
+        Scope: local
+        Value: 0
+    
+    Events
+        Touch Press Event
+            ReturnObj=tCap.val
+            click buttonGroup,1
         

@@ -82,10 +82,6 @@ connect
 	20   Component(s)
 	319  Line(s) of event code
 	165  Unique line(s) of event code
-adjustZ
-	25   Component(s)
-	408  Line(s) of event code
-	194  Unique line(s) of event code
 move
 	53   Component(s)
 	605  Line(s) of event code
@@ -94,10 +90,10 @@ settings
 	34   Component(s)
 	550  Line(s) of event code
 	265  Unique line(s) of event code
-preheat
-	44   Component(s)
-	608  Line(s) of event code
-	311  Unique line(s) of event code
+adjustZ
+	33   Component(s)
+	432  Line(s) of event code
+	210  Unique line(s) of event code
 loadFilament
 	47   Component(s)
 	663  Line(s) of event code
@@ -118,6 +114,10 @@ dashboard
 	30   Component(s)
 	599  Line(s) of event code
 	291  Unique line(s) of event code
+preheat
+	44   Component(s)
+	608  Line(s) of event code
+	311  Unique line(s) of event code
 menu
 	30   Component(s)
 	495  Line(s) of event code
@@ -133,6 +133,6 @@ tramBed
 
 Total
 	32   Page(s)
-	988  Component(s)
-	13670 Line(s) of event code
-	1620 Unique line(s) of event code
+	996  Component(s)
+	13694 Line(s) of event code
+	1632 Unique line(s) of event code
